@@ -2,18 +2,31 @@ import React, { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import {  JsonRpcProvider, Web3Provider } from "@ethersproject/providers";
-import {  LinkOutlined } from "@ant-design/icons"
+import {  LinkOutlined } from "@ant-design/icons";
 import "./App.css";
-import {StyledMenu} from "./components/Menu.styled"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-dropdown/style.css';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown'
+import { ReactDOM } from "react-dom";
+
+
+import Collapsible from 'react-collapsible'
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import {AnimatedSharedLayout, motion} from 'framer-motion';
+import { VideoPlayer } from "./components";
+import {StyledMenu} from "./components/Menu.styled";
 import { makeStyles } from '@material-ui/core/styles';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import {Box} from '@material-ui/core/';
 import MenuIcon from '@material-ui/icons/Menu';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { Row, Col, Menu, Alert, Input, List, Card, Switch as SwitchD } from "antd";
+import { Grid, Image } from 'semantic-ui-react'
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { useUserAddress } from "eth-hooks";
@@ -22,6 +35,9 @@ import { Header, Account, Faucet, Ramp, Contract, GasGauge, Address, AddressInpu
 import { Transactor } from "./helpers";
 import { formatEther, parseEther } from "@ethersproject/units";
 import { utils } from "ethers";
+
+import { Directions, ExpandMore } from '@material-ui/icons';
+import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 //import Hints from "./Hints";
 import { Hints, ExampleUI, Subgraph } from "./views"
 import { useThemeSwitcher } from "react-css-theme-switcher";
@@ -31,6 +47,7 @@ import ReactJson from 'react-json-view'
 import assets from './assets.js'
 import tree from './tree.json';
 import styled from "styled-components"
+import { ButtonBase } from "@material-ui/core";
 const { BufferList } = require('bl')
 // https://www.npmjs.com/package/ipfs-http-client
 const ipfsAPI = require('ipfs-http-client');
@@ -54,7 +71,7 @@ console.log("📦 Assets: ",assets)
 
 
 /// 📡 What chain are your contracts deployed to?
-const targetNetwork = NETWORKS['rinkeby']; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+const targetNetwork = NETWORKS['localhost']; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
 const DEBUG = true
@@ -168,7 +185,18 @@ const Button = styled.button`
 Button.defaultProps = {
   theme: "pink"
 };
+
+
 function App(props) {
+  const [value,setValue]=useState('');
+
+  const handleSelect=(e)=>{
+
+    console.log(e);
+
+    setValue(e)
+
+  }
   const classes = useStyles();
   const mainnetProvider = (scaffoldEthProvider && scaffoldEthProvider._network) ? scaffoldEthProvider : mainnetInfura
   if(DEBUG) console.log("🌎 mainnetProvider",mainnetProvider)
@@ -240,8 +268,29 @@ function App(props) {
   // 🧠 This effect will update yourCollectibles by polling when your balance changes
   //
   const yourBalance = balance && balance.toNumber && balance.toNumber()
-  const [ yourCollectibles, setYourCollectibles ] = useState()
-
+  
+  const Properties = ({ data }) => {
+    return (
+      
+        <ul >
+          {data && data.map((item, index) => 
+          
+          <li key={index}>
+            
+            
+            
+            <Card 
+            title={item.trait_type}>
+                          <CardContent>
+                          {item.value}
+                          </CardContent>
+                      </Card>
+              
+            </li>)}
+        </ul>
+      
+    )
+  }
   useEffect(()=>{
     const updateYourCollectibles = async () => {
       let collectibleUpdate = []
@@ -347,8 +396,25 @@ function App(props) {
   const [ ipfsContent, setIpfsContent ] = useState()
 
   const [ transferToAddresses, setTransferToAddresses ] = useState({})
-
+  const handle = useFullScreenHandle();
+  
   const [ loadedAssets, setLoadedAssets ] = useState()
+  const options = [
+    'one', 'two', 'three'
+  ];
+  const [ yourCollectibles, setYourCollectibles ] = useState()
+  const [ clickedCardMedia, setCardClickedMedia ] = useState()
+  const [ clickedCardContent, setCardClickedContent ] = useState()
+  const [ clickedCardActions, setCardClickedActions ] = useState()
+  const [ clickedCardProperties, setCardClickedProperties ] = useState()
+  const [ clickedCardDescription, setCardClickedDescription ] = useState()
+  const defaultOption = options[0];
+  const arrowClosed = (
+    <span className="arrow-closed" />
+  )
+  const arrowOpen = (
+    <span className="arrow-open" />
+  )
   useEffect(()=>{
     const updateYourCollectibles = async () => {
       let assetUpdate = []
@@ -373,6 +439,7 @@ function App(props) {
     console.log("loadedAssets",a,loadedAssets[a])
 
     let cardActions = []
+    
     if(loadedAssets[a].forSale){
       const { claims } = tree;
       let target = {};
@@ -412,7 +479,16 @@ function App(props) {
     }
 
     galleryList.push(
-        <Card style={{height:'100%',width:380, justifyContent:'center', borderWidth:10}} key={loadedAssets[a].name}
+        <Link to = {'/card-fullscreen'}>
+        <Card hoverable
+              onClick = {() => {
+                setCardClickedMedia(loadedAssets[a].image)
+                setCardClickedContent(loadedAssets[a].name)
+                setCardClickedActions(cardActions)
+                setCardClickedProperties(loadedAssets[a].attributes)
+                setCardClickedDescription(loadedAssets[a].description)
+              }}
+              style={{height:'100%',width:380, justifyContent:'center', borderWidth:10}} key={loadedAssets[a].name}
               variant = {'contained'}
               actions={cardActions}
               title={(
@@ -420,12 +496,19 @@ function App(props) {
                     {loadedAssets[a].name} <a style={{cursor:"pointer",opacity:0.33}} href={loadedAssets[a].external_url} target="_blank"><LinkOutlined /></a>
                   </div>
               )}
+              
         >
-          <img style={{maxWidth:300}} src={loadedAssets[a].image}/>
+        
+   
+          <CardMedia>
+            <img style={{maxWidth:300}} src={loadedAssets[a].image}/>
+          </CardMedia>
           <div style={{opacity:0.77}}>
             {loadedAssets[a].description}
           </div>
+          
         </Card>
+        </Link>
     )
   }
 
@@ -480,7 +563,7 @@ function App(props) {
               </div>
 
             </Route>
-
+            
             <Route path="/yourcollectibles">
               <div style={{ width:640, margin: "auto", marginTop:32, paddingBottom:32 }}>
                 <List
@@ -529,7 +612,102 @@ function App(props) {
                 />
               </div>
             </Route>
+            <Route exact path="/card-fullscreen">
+              {/*
+                🎛 this scaffolding is full of commonly used components
+                this <Contract/> component will automatically parse your ABI
+                and give you a form to interact with it locally
+            */}
+            
+              
+              
+              <div class="container-fluid" style={{justifyContent:'center' }}>
+                <div class="row" style={{marginTop:300, display:'flex', justifyContent:'center'}}>
+                    
+                    <StackGrid 
+                                style={{height:'100%',width:600, borderWidth:10, padding:50}}
+                                columnWidth={600}
+                                gutterWidth={10}
+                                gutterHeight={50}
+                                spacing={5}
+                            >
+                     
+                        <Card 
+                              style={{height:'100%',width:600,  borderWidth:2, borderColor:'#F5F5F5'}}
+                              variant = {'contained'}
+                              
+                              title={(
+                                  clickedCardContent
+                              )}
+                          >
+                          <CardMedia>
+                          <img style={{maxWidth:500}} src={clickedCardMedia}/>
+                          </CardMedia>
+                  
+                        </Card>
+                        <Card                           
+                            style={{height:'100%',width:600, borderWidth:2, borderColor:'#F5F5F5'}}
+                            variant = {'contained'}
+                          >                  
+                          <Accordion className="accordion">
+                            <AccordionSummary  expandIcon={<ExpandMore />}>
+                              Description
+                            </AccordionSummary>
 
+                            <AccordionDetails>
+                              {clickedCardContent}
+                            </AccordionDetails>
+
+                          </Accordion>
+                          <Accordion className="accordion">
+                            <AccordionSummary  expandIcon={<ExpandMore />}>
+                                Properties
+                            </AccordionSummary>
+                          <AccordionDetails> 
+                              <div>
+                                <Properties data={clickedCardProperties}/>
+                              </div>
+                            </AccordionDetails>
+                          </Accordion>
+
+                          <Accordion className="accordion">
+                            <AccordionSummary  expandIcon={<ExpandMore />}>
+                              Accordion 3
+                            </AccordionSummary>
+                            <AccordionDetails>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                              sit amet blandit leo lobortis eget.
+                            </AccordionDetails>
+
+                          </Accordion>
+                        </Card>
+                      
+                    </StackGrid>              
+                    
+                  
+                    
+                      <Card 
+                        
+                        style={{height:'100%',width:1200, borderWidth:2, borderColor:'#F5F5F5'}}
+                        variant = {'contained'}
+                        
+                        actions= {clickedCardActions}
+                        >
+                        <CardContent>
+                          <li style={{alignContent:'left'}}>
+                            <h1>Current Price</h1>
+                            <p>0.5 Eth</p>
+                          </li>
+                        </CardContent>
+                        
+                        
+                      </Card>
+                   
+                  
+                  </div>
+                </div>
+            
+          </Route>
             <Route path="/transfers">
               <div style={{ width:600, margin: "auto", marginTop:32, paddingBottom:32 }}>
                 <List
