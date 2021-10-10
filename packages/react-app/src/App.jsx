@@ -4,13 +4,14 @@ import "antd/dist/antd.css";
 import {  JsonRpcProvider, Web3Provider } from "@ethersproject/providers";
 import {  LinkOutlined } from "@ant-design/icons";
 import "./App.css";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-dropdown/style.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
-import { ReactDOM } from "react-dom";
-
-
+import ReactDOM from "react-dom";
+import "./index.css";
+import ReactWebMediaPlayer from 'react-web-media-player';
 import Collapsible from 'react-collapsible'
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import {AnimatedSharedLayout, motion} from 'framer-motion';
@@ -28,10 +29,11 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { Row, Col, Menu, Alert, Input, List, Card, Switch as SwitchD } from "antd";
 import { Grid, Image } from 'semantic-ui-react'
 import Web3Modal from "web3modal";
+import ReactMediaPlayer from './components/ReactWebMediaPlayer'
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { useUserAddress } from "eth-hooks";
 import { useExchangePrice, useGasPrice, useUserProvider, useContractLoader, useContractReader, useEventListener, useBalance, useExternalContractLoader } from "./hooks";
-import { Header, Account, Faucet, Ramp, Contract, GasGauge, Address, AddressInput, ThemeSwitch } from "./components";
+import { Header, Account, Faucet, Ramp, Contract, GasGauge, Address, AddressInput, ThemeSwitch} from "./components";
 import { Transactor } from "./helpers";
 import { formatEther, parseEther } from "@ethersproject/units";
 import { utils } from "ethers";
@@ -404,10 +406,18 @@ function App(props) {
   ];
   const [ yourCollectibles, setYourCollectibles ] = useState()
   const [ clickedCardMedia, setCardClickedMedia ] = useState()
+  const [ clickedCardThumbnail, setCardClickedThumbnail ] = useState()
   const [ clickedCardContent, setCardClickedContent ] = useState()
   const [ clickedCardActions, setCardClickedActions ] = useState()
   const [ clickedCardProperties, setCardClickedProperties ] = useState()
   const [ clickedCardDescription, setCardClickedDescription ] = useState()
+  const [ reactJSMediaPlayer, setReactJSMediaPlayer ] = useState()
+
+  function getURLMedia(clickedCardMedia, clickedCardThumbnail) {
+    const url = clickedCardMedia;
+    const thumbnail = clickedCardThumbnail;
+    return([url, thumbnail]);
+  }
   const defaultOption = options[0];
   const arrowClosed = (
     <span className="arrow-closed" />
@@ -434,6 +444,13 @@ function App(props) {
     if(readContracts && readContracts.YourCollectible) updateYourCollectibles()
   }, [ assets, readContracts, transferEvents ]);
 
+  useEffect(()=>{
+    const updateMediaPlayer = async () => {
+      let ReactJSMediaPlayer = <ReactMediaPlayer url={clickedCardMedia} thumbnail={clickedCardThumbnail} style={{ marginLeft: 'auto', marginRight: 'auto', justifyContent: 'center' }}/>
+      setReactJSMediaPlayer(ReactJSMediaPlayer)
+    }
+    updateMediaPlayer()
+  }, [ clickedCardMedia, clickedCardThumbnail ]);
   let galleryList = []
   for(let a in loadedAssets){
     console.log("loadedAssets",a,loadedAssets[a])
@@ -482,7 +499,9 @@ function App(props) {
         <Link to = {'/card-fullscreen'}>
         <Card hoverable
               onClick = {() => {
-                setCardClickedMedia(loadedAssets[a].image)
+                
+                setCardClickedMedia(loadedAssets[a].external_url)
+                setCardClickedThumbnail(loadedAssets[a].image)
                 setCardClickedContent(loadedAssets[a].name)
                 setCardClickedActions(cardActions)
                 setCardClickedProperties(loadedAssets[a].attributes)
@@ -625,28 +644,30 @@ function App(props) {
                 <div class="row" style={{marginTop:300, display:'flex', justifyContent:'center'}}>
                     
                     <StackGrid 
-                                style={{height:'100%',width:600, borderWidth:10, padding:50}}
-                                columnWidth={600}
+                                style={{height:'100%',width:400, borderWidth:10, padding:50}}
+                                columnWidth={400}
                                 gutterWidth={10}
                                 gutterHeight={50}
                                 spacing={5}
                             >
                      
                         <Card 
-                              style={{height:'100%',width:600,  borderWidth:2, borderColor:'#F5F5F5'}}
+                              style={{height:'100%',width: 400,  borderWidth:2, borderColor:'#F5F5F5'}}
                               variant = {'contained'}
                               
                               title={(
                                   clickedCardContent
                               )}
                           >
-                          <CardMedia>
-                          <img style={{maxWidth:500}} src={clickedCardMedia}/>
-                          </CardMedia>
+                          
+                         
+                                <CardMedia style={{height:'100%',width: 400,  borderWidth:2, borderColor:'#F5F5F5'}}>
+                                  {reactJSMediaPlayer}
+                                </CardMedia>
                   
                         </Card>
                         <Card                           
-                            style={{height:'100%',width:600, borderWidth:2, borderColor:'#F5F5F5'}}
+                            style={{height:'100%',width:400, borderWidth:2, borderColor:'#F5F5F5'}}
                             variant = {'contained'}
                           >                  
                           <Accordion className="accordion">
