@@ -41,7 +41,7 @@ import { utils } from "ethers";
 import { Directions, ExpandMore } from '@material-ui/icons';
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 //import Hints from "./Hints";
-import { Hints, ExampleUI, Subgraph } from "./views"
+import { Hints, ExampleUI, Subgraph, AboutUsPage} from "./views"
 import { useThemeSwitcher } from "react-css-theme-switcher";
 import { INFURA_ID, DAI_ADDRESS, DAI_ABI, NETWORK, NETWORKS } from "./constants";
 import StackGrid from "react-stack-grid";
@@ -584,52 +584,9 @@ function App(props) {
             </Route>
             
             <Route path="/yourcollectibles">
-              <div style={{ width:640, margin: "auto", marginTop:32, paddingBottom:32 }}>
-                <List
-                    bordered
-                    dataSource={yourCollectibles}
-                    renderItem={(item) => {
-                      const id = item.id.toNumber()
-                      return (
-                          <List.Item key={id+"_"+item.uri+"_"+item.owner}>
-                            <Card title={(
-                                <div>
-                                  <span style={{fontSize:16, marginRight:8}}>#{id}</span> {item.name}
-                                </div>
-                            )}>
-                              <div><img src={item.image} style={{maxWidth:150}} /></div>
-                              <div>{item.description}</div>
-                            </Card>
-
-                            <div>
-                              owner: <Address
-                                address={item.owner}
-                                ensProvider={mainnetProvider}
-                                blockExplorer={blockExplorer}
-                                fontSize={16}
-                            />
-                              <AddressInput
-                                  ensProvider={mainnetProvider}
-                                  placeholder="transfer to address"
-                                  value={transferToAddresses[id]}
-                                  onChange={(newValue)=>{
-                                    let update = {}
-                                    update[id] = newValue
-                                    setTransferToAddresses({ ...transferToAddresses, ...update})
-                                  }}
-                              />
-                              <Button onClick={()=>{
-                                console.log("writeContracts",writeContracts)
-                                tx( writeContracts.YourCollectible.transferFrom(address, transferToAddresses[id], id) )
-                              }}>
-                                Transfer
-                              </Button>
-                            </div>
-                          </List.Item>
-                      )
-                    }}
-                />
-              </div>
+              <div style={{ justifyContent: 'space-around',maxWidth:2000, margin: "auto", marginTop:250, paddingBottom:256 }}>
+                <AboutUsPage />
+                </div>
             </Route>
             <Route exact path="/card-fullscreen">
               {/*
