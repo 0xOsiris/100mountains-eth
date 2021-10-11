@@ -31,7 +31,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { Row, Col, Menu, Alert, Input, List, Card, Switch as SwitchD } from "antd";
-import { Grid, Image } from 'semantic-ui-react'
+import { CardHeader, Grid, Image } from 'semantic-ui-react'
 import Web3Modal from "web3modal";
 import ReactMediaPlayer from './components/ReactWebMediaPlayer'
 import WalletConnectProvider from "@walletconnect/web3-provider";
@@ -41,7 +41,13 @@ import { Header, Account, Faucet, Ramp, Contract, GasGauge, Address, AddressInpu
 import { Transactor } from "./helpers";
 import { formatEther, parseEther } from "@ethersproject/units";
 import { utils } from "ethers";
-import { FaPalette, FaReact, FaCode, FaConnectdevelop, FaGripLines, FaDiceD6} from "react-icons/fa";
+import  HeartButton  from "./components/HeartButton"
+import { FaPalette, FaReact, FaCode, FaConnectdevelop, FaGripLines, FaDiceD6, FaEthereum} from "react-icons/fa";
+import { Provider } from 'react-redux';
+
+
+
+
 import { Directions, ExpandMore } from '@material-ui/icons';
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 //import Hints from "./Hints";
@@ -467,7 +473,14 @@ function App(props) {
     console.log("loadedAssets",a,loadedAssets[a])
 
     let cardActions = []
-    
+    cardActions.push(
+      <div>
+
+      
+          <HeartButton isClicked={false} itemId={loadedAssets[a].id}/>
+        
+        
+      </div>)
     if(loadedAssets[a].forSale){
       const { claims } = tree;
       let target = {};
@@ -507,7 +520,7 @@ function App(props) {
     }
 
     galleryList.push(
-        <Link to = {'/card-fullscreen'}>
+        
         <Card hoverable
               onClick = {() => {
                 
@@ -520,25 +533,48 @@ function App(props) {
               }}
               style={{height:'100%',width:380, justifyContent:'center', borderWidth:10}} key={loadedAssets[a].name}
               variant = {'contained'}
-             
-              title={(
-                  <div>
-                    {loadedAssets[a].name} <a style={{cursor:"pointer",opacity:1,fontWeight:'bolder',fontSize:20}} href={loadedAssets[a].external_url} target="_blank"><LinkOutlined /></a>
-                  </div>
-              )}
+        
+              
+      
               
         >
-        
-   
+        <CardHeader>
+          <div>
+            <HeartButton itemId={loadedAssets[a].name}/>
+          </div>
+            
+            </CardHeader>
+        <Link to = {'/card-fullscreen'}>
+          
           <CardMedia>
             <img style={{maxWidth:300}} src={loadedAssets[a].image}/>
           </CardMedia>
-          <div style={{opacity:0.77}}>
-            {loadedAssets[a].description}
-          </div>
           
+          <div className="container" style={{display:'-ms-inline-flexbox'}}>
+            <StackGrid 
+              columnWidth='50%'
+              
+              spacing={0}
+              marginTop={20}
+              >
+              <div style={{alignItems:'left',marginLeft:0,marginTop:20}}>
+                <p style={{paddingLeft:0,fontWeight: 'bolder',color:'#707070', marginBottom:0}}>100mountains.eth</p>
+                <p style={{marginTop:0, marginLeft:0,fontWeight: 'bolder',color:'#000000'}}>{loadedAssets[a].name}</p>
+              </div>
+              <div style={{marginRight:0,marginTop:20}}>
+                <p style={{marginRight:0,fontWeight: 'bolder',color:'#707070', marginBottom:0}}>Price</p>
+                <div style={{display:'inline-flex'}}>
+                  <FaEthereum style={{marginTop:3, marginRight:2}}/>
+                  <p style={{marginTop:0, marginRight:0,fontWeight: 'bolder',color:'#000000'}}>0.5</p>
+                </div>
+                
+              </div>
+              </StackGrid>
+            </div>
+          
+            </Link>
         </Card>
-        </Link>
+        
     )
   }
 

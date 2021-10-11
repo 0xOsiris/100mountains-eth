@@ -12,16 +12,22 @@ title{
 }
 ul {
   display:inline-flex;
-  justify-content: space-between;
-  padding: left 5px;
-  margin: auto;
-  max-width: min-content;
+  justify-content:center;
   
+  margin: auto;
+  max-width: max-content;
+  padding: auto;
+  margin-top: -ceil(5);
 }
 li {
-  justify-content: space-around;
-  padding: left 5px;
-  margin-inline: 5px;
+  
+  justify-content: center;
+  
+  padding: auto;
+  margin-inline: 2;
+  
+  
+  margin-top: -ceil(5);
 }
 .Collapsible__trigger {
   display: block;
