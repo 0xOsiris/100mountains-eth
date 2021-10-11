@@ -1,9 +1,10 @@
 
 import React, { Component } from 'react';
 import { useState } from 'react';
-import App from "../App";
+import "aos/dist/aos.css";
+import '../assets/main.css';
 import ReactWebMediaPlayer from 'react-web-media-player';
-import { ReactDOM } from "react-dom";
+
 class ReactMediaPlayer extends Component{
         
         constructor(props){
@@ -20,7 +21,7 @@ class ReactMediaPlayer extends Component{
         
        
         <ReactWebMediaPlayer 
-            style={{ marginLeft: 0, marginRight: 0}}
+            style={{ marginLeft: 0, marginRight: 0, textAlign:'center'}}
             height={480}
             width={360}
             video={this.state.url}

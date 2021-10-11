@@ -4,13 +4,17 @@ import "antd/dist/antd.css";
 import {  JsonRpcProvider, Web3Provider } from "@ethersproject/providers";
 import {  LinkOutlined } from "@ant-design/icons";
 import "./App.css";
-
+import CustomCard from "./partials/Card" ;
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-dropdown/style.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 import ReactDOM from "react-dom";
 import "./index.css";
+import AOS from "aos";
+import Skills from "./partials/Skills";
+import "aos/dist/aos.css";
+import './assets/main.css';
 import ReactWebMediaPlayer from 'react-web-media-player';
 import Collapsible from 'react-collapsible'
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
@@ -37,7 +41,7 @@ import { Header, Account, Faucet, Ramp, Contract, GasGauge, Address, AddressInpu
 import { Transactor } from "./helpers";
 import { formatEther, parseEther } from "@ethersproject/units";
 import { utils } from "ethers";
-
+import { FaPalette, FaReact, FaCode, FaConnectdevelop, FaGripLines, FaDiceD6} from "react-icons/fa";
 import { Directions, ExpandMore } from '@material-ui/icons';
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 //import Hints from "./Hints";
@@ -50,6 +54,7 @@ import assets from './assets.js'
 import tree from './tree.json';
 import styled from "styled-components"
 import { ButtonBase } from "@material-ui/core";
+const BOOTSTRAP_FOR_SKILL_ICON = "text-4xl mx-auto inline-block";
 const { BufferList } = require('bl')
 // https://www.npmjs.com/package/ipfs-http-client
 const ipfsAPI = require('ipfs-http-client');
@@ -273,20 +278,26 @@ function App(props) {
   
   const Properties = ({ data }) => {
     return (
-      
+
         <ul >
           {data && data.map((item, index) => 
           
-          <li key={index}>
+          <li key={index} >
             
             
             
-            <Card 
-            title={item.trait_type}>
-                          <CardContent>
-                          {item.value}
-                          </CardContent>
-                      </Card>
+            <Skills 
+                
+                skills={
+                  [
+                    {
+                    skillIcon:<FaConnectdevelop className={BOOTSTRAP_FOR_SKILL_ICON} />,     
+                    skillName:item.value
+                   }
+                ]
+                }
+                
+              />
               
             </li>)}
         </ul>
@@ -478,7 +489,7 @@ function App(props) {
               // console.log("converted", utils.formatBytes32String(target.proof[0]))
               tx(writeContracts.MerkleTreeContract.claim(target.index, loadedAssets[a].id, target.proof), { gasPrice: gasPrice})
             }}>
-              Mint
+              Buy Item
             </Button>
           </div>
       )
@@ -509,10 +520,10 @@ function App(props) {
               }}
               style={{height:'100%',width:380, justifyContent:'center', borderWidth:10}} key={loadedAssets[a].name}
               variant = {'contained'}
-              actions={cardActions}
+             
               title={(
                   <div>
-                    {loadedAssets[a].name} <a style={{cursor:"pointer",opacity:0.33}} href={loadedAssets[a].external_url} target="_blank"><LinkOutlined /></a>
+                    {loadedAssets[a].name} <a style={{cursor:"pointer",opacity:1,fontWeight:'bolder',fontSize:20}} href={loadedAssets[a].external_url} target="_blank"><LinkOutlined /></a>
                   </div>
               )}
               
@@ -572,7 +583,7 @@ function App(props) {
 
               <div style={{ justifyContent: 'space-around',maxWidth:2000, margin: "auto", marginTop:250, paddingBottom:256 }}>
                 <StackGrid
-                    columnWidth={350}
+                    columnWidth={380}
                     gutterWidth={50}
                     gutterHeight={50}
                     spacing={25}
@@ -601,15 +612,16 @@ function App(props) {
                 <div class="row" style={{marginTop:300, display:'flex', justifyContent:'center'}}>
                     
                     <StackGrid 
-                                style={{height:'100%',width:400, borderWidth:10, padding:50}}
-                                columnWidth={400}
-                                gutterWidth={10}
-                                gutterHeight={50}
-                                spacing={5}
+                                style={{height:'100%',width:450, borderWidth:10, borderColor:'#F5F5F5',justifyContent:'center'}}
+                                columnWidth={440}
+                                gutterWidth={0}
+                                
+                                variant = {'container'}
                             >
-                     
+                        <div>
+
                         <Card 
-                              style={{height:'100%',width: 400,  borderWidth:2, borderColor:'#F5F5F5'}}
+                              style={{height:'100%',width: 420,  borderWidth:0, borderColor:'#F5F5F5', justifyContent:'center'}}
                               variant = {'contained'}
                               
                               title={(
@@ -618,18 +630,32 @@ function App(props) {
                           >
                           
                          
-                                <CardMedia style={{height:'100%',width: 400,  borderWidth:2, borderColor:'#F5F5F5'}}>
+                                <CardMedia style={{height:'100%',width: 420}}>
                                   {reactJSMediaPlayer}
                                 </CardMedia>
                   
                         </Card>
+                        </div>
+                        <div>
+
                         <Card                           
-                            style={{height:'100%',width:400, borderWidth:2, borderColor:'#F5F5F5'}}
-                            variant = {'contained'}
+                            style={{width:420, borderWidth:0,marginBlockEnd:20,borderColor:'#F5F5F5'}}
+                            
                           >                  
                           <Accordion className="accordion">
                             <AccordionSummary  expandIcon={<ExpandMore />}>
-                              Description
+                              <ul style={{display:'inline-flex', padding:3}}>
+                                <li style={{justifyContent:'left'}}>
+                                  <h2><FaGripLines /></h2>
+                                  
+                                </li>
+                                <li>   </li>
+                                <li style={{justifyContent:'right'}}>
+                                  
+                                  <h2>   Description</h2>
+                                </li>
+                              </ul>
+                              
                             </AccordionSummary>
 
                             <AccordionDetails>
@@ -639,7 +665,17 @@ function App(props) {
                           </Accordion>
                           <Accordion className="accordion">
                             <AccordionSummary  expandIcon={<ExpandMore />}>
-                                Properties
+                            <ul style={{display:'inline-flex', padding:3}}>
+                                <li style={{justifyContent:'left'}}>
+                                  <h2><FaDiceD6 /></h2>
+                                  
+                                </li>
+                                <li>   </li>
+                                <li style={{justifyContent:'right'}}>
+                                  
+                                  <h2>   Properties</h2>
+                                </li>
+                              </ul>
                             </AccordionSummary>
                           <AccordionDetails> 
                               <div>
@@ -659,6 +695,7 @@ function App(props) {
 
                           </Accordion>
                         </Card>
+                        </div>
                       
                     </StackGrid>              
                     
@@ -666,7 +703,7 @@ function App(props) {
                     
                       <Card 
                         
-                        style={{height:'100%',width:1200, borderWidth:2, borderColor:'#F5F5F5'}}
+                        style={{height:'100%',width:1200, borderWidth:10,borderColor:'#F5F5F5'}}
                         variant = {'contained'}
                         
                         actions= {clickedCardActions}
