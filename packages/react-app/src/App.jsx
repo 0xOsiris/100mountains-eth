@@ -1,14 +1,17 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter,Switch, Route, Link, useHistory } from "react-router-dom";
+
 import "antd/dist/antd.css";
 import {  JsonRpcProvider, Web3Provider } from "@ethersproject/providers";
 import {  LinkOutlined } from "@ant-design/icons";
 import "./App.css";
 import CustomCard from "./partials/Card" ;
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-dropdown/style.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown'
+import Dropdown from 'react-bootstrap/Dropdown';
+import useExitPrompt from './hooks/useExitPrompt.js'
 import ReactDOM from "react-dom";
 import "./index.css";
 import AOS from "aos";
@@ -34,6 +37,7 @@ import { Row, Col, Menu, Alert, Input, List, Card, Switch as SwitchD } from "ant
 import { CardHeader, Grid, Image } from 'semantic-ui-react'
 import Web3Modal from "web3modal";
 import ReactMediaPlayer from './components/ReactWebMediaPlayer'
+import  CustomCardFull  from "./components/CustomCardFull";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { useUserAddress } from "eth-hooks";
 import { useExchangePrice, useGasPrice, useUserProvider, useContractLoader, useContractReader, useEventListener, useBalance, useExternalContractLoader } from "./hooks";
@@ -200,7 +204,10 @@ Button.defaultProps = {
 };
 
 
+
 function App(props) {
+
+  const history = useHistory();
   const [value,setValue]=useState('');
 
   const handleSelect=(e)=>{
@@ -210,6 +217,16 @@ function App(props) {
     setValue(e)
 
   }
+  const [showExitPrompt, setShowExitPrompt] = useExitPrompt(false);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setShowExitPrompt(!showExitPrompt)
+  }
+
+  
+
+  
   const classes = useStyles();
   const mainnetProvider = (scaffoldEthProvider && scaffoldEthProvider._network) ? scaffoldEthProvider : mainnetInfura
   if(DEBUG) console.log("🌎 mainnetProvider",mainnetProvider)
@@ -289,9 +306,7 @@ function App(props) {
           {data && data.map((item, index) => 
           
           <li key={index} >
-            
-            
-            
+     
             <Skills 
                 
                 skills={
@@ -310,6 +325,8 @@ function App(props) {
       
     )
   }
+
+
   useEffect(()=>{
     const updateYourCollectibles = async () => {
       let collectibleUpdate = []
@@ -429,7 +446,10 @@ function App(props) {
   const [ clickedCardProperties, setCardClickedProperties ] = useState()
   const [ clickedCardDescription, setCardClickedDescription ] = useState()
   const [ reactJSMediaPlayer, setReactJSMediaPlayer ] = useState()
-
+  const [ customCardView, setCustomCardView ] = useState()
+  const [ cardClicked, setCardClicked ] = useState()
+  const [ cardID, setCardID ] = useState();
+  
   function getURLMedia(clickedCardMedia, clickedCardThumbnail) {
     const url = clickedCardMedia;
     const thumbnail = clickedCardThumbnail;
@@ -442,6 +462,7 @@ function App(props) {
   const arrowOpen = (
     <span className="arrow-open" />
   )
+  
   useEffect(()=>{
     const updateYourCollectibles = async () => {
       let assetUpdate = []
@@ -461,6 +482,7 @@ function App(props) {
     if(readContracts && readContracts.YourCollectible) updateYourCollectibles()
   }, [ assets, readContracts, transferEvents ]);
 
+
   useEffect(()=>{
     const updateMediaPlayer = async () => {
       let ReactJSMediaPlayer = <ReactMediaPlayer url={clickedCardMedia} thumbnail={clickedCardThumbnail} style={{ marginLeft: 'auto', marginRight: 'auto', justifyContent: 'center' }}/>
@@ -468,18 +490,32 @@ function App(props) {
     }
     updateMediaPlayer()
   }, [ clickedCardMedia, clickedCardThumbnail ]);
+
+  useEffect(()=>{
+    const updateCardComponent = async () => {
+      let cardComponent = <CustomCardFull clickedCardContent={clickedCardContent} properties={clickedCardProperties} clickedCardActions={clickedCardActions} reactJSMediaPlayer={reactJSMediaPlayer}/>
+      setCustomCardView(cardComponent)
+    }
+    updateCardComponent()
+  }, [ clickedCardContent, clickedCardProperties, clickedCardActions, reactJSMediaPlayer, clickedCardProperties ]);
+{/*
+  useEffect(()=>{
+    const updateCustomCard = async () => {
+      console.log("!!!!!!!!!!!!!!!! Got here", "Fuck this bug" )
+      let CustomCardView = <CustomCardFull clickedCardContent={clickedCardContent} properties={clickedCardProperties} clickedCardAct={clickedCardActions} reactJSMediaPlayer={reactJSMediaPlayer}/>
+      setCustomCardView(CustomCardView)
+    }
+    updateCustomCard()
+  }, [ clickedCardMedia, clickedCardProperties, clickedCardActions, clickedCardContent]);
+*/}
   let galleryList = []
   for(let a in loadedAssets){
     console.log("loadedAssets",a,loadedAssets[a])
 
     let cardActions = []
     cardActions.push(
-      <div>
-
-      
-          <HeartButton isClicked={false} itemId={loadedAssets[a].id}/>
-        
-        
+      <div>  
+          <HeartButton isClicked={false} itemId={loadedAssets[a].id}/> 
       </div>)
     if(loadedAssets[a].forSale){
       const { claims } = tree;
@@ -519,6 +555,7 @@ function App(props) {
       )
     }
 
+    
     galleryList.push(
         
         <Card hoverable
@@ -530,12 +567,13 @@ function App(props) {
                 setCardClickedActions(cardActions)
                 setCardClickedProperties(loadedAssets[a].attributes)
                 setCardClickedDescription(loadedAssets[a].description)
+                
+                setCardID(loadedAssets[a])
+                
               }}
               style={{height:'100%',width:380, justifyContent:'center', borderWidth:10}} key={loadedAssets[a].name}
               variant = {'contained'}
-        
-              
-      
+              cardID={cardID}
               
         >
         <CardHeader>
@@ -544,7 +582,8 @@ function App(props) {
           </div>
             
             </CardHeader>
-        <Link to = {'/card-fullscreen'}>
+        <Link to ={{pathname:`/card/${loadedAssets[a].id}`,
+                    state: loadedAssets[a]}}>
           
           <CardMedia>
             <img style={{maxWidth:300}} src={loadedAssets[a].image}/>
@@ -635,15 +674,21 @@ function App(props) {
                 <AboutUsPage />
                 </div>
             </Route>
-            <Route exact path="/card-fullscreen">
+            <Route path='/card/:cardID' >
+              <CustomCardFull />
+            </Route>
               {/*
                 🎛 this scaffolding is full of commonly used components
                 this <Contract/> component will automatically parse your ABI
                 and give you a form to interact with it locally
             */}
+            {/*
+            <div>
             
-              
-              
+              {<CustomCardFull clickedCardContent={clickedCardContent} properties={clickedCardProperties} clickedCardActions={clickedCardActions} reactJSMediaPlayer={reactJSMediaPlayer}/>}
+              </div>
+              */}
+              {/*
               <div class="container-fluid" style={{justifyContent:'center' }}>
                 <div class="row" style={{marginTop:300, display:'flex', justifyContent:'center'}}>
                     
@@ -665,7 +710,6 @@ function App(props) {
                               )}
                           >
                           
-                         
                                 <CardMedia style={{height:'100%',width: 420}}>
                                   {reactJSMediaPlayer}
                                 </CardMedia>
@@ -734,9 +778,7 @@ function App(props) {
                         </div>
                       
                     </StackGrid>              
-                    
-                  
-                    
+          
                       <Card 
                         
                         style={{height:'100%',width:1200, borderWidth:10,borderColor:'#F5F5F5'}}
@@ -757,8 +799,8 @@ function App(props) {
                   
                   </div>
                 </div>
-            
-          </Route>
+                              */}
+         
             <Route path="/transfers">
               <div style={{ width:600, margin: "auto", marginTop:32, paddingBottom:32 }}>
                 <List
