@@ -207,7 +207,7 @@ Button.defaultProps = {
 
 function App(props) {
 
-  const history = useHistory();
+  
   const [value,setValue]=useState('');
 
   const handleSelect=(e)=>{
@@ -427,17 +427,15 @@ function App(props) {
   const [ sending, setSending ] = useState()
   const [ ipfsHash, setIpfsHash ] = useState()
   const [ ipfsDownHash, setIpfsDownHash ] = useState()
-
   const [ downloading, setDownloading ] = useState()
   const [ ipfsContent, setIpfsContent ] = useState()
-
   const [ transferToAddresses, setTransferToAddresses ] = useState({})
   const handle = useFullScreenHandle();
-  
   const [ loadedAssets, setLoadedAssets ] = useState()
   const options = [
     'one', 'two', 'three'
   ];
+
   const [ yourCollectibles, setYourCollectibles ] = useState()
   const [ clickedCardMedia, setCardClickedMedia ] = useState()
   const [ clickedCardThumbnail, setCardClickedThumbnail ] = useState()
@@ -498,16 +496,7 @@ function App(props) {
     }
     updateCardComponent()
   }, [ clickedCardContent, clickedCardProperties, clickedCardActions, reactJSMediaPlayer, clickedCardProperties ]);
-{/*
-  useEffect(()=>{
-    const updateCustomCard = async () => {
-      console.log("!!!!!!!!!!!!!!!! Got here", "Fuck this bug" )
-      let CustomCardView = <CustomCardFull clickedCardContent={clickedCardContent} properties={clickedCardProperties} clickedCardAct={clickedCardActions} reactJSMediaPlayer={reactJSMediaPlayer}/>
-      setCustomCardView(CustomCardView)
-    }
-    updateCustomCard()
-  }, [ clickedCardMedia, clickedCardProperties, clickedCardActions, clickedCardContent]);
-*/}
+
   let galleryList = []
   for(let a in loadedAssets){
     console.log("loadedAssets",a,loadedAssets[a])
@@ -541,6 +530,8 @@ function App(props) {
               Buy Item
             </Button>
           </div>
+          
+          
       )
     }else{
       cardActions.push(
@@ -554,6 +545,7 @@ function App(props) {
           </div>
       )
     }
+    
 
     
     galleryList.push(
@@ -571,19 +563,25 @@ function App(props) {
                 setCardID(loadedAssets[a])
                 
               }}
+              
+              actions={cardActions}
               style={{height:'100%',width:380, justifyContent:'center', borderWidth:10}} key={loadedAssets[a].name}
               variant = {'contained'}
               cardID={cardID}
               
         >
+          
+          
+                
         <CardHeader>
           <div>
             <HeartButton itemId={loadedAssets[a].name}/>
           </div>
             
             </CardHeader>
-        <Link to ={{pathname:`/card/${loadedAssets[a].id}`,
-                    state: loadedAssets[a]}}>
+        
+        <Link to ={{pathname:`/card/${loadedAssets[a].id}`}}>
+                    
           
           <CardMedia>
             <img style={{maxWidth:300}} src={loadedAssets[a].image}/>
@@ -675,7 +673,8 @@ function App(props) {
                 </div>
             </Route>
             <Route path='/card/:cardID' >
-              <CustomCardFull />
+            
+              <CustomCardFull clickedCardActions={clickedCardActions}/>
             </Route>
               {/*
                 🎛 this scaffolding is full of commonly used components

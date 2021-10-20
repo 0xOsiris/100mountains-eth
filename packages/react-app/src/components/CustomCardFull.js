@@ -18,6 +18,10 @@ export default function CustomCardFull(props) {
         let location = useLocation();
         const { cardID } = useParams()
         const [ reactJSMediaPlayer, setReactJSMediaPlayer ] = useState()
+        const [ clickedCardActions, setClickedCardActions ] = useState()
+        
+        
+
         useEffect(()=>{
           const updateMediaPlayer = async () => {
             let ReactJSMediaPlayer = <ReactMediaPlayer url={cardData[cardID].external_url} thumbnail={cardData[cardID].image} style={{ marginLeft: 'auto', marginRight: 'auto', justifyContent: 'center' }}/>
@@ -26,7 +30,13 @@ export default function CustomCardFull(props) {
           updateMediaPlayer()
         }, []);
 
-       
+        useEffect(()=>{
+          const updateActions = async () => {
+            let cardActions = props.clickedCardActions
+            setClickedCardActions(cardActions)
+          }
+          updateActions()
+        }, []);
 
         return (
             
@@ -45,7 +55,7 @@ export default function CustomCardFull(props) {
                         <Card 
                               style={{height:'100%',width: 420,  borderWidth:0, borderColor:'#F5F5F5', justifyContent:'center'}}
                               variant = {'contained'}
-                              
+                              actions={clickedCardActions}
                               title={(
                                 cardData[cardID].name
                               )}
