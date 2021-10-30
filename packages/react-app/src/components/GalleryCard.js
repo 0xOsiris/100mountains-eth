@@ -68,7 +68,7 @@ const GalleryCard=(props)=> {
         <div>
         <Desktop>
         <Card hoverable
-              
+              actions={clickedCardActions}
               style={{height:'100%', justifyContent:'center', borderWidth:0}} 
               key={cardName}
               variant = {'contained'}
@@ -126,44 +126,14 @@ const GalleryCard=(props)=> {
             
           </CardMedia>
           
-          <div className="container" style={{display:'-ms-inline-flexbox'}}>
-            <StackGrid 
-              columnWidth='50%'
-              
-              spacing={0}
-              marginTop={5}
-              >
-              <div style={{alignItems:'left',marginLeft:0,marginTop:20}}>
-                <p style={{paddingLeft:0,fontSize:10, fontWeight: 'bolder',color:'#707070', marginBottom:0}}>100mountains.eth</p>
-                <p style={{marginTop:0, fontSize:10,marginLeft:0,fontWeight: 'bolder',color:'#000000'}}>{cardName}</p>
-              </div>
-              <div style={{marginRight:0,marginTop:20}}>
-                <p style={{marginRight:0,fontSize:10,fontWeight: 'bolder',color:'#707070', marginBottom:0}}>Price</p>
-                <div style={{display:'inline-flex'}}>
-                  <FaEthereum style={{marginTop:3, marginRight:2}}/>
-                  <p style={{marginTop:0, fontSize:10,marginRight:0,fontWeight: 'bolder',color:'#000000'}}>0.5</p>
-                </div>
-                
-              </div>
-              <div style={{marginRight:0,marginTop:20}}>
-              <p style={{ marginLeft: 20, opacity: 1, marginTop:3}}>
-                    <a 
-                      style={{ opacity: 1}}
-                      href='https://testnets.opensea.io/assets/0xC326B29BcEcdfe4Dec0c52aB7D148314487C2eAd/${cardID}'
-                    >
-                      <FaLink />
-                   </a>
-                   </p>
-                </div>
-              </StackGrid>
-            </div>
+          
           
             </Link>
         </Card>
         </Desktop>
         <BigDesktop>
         <Card hoverable
-      
+              actions={clickedCardActions}
               style={{height:'100%', width:'100%',justifyContent:'center', borderWidth:0.1}} key={cardName}
               
               cardID={cardID}
@@ -226,6 +196,7 @@ const GalleryCard=(props)=> {
         </BigDesktop>
         <Tablet>
         <Card hoverable
+            actions={clickedCardActions}
              title={
               <div style={{maxHeight:10,maxWidth:'100%',display:'inline-flex', justifyContent:'space-evenly'}}>
                 
@@ -281,33 +252,14 @@ const GalleryCard=(props)=> {
           {cardForSale ? <img style={{maxWidth:'100%'}} src={cardMedia}/>:<img style={{opacity: 0.1,maxWidth:'100%'}} src={cardMedia}/> }
         </CardMedia>
         
-        <div className="container" style={{display:'-ms-inline-flexbox'}}>
-            <StackGrid 
-            columnWidth='50%'
-            
-            spacing={0}
-            marginTop={5}
-            >
-            <div style={{alignItems:'left',marginLeft:0,marginTop:20}}>
-                <p style={{paddingLeft:0,fontWeight: 'bolder',color:'#707070', marginBottom:0}}>100mountains.eth</p>
-                <p style={{marginTop:0, marginLeft:0,fontWeight: 'bolder',color:'#000000'}}>{cardName}</p>
-            </div>
-            <div style={{marginRight:0,marginTop:20}}>
-                <p style={{marginRight:0,fontWeight: 'bolder',color:'#707070', marginBottom:0}}>Price</p>
-                <div style={{display:'inline-flex'}}>
-                <FaEthereum style={{marginTop:3, marginRight:2}}/>
-                <p style={{marginTop:0, marginRight:0,fontWeight: 'bolder',color:'#000000'}}>0.5</p>
-                </div>
-                
-            </div>
-            </StackGrid>
-            </div>
+       
         
             </Link>
         </Card>
         </Tablet>
         <Mobile>
         <Card hoverable
+            actions={clickedCardActions}
              title={
               <div style={{maxHeight:10,maxWidth:'100%',display:'inline-flex', justifyContent:'space-evenly'}}>
                 
@@ -364,27 +316,7 @@ const GalleryCard=(props)=> {
           {cardForSale ? <img style={{maxWidth:'100%'}} src={cardMedia}/>:<img style={{opacity: 0.1,maxWidth:'100%'}} src={cardMedia}/> }
         </CardMedia>
         
-        <div className="container" style={{display:'-ms-inline-flexbox'}}>
-            <StackGrid 
-            columnWidth='50%'
-            
-            spacing={0}
-            marginTop={5}
-            >
-            <div style={{alignItems:'left',marginLeft:0,marginTop:20}}>
-                <p style={{paddingLeft:0,fontWeight: 'bolder',color:'#707070', marginBottom:0}}>100mountains.eth</p>
-                <p style={{marginTop:0, marginLeft:0,fontWeight: 'bolder',color:'#000000'}}>{cardName}</p>
-            </div>
-            <div style={{marginRight:0,marginTop:20}}>
-                <p style={{marginRight:0,fontWeight: 'bolder',color:'#707070', marginBottom:0}}>Price</p>
-                <div style={{display:'inline-flex'}}>
-                <FaEthereum style={{marginTop:3, marginRight:2}}/>
-                <p style={{marginTop:0, marginRight:0,fontWeight: 'bolder',color:'#000000'}}>0.5</p>
-                </div>
-                
-            </div>
-            </StackGrid>
-            </div>
+        
         
             </Link>
         </Card>

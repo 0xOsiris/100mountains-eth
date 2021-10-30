@@ -67,6 +67,7 @@
     "react": "^16.14.0",
     "react-blockies": "^1.4.1",
     "react-bootstrap": "^1.6.4",
+    "react-burger-menu": "^3.0.6",
     "react-collapsible": "^2.8.4",
     "react-css-theme-switcher": "^0.2.2",
     "react-dom": "^16.14.0",
