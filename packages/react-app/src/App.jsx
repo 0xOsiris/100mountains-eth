@@ -1,23 +1,29 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useContext,useCallback, useEffect, useState } from "react";
 import { BrowserRouter,Switch, Route, Link, useHistory } from "react-router-dom";
 import { slide as MenuMobile } from 'react-burger-menu'
 import "antd/dist/antd.css";
 import {  JsonRpcProvider, Web3Provider } from "@ethersproject/providers";
 import {  LinkOutlined } from "@ant-design/icons";
 import "./App.css";
+import "./styles/styles.css";
+
 import CustomCard from "./partials/Card" ;
 import { useMediaQuery } from 'react-responsive';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import MobileMenu from "./components/MobileMenu";
 import 'react-dropdown/style.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import useExitPrompt from './hooks/useExitPrompt.js'
 import ReactDOM from "react-dom";
 import "./index.css";
+import {  DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import AOS from "aos";
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import Skills from "./partials/Skills";
 import "aos/dist/aos.css";
 import './assets/main.css';
+import StyledNav from "./components/StyledNav";
 import ReactWebMediaPlayer from 'react-web-media-player';
 import Collapsible from 'react-collapsible'
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
@@ -47,7 +53,7 @@ import { Transactor } from "./helpers";
 import { formatEther, parseEther } from "@ethersproject/units";
 import { utils } from "ethers";
 import  HeartButton  from "./components/HeartButton"
-import { FaPalette, FaReact, FaCode, FaConnectdevelop, FaGripLines, FaDiceD6, FaEthereum} from "react-icons/fa";
+import { FaPalette, FaReact, FaCode, FaConnectdevelop, FaGripLines, FaDiceD6, FaEthereum, FaHamburger} from "react-icons/fa";
 import { Provider } from 'react-redux';
 import MediaQuery from 'react-responsive'
 import { Directions, ExpandMore } from '@material-ui/icons';
@@ -63,6 +69,7 @@ import tree from './tree.json';
 
 import styled from "styled-components"
 import { ButtonBase } from "@material-ui/core";
+import Table from "rc-table/lib/Table";
 const BOOTSTRAP_FOR_SKILL_ICON = "text-4xl mx-auto inline-block";
 const { BufferList } = require('bl')
 
@@ -74,7 +81,7 @@ console.log("📦 Assets: ",assets)
 
 
 
-const targetNetwork = NETWORKS['rinkeby']; 
+const targetNetwork = NETWORKS['localhost']; 
 
 
 const DEBUG = true
@@ -129,50 +136,7 @@ const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);
 
 const blockExplorer = targetNetwork.blockExplorer;
 
-var menuStyles = {
-  bmBurgerButton: {
-    position: 'fixed',
-    width: '36px',
-    height: '30px',
-    left: '36px',
-    top: '36px'
-  },
-  bmBurgerBars: {
-    background: '#373a47'
-  },
-  bmBurgerBarsHover: {
-    background: '#a90000'
-  },
-  bmCrossButton: {
-    height: '24px',
-    width: '24px'
-  },
-  bmCross: {
-    background: '#bdc3c7'
-  },
-  bmMenuWrap: {
-    position: 'fixed',
-    height: '100%'
-  },
-  bmMenu: {
-    background: '#373a47',
-    padding: '2.5em 1.5em 0',
-    fontSize: '1.15em'
-  },
-  bmMorphShape: {
-    fill: '#373a47'
-  },
-  bmItemList: {
-    color: '#b8b7ad',
-    padding: '0.8em'
-  },
-  bmItem: {
-    display: 'inline-block'
-  },
-  bmOverlay: {
-    background: 'rgba(0, 0, 0, 0.3)'
-  }
-}
+
 
 const theme = {
   blue: {
@@ -248,9 +212,13 @@ const Default = ({ children }) => {
   const isNotMobile = useMediaQuery({ minWidth: 768 })
   return isNotMobile ? children : null
 }
+
 function App(props) {
 
-  
+  const targetElement = document.querySelector('#page-wrap');
+  const targetElement2 = document.querySelector('#outer-container');
+  disableBodyScroll(targetElement2);
+  enableBodyScroll(targetElement);
   const [value,setValue]=useState('');
 
   const handleSelect=(e)=>{
@@ -606,70 +574,58 @@ function App(props) {
 
   return (
       <div className="App">
+         
+        <div style={{marginTop:0,height:100, background:'#1c2022',zIndex:20}}>
+
+        
         
        
-        <Header />
-        {networkDisplay}
+        
+        
 
         <BrowserRouter>
         <BigDesktop>
-          <StyledMenu>
+          
 
-            <Menu style={{ textAlign:"center" }} selectedKeys={[route]} mode="horizontal">
-              <Menu.Item key="/">
-                <Link onClick={()=>{setRoute("/")}} to="/">Gallery</Link>
-              </Menu.Item>
-              <Menu.Item key="/yourcollectibles">
-                <Link onClick={()=>{setRoute("/yourcollectibles")}} to="/yourcollectibles">About</Link>
-              </Menu.Item>
-              
-            </Menu>
-          </StyledMenu>
+            <StyledNav setRoute={setRoute}/>
+          
         </BigDesktop>
         <Desktop>
-          <StyledMenu>
-
-            <Menu style={{ textAlign:"center" }} selectedKeys={[route]} mode="horizontal">
-              <Menu.Item key="/">
-                <Link onClick={()=>{setRoute("/")}} to="/">Gallery</Link>
-              </Menu.Item>
-              <Menu.Item key="/yourcollectibles">
-                <Link onClick={()=>{setRoute("/yourcollectibles")}} to="/yourcollectibles">About</Link>
-              </Menu.Item>
-              
-            </Menu>
-          </StyledMenu>
+          <StyledNav setRoute={setRoute}/>
         </Desktop>
         <Mobile>
           
-
-          <MenuMobile styles={ menuStyles }>
-            <li>
-              <a id="home" className="bmItem" href="/">Gallery</a>
-              <a id="about" className="bmItem" href="/yourcollectibles">About</a>
-            </li>
-            
-            
-            
-          </MenuMobile>
+        <StyledNav setRoute={setRoute}/>
           
         </Mobile>
+        <Tablet>
+        <StyledNav setRoute={setRoute}/>
+        </Tablet>
           <Switch>
             <Route exact path="/">
            
               <Desktop>
+               
+                <div id="outer-container">
+                  
+                <div id="page-wrap">
                 <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:250, paddingBottom:256 }}>
                   <StackGrid
                       columnWidth={'20%'}
                       gutterWidth={0}
                       spacing={1}
-                      
+                      variant={'container'}
                   >
                     {galleryList}
                   </StackGrid>
                 </div>
+                </div>
+                </div>
               </Desktop>
               <BigDesktop>
+              <div id="outer-container">
+                  
+                <div id="page-wrap">
                 <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:250, paddingBottom:256 }}>
                   <StackGrid
                       columnWidth={'10%'}
@@ -680,19 +636,30 @@ function App(props) {
                     {galleryList}
                   </StackGrid>
                 </div>
+                </div>
+                </div>
               </BigDesktop>
               <Tablet>
-                <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:250, paddingBottom:256 }}>
-                  <StackGrid
-                      columnWidth={'50%'}
-        
-                  >
-                    {galleryList}
-                  </StackGrid>
-                </div>
+              
+              <div id="outer-container">
+                  
+                  <div id="page-wrap">
+                  <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25, marginTop:200, paddingBottom:256 }}>
+                      <StackGrid
+                          columnWidth={'50%'}
+            
+                      >
+                        {galleryList}
+                      </StackGrid>
+                    </div>
+                    </div>
+                    </div>
               </Tablet>
               <Mobile>
-              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:250, paddingBottom:256 }}>
+              <div id="outer-container">
+                  
+              <div id="page-wrap">
+              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25, marginTop:200, paddingBottom:256 }}>
                   <StackGrid
                       columnWidth={'100%'}
         
@@ -700,13 +667,57 @@ function App(props) {
                     {galleryList}
                   </StackGrid>
                 </div>
+                </div>
+                </div>
               </Mobile>
             </Route>
             
             <Route path="/yourcollectibles">
-              <div style={{ justifyContent: 'space-around',maxWidth:2000, margin: "auto", marginTop:250, paddingBottom:256 }}>
+            <Mobile>
+              <div id="outer-container">
+                  
+              <div id="page-wrap">
+              
+              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25, marginTop:100, paddingBottom:256 }}>
                 <AboutUsPage />
                 </div>
+                </div>
+                </div>
+              </Mobile>
+              <Desktop>
+              <div id="outer-container">
+                  
+              <div id="page-wrap">
+              
+              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25, marginTop:100, paddingBottom:256 }}>
+                <AboutUsPage />
+                </div>
+                </div>
+                </div>
+              </Desktop>
+              <BigDesktop>
+              <div id="outer-container">
+                  
+              <div id="page-wrap">
+              
+              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25, marginTop:100, paddingBottom:256 }}>
+                <AboutUsPage />
+                </div>
+                </div>
+                </div>
+              </BigDesktop>
+              <Tablet>
+              <div id="outer-container">
+                  
+              <div id="page-wrap">
+              
+              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25, marginTop:100, paddingBottom:256 }}>
+                <AboutUsPage />
+                </div>
+                </div>
+                </div>
+              </Tablet>
+              
             </Route>
             <Route path='/card/:cardID' >
             
@@ -836,7 +847,7 @@ function App(props) {
          
         </BrowserRouter>
 
-       
+        </div>
 
 
        

@@ -68,7 +68,7 @@ const GalleryCard=(props)=> {
         <div>
         <Desktop>
         <Card hoverable
-              actions={clickedCardActions}
+              
               style={{height:'100%', justifyContent:'center', borderWidth:0}} 
               key={cardName}
               variant = {'contained'}
@@ -133,7 +133,7 @@ const GalleryCard=(props)=> {
         </Desktop>
         <BigDesktop>
         <Card hoverable
-              actions={clickedCardActions}
+              
               style={{height:'100%', width:'100%',justifyContent:'center', borderWidth:0.1}} key={cardName}
               
               cardID={cardID}
@@ -196,7 +196,7 @@ const GalleryCard=(props)=> {
         </BigDesktop>
         <Tablet>
         <Card hoverable
-            actions={clickedCardActions}
+           
              title={
               <div style={{maxHeight:10,maxWidth:'100%',display:'inline-flex', justifyContent:'space-evenly'}}>
                 
@@ -259,7 +259,7 @@ const GalleryCard=(props)=> {
         </Tablet>
         <Mobile>
         <Card hoverable
-            actions={clickedCardActions}
+            
              title={
               <div style={{maxHeight:10,maxWidth:'100%',display:'inline-flex', justifyContent:'space-evenly'}}>
                 

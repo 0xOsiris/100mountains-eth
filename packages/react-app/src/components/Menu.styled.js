@@ -1,30 +1,33 @@
 import styled from 'styled-components';
 
 export const StyledMenu = styled.nav`
-  display: flex;
-  flex-direction: column;
+  
+  
   justify-content: center;
-  background: ${({ theme }) => theme.primaryDark};
-  height: 20vh;
+  
+  height: 80px;
   text-align: left;
-  padding: 10rem 10rem;
+  width: 100vw;
   margin-right:10rem;
   spacing: 10rem;
-  position: absolute;
-  top: 20;
-  left: 20;
-  transition: transform 0.3s ease-in-out;
+  marginTop: 0;
+  position: fixed;
+ 
   
+  transition: transform 0.3s ease-in-out;
+  z-index:20;
+  border: 1px solid black;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 100%;
   }
   a {
+    z-index:20;
     font-size: 2rem;
     text-transform: uppercase;
     padding: 10rem 20;
     font-weight: bold;
     letter-spacing: 0.5rem;
-    color: ${({ theme }) => theme.primaryDark};
+    
     text-decoration: none;
     transition: color 0.3s linear;
     

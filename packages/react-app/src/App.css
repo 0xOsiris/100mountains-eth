@@ -1,9 +1,48 @@
 .App {
   text-align: center;
+  
+}
+.page-wrap {
+  height:95%;
+	
+	border-top:1px solid #000;
+	padding-top:55px;
+  padding-left:10px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  
+}
+.menu {
+ 
+  
+  justify-content: center;
+  background: #999;
+  
+  text-align: left;
+  width:100%;
+ 
+  
+  position: absolute;
+  
+  transition: transform 0.3s ease-in-out;
+  
+}
+
+.static {
+  position: fixed;
+  z-index: 1001;
+}
+.outer-container {
+  height: 100%;
+  position: sticky;
 }
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+}
+html {
+  scroll-behavior: smooth;
 }
 title{
   font-size: 2em;
@@ -171,3 +210,4 @@ li {
   font-weight: bold;
   color: purple;
 }
+
