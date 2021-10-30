@@ -44,7 +44,7 @@ export default function CustomCardFull(props) {
                 <div class="row" style={{marginTop:300, display:'flex', justifyContent:'center'}}>
                     
                     <StackGrid 
-                                style={{height:'100%',width:450, borderWidth:10, borderColor:'#F5F5F5',justifyContent:'center'}}
+                                style={{height:'100%',borderWidth:5, borderColor:'#F5F5F5',justifyContent:'center'}}
                                 columnWidth={440}
                                 gutterWidth={0}
                                 
@@ -53,12 +53,10 @@ export default function CustomCardFull(props) {
                         <div>
 
                         <Card 
-                              style={{height:'100%',width: 420,  borderWidth:0, borderColor:'#F5F5F5', justifyContent:'center'}}
+                              style={{height:'100%',width: 300,  borderWidth:0, borderColor:'#F5F5F5', justifyContent:'center'}}
                               variant = {'contained'}
                               actions={clickedCardActions}
-                              title={(
-                                cardData[cardID].name
-                              )}
+                              
                           >
                           
                                 <CardMedia style={{height:'100%',width: 420}}>
@@ -70,20 +68,21 @@ export default function CustomCardFull(props) {
                         <div>
 
                         <Card                           
-                            style={{width:420, borderWidth:0,marginBlockEnd:20,borderColor:'#F5F5F5'}}
+                            style={{width:'100%', borderWidth:0,marginBlockEnd:20,borderColor:'#F5F5F5'}}
                             
                           >                  
                           <Accordion className="accordion">
                             <AccordionSummary  expandIcon={<ExpandMore />}>
                               <ul style={{display:'inline-flex', padding:3}}>
-                                <li style={{justifyContent:'left'}}>
-                                  <h2><FaGripLines /></h2>
+                                <li style={{justifyContent:'center'}}>
+                                  <h4><FaGripLines /></h4>
                                   
                                 </li>
                                 <li>   </li>
                                 <li style={{justifyContent:'right'}}>
                                   
-                                  <h2>   Description</h2>
+                                  <h4><FaGripLines /></h4>
+                                  <h4>   Description</h4>
                                 </li>
                               </ul>
                               
@@ -134,11 +133,14 @@ export default function CustomCardFull(props) {
                         
                         style={{height:'100%',width:1200, borderWidth:10,borderColor:'#F5F5F5'}}
                         variant = {'contained'}
-                        
+                        title={(
+                          cardData[cardID].name
+                        )}
                        
                         >
-                        <CardContent>
-                          <li style={{alignContent:'left'}}>
+                        <CardContent
+                        style={{justifyContent:'left'}}>
+                          <li style={{justifyContent:'left'}}>
                             <h1>Current Price</h1>
                             <p>0.5 Eth</p>
                           </li>

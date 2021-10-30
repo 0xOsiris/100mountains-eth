@@ -6,7 +6,7 @@ import {  JsonRpcProvider, Web3Provider } from "@ethersproject/providers";
 import {  LinkOutlined } from "@ant-design/icons";
 import "./App.css";
 import CustomCard from "./partials/Card" ;
-
+import { useMediaQuery } from 'react-responsive';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-dropdown/style.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -33,6 +33,7 @@ import {Box} from '@material-ui/core/';
 import MenuIcon from '@material-ui/icons/Menu';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import GalleryCard from './components/GalleryCard';
 import { Row, Col, Menu, Alert, Input, List, Card, Switch as SwitchD } from "antd";
 import { CardHeader, Grid, Image } from 'semantic-ui-react'
 import Web3Modal from "web3modal";
@@ -48,10 +49,7 @@ import { utils } from "ethers";
 import  HeartButton  from "./components/HeartButton"
 import { FaPalette, FaReact, FaCode, FaConnectdevelop, FaGripLines, FaDiceD6, FaEthereum} from "react-icons/fa";
 import { Provider } from 'react-redux';
-
-
-
-
+import MediaQuery from 'react-responsive'
 import { Directions, ExpandMore } from '@material-ui/icons';
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 //import Hints from "./Hints";
@@ -62,6 +60,7 @@ import StackGrid from "react-stack-grid";
 import ReactJson from 'react-json-view'
 import assets from './assets.js'
 import tree from './tree.json';
+
 import styled from "styled-components"
 import { ButtonBase } from "@material-ui/core";
 const BOOTSTRAP_FOR_SKILL_ICON = "text-4xl mx-auto inline-block";
@@ -88,7 +87,7 @@ console.log("📦 Assets: ",assets)
 
 
 /// 📡 What chain are your contracts deployed to?
-const targetNetwork = NETWORKS['localhost']; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+const targetNetwork = NETWORKS['rinkeby']; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
 const DEBUG = true
@@ -202,9 +201,27 @@ const Button = styled.button`
 Button.defaultProps = {
   theme: "pink"
 };
+const BigDesktop = ({ children }) => {
+  const isDesktop = useMediaQuery({ minWidth: 1501 })
+  return isDesktop ? children : null
+}
 
-
-
+const Desktop = ({ children }) => {
+  const isDesktop = useMediaQuery({ minWidth: 992, maxWidth:1500 })
+  return isDesktop ? children : null
+}
+const Tablet = ({ children }) => {
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
+  return isTablet ? children : null
+}
+const Mobile = ({ children }) => {
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+  return isMobile ? children : null
+}
+const Default = ({ children }) => {
+  const isNotMobile = useMediaQuery({ minWidth: 768 })
+  return isNotMobile ? children : null
+}
 function App(props) {
 
   
@@ -549,68 +566,22 @@ function App(props) {
 
     
     galleryList.push(
-        
-        <Card hoverable
-              onClick = {() => {
-                
-                setCardClickedMedia(loadedAssets[a].external_url)
-                setCardClickedThumbnail(loadedAssets[a].image)
-                setCardClickedContent(loadedAssets[a].name)
-                setCardClickedActions(cardActions)
-                setCardClickedProperties(loadedAssets[a].attributes)
-                setCardClickedDescription(loadedAssets[a].description)
-                
-                setCardID(loadedAssets[a])
-                
-              }}
-              
+      
+        <GalleryCard hoverable
               actions={cardActions}
-              style={{height:'100%',width:380, justifyContent:'center', borderWidth:10}} key={loadedAssets[a].name}
-              variant = {'contained'}
-              cardID={cardID}
+              cardMedia={loadedAssets[a].image}
+              cardID={loadedAssets[a].id}
+              cardName={loadedAssets[a].name}
+              cardExternal ={loadedAssets[a.external_url]}
+              cardProperties = {loadedAssets[a].attributes}
+              cardDescription = {loadedAssets[a].description}
+              actionsChanger ={setCardClickedActions}
               
         >
           
-          
-                
-        <CardHeader>
-          <div>
-            <HeartButton itemId={loadedAssets[a].name}/>
-          </div>
-            
-            </CardHeader>
+ 
+        </GalleryCard>
         
-        <Link to ={{pathname:`/card/${loadedAssets[a].id}`}}>
-                    
-          
-          <CardMedia>
-            <img style={{maxWidth:300}} src={loadedAssets[a].image}/>
-          </CardMedia>
-          
-          <div className="container" style={{display:'-ms-inline-flexbox'}}>
-            <StackGrid 
-              columnWidth='50%'
-              
-              spacing={0}
-              marginTop={20}
-              >
-              <div style={{alignItems:'left',marginLeft:0,marginTop:20}}>
-                <p style={{paddingLeft:0,fontWeight: 'bolder',color:'#707070', marginBottom:0}}>100mountains.eth</p>
-                <p style={{marginTop:0, marginLeft:0,fontWeight: 'bolder',color:'#000000'}}>{loadedAssets[a].name}</p>
-              </div>
-              <div style={{marginRight:0,marginTop:20}}>
-                <p style={{marginRight:0,fontWeight: 'bolder',color:'#707070', marginBottom:0}}>Price</p>
-                <div style={{display:'inline-flex'}}>
-                  <FaEthereum style={{marginTop:3, marginRight:2}}/>
-                  <p style={{marginTop:0, marginRight:0,fontWeight: 'bolder',color:'#000000'}}>0.5</p>
-                </div>
-                
-              </div>
-              </StackGrid>
-            </div>
-          
-            </Link>
-        </Card>
         
     )
   }
@@ -653,18 +624,50 @@ function App(props) {
                 this <Contract/> component will automatically parse your ABI
                 and give you a form to interact with it locally
             */}
-
-              <div style={{ justifyContent: 'space-around',maxWidth:2000, margin: "auto", marginTop:250, paddingBottom:256 }}>
-                <StackGrid
-                    columnWidth={380}
-                    gutterWidth={50}
-                    gutterHeight={50}
-                    spacing={25}
-                >
-                  {galleryList}
-                </StackGrid>
-              </div>
-
+              <Desktop>
+                <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:250, paddingBottom:256 }}>
+                  <StackGrid
+                      columnWidth={'20%'}
+                      gutterWidth={0}
+                      spacing={1}
+                      
+                  >
+                    {galleryList}
+                  </StackGrid>
+                </div>
+              </Desktop>
+              <BigDesktop>
+                <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:250, paddingBottom:256 }}>
+                  <StackGrid
+                      columnWidth={'10%'}
+                      gutterWidth={0}
+                      spacing={1}
+                      variant={'container'}
+                  >
+                    {galleryList}
+                  </StackGrid>
+                </div>
+              </BigDesktop>
+              <Tablet>
+                <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:250, paddingBottom:256 }}>
+                  <StackGrid
+                      columnWidth={'50%'}
+        
+                  >
+                    {galleryList}
+                  </StackGrid>
+                </div>
+              </Tablet>
+              <Mobile>
+              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:250, paddingBottom:256 }}>
+                  <StackGrid
+                      columnWidth={'100%'}
+        
+                  >
+                    {galleryList}
+                  </StackGrid>
+                </div>
+              </Mobile>
             </Route>
             
             <Route path="/yourcollectibles">
