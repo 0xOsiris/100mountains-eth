@@ -464,7 +464,8 @@ function App(props) {
   const [ customCardView, setCustomCardView ] = useState()
   const [ cardClicked, setCardClicked ] = useState()
   const [ cardID, setCardID ] = useState();
-  
+  const [ cardForSale, setCardForSale ] = useState(true);
+
   function getURLMedia(clickedCardMedia, clickedCardThumbnail) {
     const url = clickedCardMedia;
     const thumbnail = clickedCardThumbnail;
@@ -490,12 +491,14 @@ function App(props) {
             owner = await readContracts.YourCollectible.ownerOf(tokenId)
           }
           assetUpdate.push({id:a,...assets[a],forSale:forSale,owner:owner})
+          
         }catch(e){console.log(e)}
       }
       setLoadedAssets(assetUpdate)
+      
     }
     if(readContracts && readContracts.YourCollectible) updateYourCollectibles()
-  }, [ assets, readContracts, transferEvents ]);
+  }, [ assets, readContracts, transferEvents]);
 
 
   useEffect(()=>{
@@ -513,7 +516,7 @@ function App(props) {
     }
     updateCardComponent()
   }, [ clickedCardContent, clickedCardProperties, clickedCardActions, reactJSMediaPlayer, clickedCardProperties ]);
-
+  
   let galleryList = []
   for(let a in loadedAssets){
     console.log("loadedAssets",a,loadedAssets[a])
@@ -569,6 +572,7 @@ function App(props) {
       
         <GalleryCard hoverable
               actions={cardActions}
+              forSale={loadedAssets[a].forSale}
               cardMedia={loadedAssets[a].image}
               cardID={loadedAssets[a].id}
               cardName={loadedAssets[a].name}
