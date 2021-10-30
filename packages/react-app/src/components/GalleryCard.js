@@ -5,7 +5,7 @@ import { Card } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import StackGrid from "react-stack-grid";
 import { Link }from 'react-router-dom';
-import { FaPalette, FaReact, FaCode, FaConnectdevelop, FaGripLines, FaDiceD6, FaEthereum} from "react-icons/fa";
+import { FaPalette, FaReact, FaCode, FaConnectdevelop, FaGripLines, FaDiceD6, FaEthereum, FaLink} from "react-icons/fa";
 import { LinkOutlined } from "@ant-design/icons";
 const BigDesktop = ({ children }) => {
     const isDesktop = useMediaQuery({ minWidth: 1501 })
@@ -74,14 +74,35 @@ const GalleryCard=(props)=> {
               variant = {'contained'}
               cardID={cardID}
               title={
-                <div>
-                  {cardName}{" "}
-                <a 
-                style={{ cursor: "pointer", opacity: 0.33 }}
-                href='https://testnet.opensea.io/assets/0xC326B29BcEcdfe4Dec0c52aB7D148314487C2eAd/${cardID}'
-                >
-                  <LinkOutlined/>
-                </a>
+                <div style={{maxHeight:10,maxWidth:'100%',display:'inline-flex', justifyContent:'space-evenly'}}>
+                
+                
+                    
+                    <div style={{alignContent:'left'}}>
+                    <div style={{ marginLeft:0,marginTop:0,justifyContent:'left'}}>
+                      <p style={{paddingLeft:0,fontSize: '0.8em',fontWeight: 'bolder',color:'#707070', marginBottom:0}}>{cardName}</p>
+                      <div style={{display:'inline-flex', width:'fit-content'}}>
+                      <FaEthereum style={{fontSize: '0.8em',marginLeft: 10,marginTop:3, marginRight:2}}/>
+                        <p style={{fontSize: '0.8em',marginTop:0, marginRight:0,fontWeight: 'bolder',color:'#000000'}}>0.5</p>
+                      </div>
+                     
+                        
+                    </div>
+                    </div>
+                    <div style={{alignContent:'right'}}>
+                    <p style={{fontSize: '0.8em', paddingInline:'50%',opacity: 1, marginTop:3}}>
+                    <a 
+                      style={{ opacity: 1}}
+                      href='https://testnets.opensea.io/assets/0xC326B29BcEcdfe4Dec0c52aB7D148314487C2eAd/${cardID}'
+                    >
+                      <FaLink />
+                   </a>
+                   </p>
+                   </div>
+                    
+               
+               
+                
                 </div>
               }
               onClick = {() => {
@@ -124,6 +145,16 @@ const GalleryCard=(props)=> {
                 </div>
                 
               </div>
+              <div style={{marginRight:0,marginTop:20}}>
+              <p style={{ marginLeft: 20, opacity: 1, marginTop:3}}>
+                    <a 
+                      style={{ opacity: 1}}
+                      href='https://testnets.opensea.io/assets/0xC326B29BcEcdfe4Dec0c52aB7D148314487C2eAd/${cardID}'
+                    >
+                      <FaLink />
+                   </a>
+                   </p>
+                </div>
               </StackGrid>
             </div>
           
@@ -133,18 +164,39 @@ const GalleryCard=(props)=> {
         <BigDesktop>
         <Card hoverable
       
-              style={{height:'100%', width:'100%',justifyContent:'center', borderWidth:0}} key={cardName}
-              variant = {'contained'}
+              style={{height:'100%', width:'100%',justifyContent:'center', borderWidth:0.1}} key={cardName}
+              
               cardID={cardID}
               title={
-                <div>
-                  {cardName}{" "}
-                <a 
-                style={{ cursor: "pointer", opacity: 0.33 }}
-                href='https://testnets.opensea.io/assets/0xC326B29BcEcdfe4Dec0c52aB7D148314487C2eAd/1'
-                >
-                  <LinkOutlined/>
-                </a>
+                <div style={{maxHeight:10,maxWidth:'100%',display:'inline-flex', justifyContent:'space-evenly'}}>
+                
+                
+                    
+                    <div style={{alignContent:'left'}}>
+                    <div style={{ marginLeft:0,marginTop:0,justifyContent:'left'}}>
+                      <p style={{paddingLeft:0,fontSize: '0.8em',fontWeight: 'bolder',color:'#707070', marginBottom:0}}>{cardName}</p>
+                      <div style={{display:'inline-flex', width:'fit-content'}}>
+                      <FaEthereum style={{fontSize: '0.8em',marginLeft: 10,marginTop:3, marginRight:2}}/>
+                        <p style={{fontSize: '0.8em',marginTop:0, marginRight:0,fontWeight: 'bolder',color:'#000000'}}>0.5</p>
+                      </div>
+                     
+                        
+                    </div>
+                    </div>
+                    <div style={{alignContent:'right'}}>
+                    <p style={{fontSize: '0.8em', paddingInline:'50%',opacity: 1, marginTop:3}}>
+                    <a 
+                      style={{ opacity: 1}}
+                      href='https://testnets.opensea.io/assets/0xC326B29BcEcdfe4Dec0c52aB7D148314487C2eAd/${cardID}'
+                    >
+                      <FaLink />
+                   </a>
+                   </p>
+                   </div>
+                    
+               
+               
+                
                 </div>
               }
               onClick = {() => {
@@ -167,27 +219,7 @@ const GalleryCard=(props)=> {
             {cardForSale ? <img style={{maxWidth:'100%'}} src={cardMedia}/>:<img style={{opacity: 0.1,maxWidth:'100%'}} src={cardMedia}/> }
           </CardMedia>
           
-          <div className="container" style={{display:'-ms-inline-flexbox'}}>
-            <StackGrid 
-              columnWidth='50%'
-              
-              spacing={0}
-              marginTop={5}
-              >
-              <div style={{alignItems:'left',marginLeft:0,marginTop:20}}>
-                <p style={{fontSize:10,paddingLeft:0,fontWeight: 'bolder',color:'#707070', marginBottom:0}}>100mountains.eth</p>
-                <p style={{fontSize:10,marginTop:0, marginLeft:0,fontWeight: 'bolder',color:'#000000'}}>{cardName}</p>
-              </div>
-              <div style={{marginRight:0,marginTop:20}}>
-                <p style={{fontSize:10,marginRight:0,fontWeight: 'bolder',color:'#707070', marginBottom:0}}>Price</p>
-                <div style={{display:'inline-flex'}}>
-                  <FaEthereum style={{marginTop:3, marginRight:2}}/>
-                  <p style={{fontSize:10,marginTop:0, marginRight:0,fontWeight: 'bolder',color:'#000000'}}>0.5</p>
-                </div>
-                
-              </div>
-              </StackGrid>
-            </div>
+         
           
             </Link>
         </Card>
@@ -195,15 +227,36 @@ const GalleryCard=(props)=> {
         <Tablet>
         <Card hoverable
              title={
-              <div>
-                {cardName}{" "}
-              <a 
-              style={{ cursor: "pointer", opacity: 0.33 }}
-              href='https://testnet.opensea.io/assets/0xC326B29BcEcdfe4Dec0c52aB7D148314487C2eAd/${cardID}'
-              >
-                <LinkOutlined/>
-              </a>
-              </div>
+              <div style={{maxHeight:10,maxWidth:'100%',display:'inline-flex', justifyContent:'space-evenly'}}>
+                
+                
+                    
+                    <div style={{alignContent:'left'}}>
+                    <div style={{ marginLeft:0,marginTop:0,justifyContent:'left'}}>
+                      <p style={{paddingLeft:0,fontSize: '0.8em',fontWeight: 'bolder',color:'#707070', marginBottom:0}}>{cardName}</p>
+                      <div style={{display:'inline-flex', width:'fit-content'}}>
+                      <FaEthereum style={{fontSize: '0.8em',marginLeft: 10,marginTop:3, marginRight:2}}/>
+                        <p style={{fontSize: '0.8em',marginTop:0, marginRight:0,fontWeight: 'bolder',color:'#000000'}}>0.5</p>
+                      </div>
+                     
+                        
+                    </div>
+                    </div>
+                    <div style={{alignContent:'right'}}>
+                    <p style={{fontSize: '0.8em', paddingInline:'50%',opacity: 1, marginTop:3}}>
+                    <a 
+                      style={{ opacity: 1}}
+                      href='https://testnets.opensea.io/assets/0xC326B29BcEcdfe4Dec0c52aB7D148314487C2eAd/${cardID}'
+                    >
+                      <FaLink />
+                   </a>
+                   </p>
+                   </div>
+                    
+               
+               
+                
+                </div>
             }
             style={{height:'100%', justifyContent:'center', borderWidth:0}} key={cardName}
             variant = {'contained'}
@@ -256,15 +309,37 @@ const GalleryCard=(props)=> {
         <Mobile>
         <Card hoverable
              title={
-              <div>
-                {cardName}{" "}
-              <a 
-              style={{ cursor: "pointer", opacity: 0.33 }}
-              href='https://testnets.opensea.io/assets/0xC326B29BcEcdfe4Dec0c52aB7D148314487C2eAd/${cardID}'
-              >
-                <LinkOutlined/>
-              </a>
-              </div>
+              <div style={{maxHeight:10,maxWidth:'100%',display:'inline-flex', justifyContent:'space-evenly'}}>
+                
+                
+                    
+                    <div style={{alignContent:'left'}}>
+                    <div style={{ marginLeft:0,marginTop:0,justifyContent:'left'}}>
+                      <p style={{paddingLeft:0,fontSize: '0.8em',fontWeight: 'bolder',color:'#707070', marginBottom:0}}>{cardName}</p>
+                      <div style={{display:'inline-flex', width:'fit-content'}}>
+                      <FaEthereum style={{fontSize: '0.8em',marginLeft: 10,marginTop:3, marginRight:2}}/>
+                        <p style={{fontSize: '0.8em',marginTop:0, marginRight:0,fontWeight: 'bolder',color:'#000000'}}>0.5</p>
+                      </div>
+                     
+                        
+                    </div>
+                    </div>
+                    <div style={{alignContent:'right'}}>
+                    <p style={{fontSize: '0.8em', paddingInline:'50%',opacity: 1, marginTop:3}}>
+                    <a 
+                      style={{ opacity: 1}}
+                      href='https://testnets.opensea.io/assets/0xC326B29BcEcdfe4Dec0c52aB7D148314487C2eAd/${cardID}'
+                    >
+                      <FaLink />
+                   </a>
+                   </p>
+                   </div>
+                    
+               
+               
+                
+                </div>
+              
             }
             style={{height:'100%', justifyContent:'center', borderWidth:0}} key={cardName}
             variant = {'contained'}
