@@ -1,5 +1,5 @@
 import React, { useContext,useCallback, useEffect, useState } from "react";
-import { BrowserRouter,Switch, Route, Link, useHistory } from "react-router-dom";
+import { BrowserRouter as Router,Switch, Route, Link, useHistory, useLocation } from "react-router-dom";
 import { slide as MenuMobile } from 'react-burger-menu'
 import "antd/dist/antd.css";
 import {  JsonRpcProvider, Web3Provider } from "@ethersproject/providers";
@@ -35,6 +35,7 @@ import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import { createBrowserHistory } from 'history';
 import {Box} from '@material-ui/core/';
 import MenuIcon from '@material-ui/icons/Menu';
 import CardContent from '@material-ui/core/CardContent';
@@ -66,7 +67,7 @@ import StackGrid from "react-stack-grid";
 import ReactJson from 'react-json-view'
 import assets from './assets.js'
 import tree from './tree.json';
-
+import Modal from './components/Modal';
 import styled from "styled-components"
 import { ButtonBase } from "@material-ui/core";
 import Table from "rc-table/lib/Table";
@@ -214,7 +215,8 @@ const Default = ({ children }) => {
 }
 
 function App(props) {
-
+  const history = createBrowserHistory();
+  
   const targetElement = document.querySelector('#page-wrap');
   const targetElement2 = document.querySelector('#outer-container');
   disableBodyScroll(targetElement2);
@@ -421,7 +423,7 @@ function App(props) {
     )
   }
 
-
+  
   const [ yourJSON, setYourJSON ] = useState( STARTING_JSON );
   const [ sending, setSending ] = useState()
   const [ ipfsHash, setIpfsHash ] = useState()
@@ -498,7 +500,8 @@ function App(props) {
     }
     updateCardComponent()
   }, [ clickedCardContent, clickedCardProperties, clickedCardActions, reactJSMediaPlayer, clickedCardProperties ]);
-  
+  const location = useLocation()
+  const background = location.state && location.state.background;
   let galleryList = []
   for(let a in loadedAssets){
     console.log("loadedAssets",a,loadedAssets[a])
@@ -554,6 +557,7 @@ function App(props) {
       
         <GalleryCard hoverable
               actions={cardActions}
+                                   
               forSale={loadedAssets[a].forSale}
               cardMedia={loadedAssets[a].image}
               cardID={loadedAssets[a].id}
@@ -571,8 +575,9 @@ function App(props) {
         
     )
   }
-
+  
   return (
+    
       <div className="App">
          
         <div style={{marginTop:0,height:100, background:'#1c2022',zIndex:20}}>
@@ -582,8 +587,8 @@ function App(props) {
        
         
         
-
-        <BrowserRouter>
+      <Router>
+        
         <BigDesktop>
           
 
@@ -601,7 +606,8 @@ function App(props) {
         <Tablet>
         <StyledNav setRoute={setRoute}/>
         </Tablet>
-          <Switch>
+        
+          <Switch location={background || location}>
             <Route exact path="/">
            
               <Desktop>
@@ -719,12 +725,11 @@ function App(props) {
               </Tablet>
               
             </Route>
-            <Route path='/card/:cardID' >
+            </Switch>
+            {background && <Route path = "/:cardID" children={<Modal clickedCardActions= {clickedCardActions}/>}/>}
             
-              <CustomCardFull clickedCardActions={clickedCardActions}/>
-            </Route>
-             </Switch>
-            {/*
+             
+           {/*
             <div>
             
               {<CustomCardFull clickedCardContent={clickedCardContent} properties={clickedCardProperties} clickedCardActions={clickedCardActions} reactJSMediaPlayer={reactJSMediaPlayer}/>}
@@ -845,11 +850,11 @@ function App(props) {
          
            
          
-        </BrowserRouter>
-
+        
+          </Router>
         </div>
-
-
+          
+        
        
         <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 10 }}>
           <Account

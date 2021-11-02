@@ -4,7 +4,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { Card } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import StackGrid from "react-stack-grid";
-import { Link }from 'react-router-dom';
+import { Link, useLocation }from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import { FaPalette, FaReact, FaCode, FaConnectdevelop, FaGripLines, FaDiceD6, FaEthereum, FaLink} from "react-icons/fa";
 import { LinkOutlined } from "@ant-design/icons";
 const BigDesktop = ({ children }) => {
@@ -30,22 +31,15 @@ const Desktop = ({ children }) => {
 const GalleryCard=(props)=> {
     
 
-    let forSale = props.forSale
+    let location = useLocation()
     let cardMedia = props.cardMedia;
     let cardID = props.cardID;
     let cardName = props.cardName;
     let cardExternal = props.cardExternal;
     let cardPropeties = props.cardPropeties;
     let cardDescription = props.cardDescription;
-    const [ clickedCardMedia, setCardClickedMedia ] = useState()
-    const [ clickedCardThumbnail, setCardClickedThumbnail ] = useState()
-    const [ clickedCardContent, setCardClickedContent ] = useState()
+    
     const [ clickedCardActions, setCardClickedActions ] = useState()
-    const [ clickedCardProperties, setCardClickedProperties ] = useState()
-    const [ clickedCardDescription, setCardClickedDescription ] = useState()
-    const [ reactJSMediaPlayer, setReactJSMediaPlayer ] = useState()
-    const [ customCardView, setCustomCardView ] = useState()
-    const [ cardClicked, setCardClicked ] = useState()
     const [ cardForSale, setCardForSale ] = useState()
 
     useEffect(()=>{
@@ -107,12 +101,9 @@ const GalleryCard=(props)=> {
               }
               onClick = {() => {
                 
-                setCardClickedMedia(cardExternal)
-                setCardClickedThumbnail(cardMedia)
-                setCardClickedContent(cardName)
+             
                 props.actionsChanger(clickedCardActions)
-                setCardClickedProperties(cardPropeties)
-                setCardClickedDescription(cardDescription)
+                
                 
                 
                 
@@ -120,7 +111,8 @@ const GalleryCard=(props)=> {
               
         >
           
-          <Link to ={{pathname:`/card/${cardID}`}}>
+          <Link to ={{pathname:`/${cardID}`,
+              state: {background: location, forSale: cardForSale}}}>
           <CardMedia>
             {cardForSale ? <img style={{omaxWidth:'100%'}} src={cardMedia}/>:<img style={{opacity: 0.1,maxWidth:'100%'}} src={cardMedia}/> }
             
@@ -171,12 +163,9 @@ const GalleryCard=(props)=> {
               }
               onClick = {() => {
                 
-                setCardClickedMedia(cardExternal)
-                setCardClickedThumbnail(cardMedia)
-                setCardClickedContent(cardName)
+                
                 props.actionsChanger(clickedCardActions)
-                setCardClickedProperties(cardPropeties)
-                setCardClickedDescription(cardDescription)
+                
                 
                 
                 
@@ -184,7 +173,8 @@ const GalleryCard=(props)=> {
               
         >
           
-          <Link to ={{pathname:`/card/${cardID}`}}>
+          <Link to ={{pathname:`/${cardID}`,
+              state: {background: location, forSale: cardForSale}}}>
           <CardMedia>
             {cardForSale ? <img style={{maxWidth:'100%'}} src={cardMedia}/>:<img style={{opacity: 0.1,maxWidth:'100%'}} src={cardMedia}/> }
           </CardMedia>
@@ -234,12 +224,9 @@ const GalleryCard=(props)=> {
             cardID={cardID}
             onClick = {() => {
                 
-                setCardClickedMedia(cardExternal)
-                setCardClickedThumbnail(cardMedia)
-                setCardClickedContent(cardName)
+               
                 props.actionsChanger(clickedCardActions)
-                setCardClickedProperties(cardPropeties)
-                setCardClickedDescription(cardDescription)
+               
                 
                 
                 
@@ -247,7 +234,8 @@ const GalleryCard=(props)=> {
             
         >
         
-        <Link to ={{pathname:`/card/${cardID}`}}>
+        <Link to ={{pathname:`/${cardID}`,
+              state: {background: location, forSale: cardForSale}}}>
         <CardMedia>
           {cardForSale ? <img style={{maxWidth:'100%'}} src={cardMedia}/>:<img style={{opacity: 0.1,maxWidth:'100%'}} src={cardMedia}/> }
         </CardMedia>
@@ -298,12 +286,9 @@ const GalleryCard=(props)=> {
             cardID={cardID}
             onClick = {() => {
                 
-                setCardClickedMedia(cardExternal)
-                setCardClickedThumbnail(cardMedia)
-                setCardClickedContent(cardName)
+               
                 props.actionsChanger(clickedCardActions)
-                setCardClickedProperties(cardPropeties)
-                setCardClickedDescription(cardDescription)
+           
                 
                 
                 
@@ -311,7 +296,8 @@ const GalleryCard=(props)=> {
             
         >
         
-        <Link to ={{pathname:`/card/${cardID}`}}>
+        <Link to ={{pathname:`/${cardID}`,
+              state: {background: location, forSale: cardForSale}}}>
         <CardMedia>
           {cardForSale ? <img style={{maxWidth:'100%'}} src={cardMedia}/>:<img style={{opacity: 0.1,maxWidth:'100%'}} src={cardMedia}/> }
         </CardMedia>

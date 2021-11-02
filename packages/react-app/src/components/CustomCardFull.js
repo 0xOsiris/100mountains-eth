@@ -39,12 +39,9 @@ export default function CustomCardFull(props) {
         }, []);
 
         return (
-            
-            <div class="container-fluid" style={{justifyContent:'center' }}>
-                <div class="row" style={{marginTop:300, display:'flex', justifyContent:'center'}}>
-                    
+           
                     <StackGrid 
-                                style={{height:'100%',borderWidth:5, borderColor:'#F5F5F5',justifyContent:'center'}}
+                                style={{borderWidth:5, borderColor:'#F5F5F5',justifyContent:'center'}}
                                 columnWidth={440}
                                 gutterWidth={0}
                                 
@@ -127,31 +124,9 @@ export default function CustomCardFull(props) {
                         </Card>
                         </div>
                       
-                    </StackGrid>              
-          
-                      <Card 
-                        
-                        style={{height:'100%',width:1200, borderWidth:10,borderColor:'#F5F5F5'}}
-                        variant = {'contained'}
-                        title={(
-                          cardData[cardID].name
-                        )}
-                       
-                        >
-                        <CardContent
-                        style={{justifyContent:'left'}}>
-                          <li style={{justifyContent:'left'}}>
-                            <h1>Current Price</h1>
-                            <p>0.5 Eth</p>
-                          </li>
-                        </CardContent>
-                        
-                        
-                      </Card>
-                   
+                    </StackGrid>
                   
-                  </div>
-                </div>
+                
         
         );
                         
