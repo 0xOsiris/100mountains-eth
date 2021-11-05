@@ -2,6 +2,10 @@
   text-align: center;
   
 }
+.wrapper {
+  display: inline-flex;
+  flex-direction: column;
+}
 .page-wrap {
   height:95%;
 	

@@ -4,7 +4,18 @@
     /* Prevent sidebar from showing a scrollbar on page */
     overflow: auto;
   }
-  
+  .wrapper {
+    
+    
+    background-color: whitesmoke;
+    position: absolute;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  h1, p {
+    font-family: Lato;
+  }
   /* Individual item */
   .bm-item {
     display:block;

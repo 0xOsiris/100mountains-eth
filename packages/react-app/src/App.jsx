@@ -1,4 +1,4 @@
-import React, { useContext,useCallback, useEffect, useState } from "react";
+import React, { useContext,useCallback, useEffect, useState, useRef} from "react";
 import { BrowserRouter as Router,Switch, Route, Link, useHistory, useLocation } from "react-router-dom";
 import { slide as MenuMobile } from 'react-burger-menu'
 import "antd/dist/antd.css";
@@ -215,12 +215,15 @@ const Default = ({ children }) => {
 }
 
 function App(props) {
-  const history = createBrowserHistory();
   
-  const targetElement = document.querySelector('#page-wrap');
-  const targetElement2 = document.querySelector('#outer-container');
-  disableBodyScroll(targetElement2);
-  enableBodyScroll(targetElement);
+  
+
+  const ref = useRef();
+  const location = useLocation()
+  const background = location.state && location.state.background;
+  const iMenuOpen = location.state && location.state.iMenuOpen;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const [value,setValue]=useState('');
 
   const handleSelect=(e)=>{
@@ -230,6 +233,23 @@ function App(props) {
     setValue(e)
 
   }
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      // If the menu is open and the clicked target is not within the menu,
+      // then close the menu
+      if (isMenuOpen && ref.current && !ref.current.contains(e.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [isMenuOpen]);
   const [showExitPrompt, setShowExitPrompt] = useExitPrompt(false);
 
   const handleClick = (e) => {
@@ -462,7 +482,7 @@ function App(props) {
   const arrowOpen = (
     <span className="arrow-open" />
   )
-  
+
   useEffect(()=>{
     const updateYourCollectibles = async () => {
       let assetUpdate = []
@@ -493,28 +513,30 @@ function App(props) {
     updateMediaPlayer()
   }, [ clickedCardMedia, clickedCardThumbnail ]);
 
-  useEffect(()=>{
-    const updateCardComponent = async () => {
-      let cardComponent = <CustomCardFull clickedCardContent={clickedCardContent} properties={clickedCardProperties} clickedCardActions={clickedCardActions} reactJSMediaPlayer={reactJSMediaPlayer}/>
-      setCustomCardView(cardComponent)
-    }
-    updateCardComponent()
-  }, [ clickedCardContent, clickedCardProperties, clickedCardActions, reactJSMediaPlayer, clickedCardProperties ]);
-  const location = useLocation()
-  const background = location.state && location.state.background;
+
+
+  
   let galleryList = []
+
   for(let a in loadedAssets){
     console.log("loadedAssets",a,loadedAssets[a])
 
     let cardActions = []
     cardActions.push(
-      <div>  
-          <HeartButton isClicked={false} itemId={loadedAssets[a].id}/> 
-      </div>)
+      <div>
+        <Button onClick={() => {
+          setIsMenuOpen(false)
+        }}>
+          Close
+        </Button>
+      </div>
+      
+      
+  )
     if(loadedAssets[a].forSale){
       const { claims } = tree;
       let target = {};
-
+      
       for (const artID in claims) {
         if (artID === loadedAssets[a].id) {
           target = claims[artID];
@@ -557,7 +579,7 @@ function App(props) {
       
         <GalleryCard hoverable
               actions={cardActions}
-                                   
+              stateChanger= {setIsMenuOpen}               
               forSale={loadedAssets[a].forSale}
               cardMedia={loadedAssets[a].image}
               cardID={loadedAssets[a].id}
@@ -575,20 +597,23 @@ function App(props) {
         
     )
   }
+
+  
   
   return (
     
-      <div className="App">
-         
-        <div style={{marginTop:0,height:100, background:'#1c2022',zIndex:20}}>
+      <div className="App"  >
+        
+
+        <div style={{marginTop:0,height:100, background:'#1c2022',zIndex:20}} ref ={ref}>
 
         
         
        
         
         
-      <Router>
-        
+     
+       
         <BigDesktop>
           
 
@@ -725,11 +750,12 @@ function App(props) {
               </Tablet>
               
             </Route>
-            </Switch>
-            {background && <Route path = "/:cardID" children={<Modal clickedCardActions= {clickedCardActions}/>}/>}
-            
+           
+             </Switch>
              
-           {/*
+            {isMenuOpen && (
+            background && <Route path = "/:cardID" children={<Modal history={"/"} ref = {ref} isMenuOpen= {isMenuOpen} clickedCardActions= {clickedCardActions} forSale ={location.state.forSale}/>}/>)}
+            {/*
             <div>
             
               {<CustomCardFull clickedCardContent={clickedCardContent} properties={clickedCardProperties} clickedCardActions={clickedCardActions} reactJSMediaPlayer={reactJSMediaPlayer}/>}
@@ -851,7 +877,7 @@ function App(props) {
            
          
         
-          </Router>
+          
         </div>
           
         

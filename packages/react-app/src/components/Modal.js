@@ -1,17 +1,58 @@
-import React from "react";
+import React, {useState, useEffect,useRef} from "react";
 import { useHistory, useParams } from "react-router-dom";
-
+import "../styles/styles.css"
 import CustomCardFull from "./CustomCardFull";
-import GalleryCard from "./GalleryCard";
+import ModalCard from "./ModalCard";
 const Modal = (props) => {
-  const history = useHistory();
+  const history = useHistory()
   const { cardID } = useParams()
   const forSale = props.forSale;
-  const clickedCardActions = props.clickedCardActions;
+  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [ clickedCardActions, setClickedCardActions ] = useState()
+  const ref = useRef();
   const closeModal = e => {
-    e.stopPropagation();
-    history.goBack();
+    
+    history.push(props.history)
   };
+  useEffect(()=>{
+    const updateActions = async () => {
+      let cardActions = props.clickedCardActions
+      
+        setClickedCardActions(cardActions)
+      
+      
+    }
+    updateActions()
+  }, []);
+  React.useEffect(()=>{
+    const updateMenu = async () => {
+      let menuOpen = props.isMenuOpen
+      
+        setIsMenuOpen(menuOpen)
+      }
+      
+    
+    updateMenu()
+  }, []);
+
+  React.useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      // If the menu is open and the clicked target is not within the menu,
+      // then close the menu
+      if (isMenuOpen && ref.current && !ref.current.contains(e.target)) {
+        setIsMenuOpen(false);
+        closeModal();
+      }
+    };
+
+    document.addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [isMenuOpen]);
 
   React.useEffect(() => {
     document.body.classList.add("overflow-hidden");
@@ -22,25 +63,12 @@ const Modal = (props) => {
   }, []);
 
   return (
-    <div className="absolute inset-0 bg-black bg-opacity-75 w-full h-screen z-10 flex items-center justify-center">
-    <span
-      className="inline-block absolute top-0 right-0 mr-4 mt-4 cursor-pointer"
-      onClick={closeModal}
-    >
-        <svg
-          class="w-6 h-6 text-white"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-            fill-rule="evenodd"
-            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-            clip-rule="evenodd"
-          />
-          </svg>
-        </span>
-    <GalleryCard actions={clickedCardActions} cardID={cardID} forSale={forSale}/>
+    <div className="absolute inset-0 bg-black bg-opacity-75 w-full h-full z-10 flex items-center justify-center">
+      <div style={{zIndex:20}} ref={ref}>
+        {isMenuOpen && 
+      <ModalCard actions={clickedCardActions} cardID={cardID} forSale={forSale} />
+        }
+        </div>
     </div>
   );
 };

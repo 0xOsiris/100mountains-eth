@@ -19,18 +19,18 @@ class ReactMediaPlayer extends Component{
         
         return (
         
-       
+       <div>
         <ReactWebMediaPlayer 
-            style={{ marginLeft: 0, marginRight: 0, textAlign:'center'}}
+            style={{ justifyContent:'center'}}
             height={480}
             width={360}
             video={this.state.url}
             thumbnail={this.state.thumbnail}
             autoplay={false}
-            allowFullFrame={false}
+            allowFullFrame={true}
             color='#000000'
             />
-        
+        </div>
         );
         }
     
