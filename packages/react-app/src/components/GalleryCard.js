@@ -29,19 +29,17 @@ const Desktop = ({ children }) => {
     return isNotMobile ? children : null
   }
 const GalleryCard=(props)=> {
-    
-
     const location = useLocation()
+
     let cardMedia = props.cardMedia;
     let cardID = props.cardID;
     let cardName = props.cardName;
     
-    let cardExternal = props.cardExternal;
-    let cardPropeties = props.cardPropeties;
-    let cardDescription = props.cardDescription;
+
     const [ iMenuOpen, setIMenuOpen ] = useState(false)
     const [ clickedCardActions, setCardClickedActions ] = useState()
     const [ cardForSale, setCardForSale ] = useState()
+
     useEffect(()=>{
       const updateActions = async () => {
         let cardActions = props.actions
@@ -56,8 +54,6 @@ const GalleryCard=(props)=> {
       }
       updateForSale()
     }, [cardForSale]);
-
-    
 
     return(
        
@@ -101,15 +97,9 @@ const GalleryCard=(props)=> {
                 
                 </div>
               }
-              onClick = {() => {
-                
-                
-                props.actionsChanger(clickedCardActions)
-                
+              onClick = {() => {         
+                props.actionsChanger(clickedCardActions)              
                 props.stateChanger(true)
-
-                
-                
                 
               }}
               
@@ -165,13 +155,9 @@ const GalleryCard=(props)=> {
                 
                 </div>
               }
-              onClick = {() => {
-                
-                
+              onClick = {() => {              
                 props.actionsChanger(clickedCardActions)
-                props.stateChanger(true)
-                
-                
+                props.stateChanger(true)                
                 
               }}
               
@@ -193,9 +179,7 @@ const GalleryCard=(props)=> {
            
              title={
               <div style={{maxHeight:10,maxWidth:'100%',display:'inline-flex', justifyContent:'space-evenly'}}>
-                
-                
-                    
+               
                     <div style={{alignContent:'left'}}>
                     <div style={{ marginLeft:0,marginTop:0,justifyContent:'left'}}>
                       <p style={{paddingLeft:0,fontSize: '0.8em',fontWeight: 'bolder',color:'#707070', marginBottom:0}}>{cardName}</p>

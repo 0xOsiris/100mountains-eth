@@ -1,8 +1,8 @@
 import React, {useState, useEffect,useRef} from "react";
 import { useHistory, useParams } from "react-router-dom";
 import "../styles/styles.css"
-import CustomCardFull from "./CustomCardFull";
 import ModalCard from "./ModalCard";
+
 const Modal = (props) => {
   const history = useHistory()
   const { cardID } = useParams()

@@ -1,76 +1,39 @@
-import React, { useContext,useCallback, useEffect, useState, useRef} from "react";
-import { BrowserRouter as Router,Switch, Route, Link, useHistory, useLocation } from "react-router-dom";
-import { slide as MenuMobile } from 'react-burger-menu'
+import React, { useCallback, useEffect, useState, useRef} from "react";
+import { BrowserRouter as Router,Switch, Route, useLocation } from "react-router-dom";
 import "antd/dist/antd.css";
 import {  JsonRpcProvider, Web3Provider } from "@ethersproject/providers";
-import {  LinkOutlined } from "@ant-design/icons";
 import "./App.css";
 import "./styles/styles.css";
-
-import CustomCard from "./partials/Card" ;
 import { useMediaQuery } from 'react-responsive';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MobileMenu from "./components/MobileMenu";
 import 'react-dropdown/style.css';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown';
 import useExitPrompt from './hooks/useExitPrompt.js'
-import ReactDOM from "react-dom";
 import "./index.css";
-import {  DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-import AOS from "aos";
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import Skills from "./partials/Skills";
 import "aos/dist/aos.css";
 import './assets/main.css';
 import StyledNav from "./components/StyledNav";
-import ReactWebMediaPlayer from 'react-web-media-player';
-import Collapsible from 'react-collapsible'
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import {AnimatedSharedLayout, motion} from 'framer-motion';
-import { VideoPlayer } from "./components";
-import {StyledMenu} from "./components/Menu.styled";
+import { useFullScreenHandle } from "react-full-screen";
 import { makeStyles } from '@material-ui/core/styles';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import { createBrowserHistory } from 'history';
-import {Box} from '@material-ui/core/';
-import MenuIcon from '@material-ui/icons/Menu';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import GalleryCard from './components/GalleryCard';
-import { Row, Col, Menu, Alert, Input, List, Card, Switch as SwitchD } from "antd";
-import { CardHeader, Grid, Image } from 'semantic-ui-react'
+import { Row, Col,  Alert, Switch as SwitchD } from "antd";
 import Web3Modal from "web3modal";
 import ReactMediaPlayer from './components/ReactWebMediaPlayer'
-import  CustomCardFull  from "./components/CustomCardFull";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { useUserAddress } from "eth-hooks";
 import { useExchangePrice, useGasPrice, useUserProvider, useContractLoader, useContractReader, useEventListener, useBalance, useExternalContractLoader } from "./hooks";
-import { Header, Account, Faucet, Ramp, Contract, GasGauge, Address, AddressInput, ThemeSwitch} from "./components";
+import { Account, Faucet, Ramp,  Address, } from "./components";
 import { Transactor } from "./helpers";
 import { formatEther, parseEther } from "@ethersproject/units";
 import { utils } from "ethers";
-import  HeartButton  from "./components/HeartButton"
-import { FaPalette, FaReact, FaCode, FaConnectdevelop, FaGripLines, FaDiceD6, FaEthereum, FaHamburger} from "react-icons/fa";
-import { Provider } from 'react-redux';
-import MediaQuery from 'react-responsive'
-import { Directions, ExpandMore } from '@material-ui/icons';
-import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
-//import Hints from "./Hints";
-import { Hints, ExampleUI, Subgraph, AboutUsPage} from "./views"
-import { useThemeSwitcher } from "react-css-theme-switcher";
+import {  AboutUsPage} from "./views"
 import { INFURA_ID, DAI_ADDRESS, DAI_ABI, NETWORK, NETWORKS } from "./constants";
 import StackGrid from "react-stack-grid";
-import ReactJson from 'react-json-view'
 import assets from './assets.js'
 import tree from './tree.json';
 import Modal from './components/Modal';
 import styled from "styled-components"
-import { ButtonBase } from "@material-ui/core";
-import Table from "rc-table/lib/Table";
+import { FaConnectdevelop } from "react-icons/fa";
 const BOOTSTRAP_FOR_SKILL_ICON = "text-4xl mx-auto inline-block";
 const { BufferList } = require('bl')
 
@@ -82,7 +45,7 @@ console.log("📦 Assets: ",assets)
 
 
 
-const targetNetwork = NETWORKS['localhost']; 
+const targetNetwork = NETWORKS['rinkeby']; 
 
 
 const DEBUG = true
@@ -149,6 +112,7 @@ const theme = {
     hover: "#ad1457"
   }
 };
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -169,6 +133,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'rgba(255, 255, 255, 0.54)',
   },
 }));
+
 const Button = styled.button`
   background-color: ${(props) => theme[props.theme].default};
   color: black;
@@ -192,6 +157,8 @@ const Button = styled.button`
 Button.defaultProps = {
   theme: "pink"
 };
+
+//Media query to determine device screen size
 const BigDesktop = ({ children }) => {
   const isDesktop = useMediaQuery({ minWidth: 1501 })
   return isDesktop ? children : null
@@ -209,30 +176,16 @@ const Mobile = ({ children }) => {
   const isMobile = useMediaQuery({ maxWidth: 767 })
   return isMobile ? children : null
 }
-const Default = ({ children }) => {
-  const isNotMobile = useMediaQuery({ minWidth: 768 })
-  return isNotMobile ? children : null
-}
+
 
 function App(props) {
-  
-  
-
+  //ref tag used to detect container click to close modal card view
   const ref = useRef();
   const location = useLocation()
+  //background state defined in Link of GalleryCard Component to determine 
+  //clickable background for Modal Card
   const background = location.state && location.state.background;
-  const iMenuOpen = location.state && location.state.iMenuOpen;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const [value,setValue]=useState('');
-
-  const handleSelect=(e)=>{
-
-    console.log(e);
-
-    setValue(e)
-
-  }
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -252,30 +205,21 @@ function App(props) {
   }, [isMenuOpen]);
   const [showExitPrompt, setShowExitPrompt] = useExitPrompt(false);
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    setShowExitPrompt(!showExitPrompt)
-  }
-
   
-
   
-  const classes = useStyles();
   const mainnetProvider = (scaffoldEthProvider && scaffoldEthProvider._network) ? scaffoldEthProvider : mainnetInfura
   if(DEBUG) console.log("🌎 mainnetProvider",mainnetProvider)
 
   const [injectedProvider, setInjectedProvider] = useState();
  
+  //Get real time eth price
   const price = useExchangePrice(targetNetwork,mainnetProvider);
-
-
   const gasPrice = useGasPrice(targetNetwork,"fast");
- 
   const userProvider = useUserProvider(injectedProvider, localProvider);
   const address = useUserAddress(userProvider);
+
   if(DEBUG) console.log("👩‍💼 selected address:",address)
 
- 
   let localChainId = localProvider && localProvider._network && localProvider._network.chainId
   if(DEBUG) console.log("🏠 localChainId",localChainId)
 
@@ -283,8 +227,6 @@ function App(props) {
   if(DEBUG) console.log("🕵🏻‍♂️ selectedChainId:",selectedChainId)
 
   const tx = Transactor(userProvider, gasPrice)
-
- 
   const faucetTx = Transactor(localProvider, gasPrice)
 
  
@@ -310,17 +252,11 @@ function App(props) {
   const myMainnetDAIBalance = useContractReader({DAI: mainnetDAIContract},"DAI", "balanceOf",["0x34aA3F359A9D614239015126635CE7732c18fDF3"])
   console.log("🥇 myMainnetDAIBalance:",myMainnetDAIBalance)
 
-
- 
   const balance = useContractReader(readContracts,"YourCollectible", "balanceOf", [ address ])
   console.log("🤗 balance:",balance)
-
  
   const transferEvents = useEventListener(readContracts, "YourCollectible", "Transfer", localProvider, 1);
   console.log("📟 Transfer events:",transferEvents)
-
-
-
   
   const yourBalance = balance && balance.toNumber && balance.toNumber()
   
@@ -513,9 +449,6 @@ function App(props) {
     updateMediaPlayer()
   }, [ clickedCardMedia, clickedCardThumbnail ]);
 
-
-
-  
   let galleryList = []
 
   for(let a in loadedAssets){

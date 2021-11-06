@@ -26,16 +26,15 @@ contract YourCollectible is ERC721 {
   //this lets you look up a token by the uri (assuming there is only one of each uri for now)
   mapping (bytes32 => uint256) public uriToTokenId;
 
-  
+  uint256 public price = 0.1 ether;
   function mintItem(address _user, string memory tokenURI)
       public
-      
+      payable
       returns (uint256)
   {
-      
+      require(msg.value> price, "Not enough funds");
       bytes32 uriHash = keccak256(abi.encodePacked(tokenURI));
 
-      //make sure they are only minting something that is marked "forsale"
       require(forSale[uriHash],"NOT FOR SALE");
       forSale[uriHash]=false;
 
