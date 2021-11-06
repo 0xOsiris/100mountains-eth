@@ -2,7 +2,7 @@
     "build": {
       "image": "fleek/create-react-app:node-12",
       "command": "yarn && yarn upload && yarn build",
-      "publicDir": "./react-app/build",
+      "publicDir": "./packages/react-app/build",
       "baseDir": "",
       "environment": {
         "NODE_OPTIONS": "--max-old-space-size=8192 "
