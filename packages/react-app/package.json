@@ -60,6 +60,7 @@
     "global": "^4.4.0",
     "graphiql": "^1.0.5",
     "graphql": "^15.3.0",
+    "increase-memory-limit": "^1.0.7",
     "isomorphic-fetch": "^3.0.0",
     "node-watch": "^0.7.1",
     "object-assign": "^4.1.1",
