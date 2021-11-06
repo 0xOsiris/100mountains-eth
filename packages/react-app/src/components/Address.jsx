@@ -60,7 +60,7 @@ export default function Address(props) {
   if (props.minimized) {
     return (
       <span style={{ verticalAlign: "middle" }}>
-        <a /*style={{ color: "#222222" }}*/ target={"_blank"} href={etherscanLink} rel="noopener noreferrer">
+        <a style={{ color: "#FFFFFF" }} target={"_blank"} href={etherscanLink} rel="noopener noreferrer">
           <Blockies seed={address.toLowerCase()} size={8} scale={2} />
         </a>
       </span>
@@ -71,7 +71,7 @@ export default function Address(props) {
   if (props.onChange) {
     text = (
       <Text editable={{ onChange: props.onChange }} copyable={{ text: address }}>
-        <a /*style={{ color: "#222222" }}*/ target={"_blank"} href={etherscanLink} rel="noopener noreferrer">
+        <a style={{ color: "#FFFFFF" }} target={"_blank"} href={etherscanLink} rel="noopener noreferrer">
           {displayAddress}
         </a>
       </Text>
@@ -79,7 +79,7 @@ export default function Address(props) {
   } else {
     text = (
       <Text copyable={{ text: address }}>
-        <a /*style={{ color: "#222222" }}*/ target={"_blank"} href={etherscanLink} rel="noopener noreferrer">
+        <a style={{ color: "#FFFFFF" }} target={"_blank"} href={etherscanLink} rel="noopener noreferrer">
           {displayAddress}
         </a>
       </Text>
@@ -88,9 +88,7 @@ export default function Address(props) {
 
   return (
     <span>
-      <span style={{ verticalAlign: "middle" }}>
-        <Blockies seed={address.toLowerCase()} size={8} scale={props.fontSize?props.fontSize/7:4} />
-      </span>
+      
       <span style={{ verticalAlign: "middle", paddingLeft: 5, fontSize: props.fontSize?props.fontSize:28 }}>{text}</span>
     </span>
   );

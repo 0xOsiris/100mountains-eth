@@ -83,6 +83,7 @@ export default function Balance(props) {
         fontSize: props.size ? props.size : 24,
         padding: 8,
         cursor: "pointer",
+        color: "#FFFFFF"
       }}
       onClick={() => {
         setDollarMode(!dollarMode);

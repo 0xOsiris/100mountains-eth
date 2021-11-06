@@ -76,7 +76,7 @@ const ModalCard=(props)=> {
             hoverable
             actions={clickedCardActions} 
               
-              style={{height:'100%', width:400,justifyContent:'center'}} 
+              style={{height:'100%',width:'100%',justifyContent:'center', borderWidth:0.1}} 
               key={cardData[cardID].name}
               variant = {'contained'}
               cardID={cardID}
@@ -117,13 +117,13 @@ const ModalCard=(props)=> {
           
         
           <CardMedia>
-            <div style={{justifyContent:'center', maxWidth:'100%'}}>
+            
             {reactJSMediaPlayer}
-            </div>
+            
           </CardMedia>
           
-          
-          <Accordion className="accordion">
+          {/*
+          <Accordion style={{width:360, height:60}} className="accordion">
                 <AccordionSummary  expandIcon={<ExpandMore />}>
                     <ul style={{display:'inline-flex'}}>
                     <li style={{justifyContent:'center'}}>
@@ -145,7 +145,7 @@ const ModalCard=(props)=> {
                 </AccordionDetails>
 
                 </Accordion>
-                <Accordion className="accordion">
+                <Accordion style={{maxWidth:360}} className="accordion">
                 <AccordionSummary  expandIcon={<ExpandMore />}>
                 <ul style={{display:'inline-flex'}}>
                     <li style={{justifyContent:'left'}}>
@@ -166,7 +166,7 @@ const ModalCard=(props)=> {
                 </AccordionDetails>
                 </Accordion>
 
-                <Accordion className="accordion">
+                <Accordion style={{maxWidth:360}} className="accordion">
                 <AccordionSummary  expandIcon={<ExpandMore />}>
                     Accordion 3
                 </AccordionSummary>
@@ -176,6 +176,7 @@ const ModalCard=(props)=> {
                 </AccordionDetails>
 
                 </Accordion>
+                */ }
         </Card>
         
         </Desktop>

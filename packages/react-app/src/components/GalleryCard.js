@@ -6,8 +6,11 @@ import { useMediaQuery } from 'react-responsive';
 import StackGrid from "react-stack-grid";
 import { Link, useLocation }from 'react-router-dom';
 import {useParams} from 'react-router-dom';
+import { ReactMediaPlayer } from ".";
+import cardData from '../storage/cardData';
 import { FaPalette, FaReact, FaCode, FaConnectdevelop, FaGripLines, FaDiceD6, FaEthereum, FaLink} from "react-icons/fa";
 import { LinkOutlined } from "@ant-design/icons";
+
 const BigDesktop = ({ children }) => {
     const isDesktop = useMediaQuery({ minWidth: 1501 })
     return isDesktop ? children : null
@@ -35,11 +38,18 @@ const GalleryCard=(props)=> {
     let cardID = props.cardID;
     let cardName = props.cardName;
     
-
+    const [ reactJSMediaPlayer, setReactJSMediaPlayer ] = useState()
     const [ iMenuOpen, setIMenuOpen ] = useState(false)
     const [ clickedCardActions, setCardClickedActions ] = useState()
     const [ cardForSale, setCardForSale ] = useState()
 
+    useEffect(()=>{
+      const updateMediaPlayer = async () => {
+        let ReactJSMediaPlayer = <ReactMediaPlayer url={cardData[cardID].external_url} thumbnail={cardData[cardID].image} style={{ marginLeft: 'auto', marginRight: 'auto', justifyContent: 'center' }}/>
+        setReactJSMediaPlayer(ReactJSMediaPlayer)
+      }
+      updateMediaPlayer()
+    }, []);
     useEffect(()=>{
       const updateActions = async () => {
         let cardActions = props.actions
@@ -166,7 +176,7 @@ const GalleryCard=(props)=> {
           <Link to ={{pathname:`/${cardID}`,
               state: {background: location}}}>
           <CardMedia>
-            {cardForSale ? <img style={{maxWidth:'100%'}} src={cardMedia}/>:<img style={{opacity: 0.1,maxWidth:'100%'}} src={cardMedia}/> }
+          {cardForSale ? <img style={{omaxWidth:'100%'}} src={cardMedia}/>:<img style={{opacity: 0.1,maxWidth:'100%'}} src={cardMedia}/> }
           </CardMedia>
           
          
@@ -176,7 +186,7 @@ const GalleryCard=(props)=> {
         </BigDesktop>
         <Tablet>
         <Card hoverable
-           
+            actions={clickedCardActions}
              title={
               <div style={{maxHeight:10,maxWidth:'100%',display:'inline-flex', justifyContent:'space-evenly'}}>
                
@@ -222,20 +232,20 @@ const GalleryCard=(props)=> {
             
         >
         
-        <Link to ={{pathname:`/${cardID}`,
-              state: {background: location}}}>
+        <div style={{maxWidth:'100%',display:'inline-flex', justifyContent:'space-evenly'}}>
         <CardMedia>
-          {cardForSale? <img style={{maxWidth:'100%'}} src={cardMedia}/>:<img style={{opacity: 0.1,maxWidth:'100%'}} src={cardMedia}/> }
+        {cardForSale ? reactJSMediaPlayer:<div style={{opacity:0.1}}>{reactJSMediaPlayer}</div> }
         </CardMedia>
-        
+        </div>
        
         
-            </Link>
+            
         </Card>
         </Tablet>
         <Mobile>
         <Card hoverable
-            
+            style={{justifyContent:'space-evenly', maxWidth:'100%',display:'inline-flex'}}
+            actions={clickedCardActions}
              title={
               <div style={{maxHeight:10,maxWidth:'100%',display:'inline-flex', justifyContent:'space-evenly'}}>
                 
@@ -284,15 +294,14 @@ const GalleryCard=(props)=> {
             
         >
         
-        <Link to ={{pathname:`/${cardID}`,
-              state: {background: location}}}>
+        <div style={{maxWidth:'100%',display:'inline-flex', justifyContent:'space-evenly'}}>
         <CardMedia>
-          {cardForSale ? <img style={{maxWidth:'100%'}} src={cardMedia}/>:<img style={{opacity: 0.1,maxWidth:'100%'}} src={cardMedia}/> }
+        {cardForSale ? reactJSMediaPlayer:<div style={{opacity:0.1}}>{reactJSMediaPlayer}</div> }
         </CardMedia>
+        </div>
         
         
-        
-            </Link>
+            
         </Card>
         
         </Mobile>

@@ -455,17 +455,8 @@ function App(props) {
     console.log("loadedAssets",a,loadedAssets[a])
 
     let cardActions = []
-    cardActions.push(
-      <div>
-        <Button onClick={() => {
-          setIsMenuOpen(false)
-        }}>
-          Close
-        </Button>
-      </div>
+    
       
-      
-  )
     if(loadedAssets[a].forSale){
       const { claims } = tree;
       let target = {};
@@ -538,7 +529,7 @@ function App(props) {
       <div className="App"  >
         
 
-        <div style={{marginTop:0,height:100, background:'#1c2022',zIndex:20}} ref ={ref}>
+        <div style={{marginTop:0,height:'5vh', background:'#1c2022',zIndex:20}} ref ={ref}>
 
         
         
@@ -573,7 +564,7 @@ function App(props) {
                 <div id="outer-container">
                   
                 <div id="page-wrap">
-                <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:250, paddingBottom:256 }}>
+                <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:'10vh' }}>
                   <StackGrid
                       columnWidth={'20%'}
                       gutterWidth={0}
@@ -590,7 +581,7 @@ function App(props) {
               <div id="outer-container">
                   
                 <div id="page-wrap">
-                <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:250, paddingBottom:256 }}>
+                <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:'10vh' }}>
                   <StackGrid
                       columnWidth={'10%'}
                       gutterWidth={0}
@@ -608,7 +599,7 @@ function App(props) {
               <div id="outer-container">
                   
                   <div id="page-wrap">
-                  <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25, marginTop:200, paddingBottom:256 }}>
+                  <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 10, marginTop:'10vh'}}>
                       <StackGrid
                           columnWidth={'50%'}
             
@@ -623,7 +614,7 @@ function App(props) {
               <div id="outer-container">
                   
               <div id="page-wrap">
-              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25, marginTop:200, paddingBottom:256 }}>
+              <div style={{ justifyContent: 'space-around',maxWidth:'80%', margin: "auto", padding:10,marginTop:'10vh'}}>
                   <StackGrid
                       columnWidth={'100%'}
         
@@ -642,7 +633,7 @@ function App(props) {
                   
               <div id="page-wrap">
               
-              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25, marginTop:100, paddingBottom:256 }}>
+              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25 }}>
                 <AboutUsPage />
                 </div>
                 </div>
@@ -653,7 +644,7 @@ function App(props) {
                   
               <div id="page-wrap">
               
-              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25, marginTop:100, paddingBottom:256 }}>
+              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25}}>
                 <AboutUsPage />
                 </div>
                 </div>
@@ -664,7 +655,7 @@ function App(props) {
                   
               <div id="page-wrap">
               
-              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25, marginTop:100, paddingBottom:256 }}>
+              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25}}>
                 <AboutUsPage />
                 </div>
                 </div>
@@ -675,7 +666,7 @@ function App(props) {
                   
               <div id="page-wrap">
               
-              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25, marginTop:100, paddingBottom:256 }}>
+              <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 25}}>
                 <AboutUsPage />
                 </div>
                 </div>
@@ -686,8 +677,10 @@ function App(props) {
            
              </Switch>
              
-            {isMenuOpen && (
+            { isMenuOpen && (
             background && <Route path = "/:cardID" children={<Modal history={"/"} ref = {ref} isMenuOpen= {isMenuOpen} clickedCardActions= {clickedCardActions} forSale ={location.state.forSale}/>}/>)}
+            
+            
             {/*
             <div>
             
@@ -814,8 +807,8 @@ function App(props) {
         </div>
           
         
-       
-        <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 10 }}>
+       <Tablet>
+       <div style={{ position: "fixed", textAlign: "right", left: 0, top: 0, padding: 5, zIndex:30 }}>
           <Account
               address={address}
               localProvider={localProvider}
@@ -829,6 +822,56 @@ function App(props) {
           />
           {faucetHint}
         </div>
+         </Tablet>
+         <Mobile>
+       <div style={{ position: "fixed", textAlign: "right", left: 0, top: 0, padding: 5, zIndex:30 }}>
+          <Account
+              address={address}
+              localProvider={localProvider}
+              userProvider={userProvider}
+              mainnetProvider={mainnetProvider}
+              price={price}
+              web3Modal={web3Modal}
+              loadWeb3Modal={loadWeb3Modal}
+              logoutOfWeb3Modal={logoutOfWeb3Modal}
+              blockExplorer={blockExplorer}
+          />
+          {faucetHint}
+        </div>
+         </Mobile>
+         <Desktop>
+       <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 0, zIndex:30 }}>
+          <Account
+              address={address}
+              localProvider={localProvider}
+              userProvider={userProvider}
+              mainnetProvider={mainnetProvider}
+              price={price}
+              web3Modal={web3Modal}
+              loadWeb3Modal={loadWeb3Modal}
+              logoutOfWeb3Modal={logoutOfWeb3Modal}
+              blockExplorer={blockExplorer}
+          />
+          {faucetHint}
+        </div>
+         </Desktop>
+         <BigDesktop>
+       <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 0, zIndex:30 }}>
+          <Account
+              address={address}
+              localProvider={localProvider}
+              userProvider={userProvider}
+              mainnetProvider={mainnetProvider}
+              price={price}
+              web3Modal={web3Modal}
+              loadWeb3Modal={loadWeb3Modal}
+              logoutOfWeb3Modal={logoutOfWeb3Modal}
+              blockExplorer={blockExplorer}
+          />
+          {faucetHint}
+        </div>
+         </BigDesktop>
+        
 
        
         <div style={{ position: "fixed", textAlign: "left", left: 0, bottom: 20, padding: 10 }}>
