@@ -24,11 +24,11 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <ThemeSwitcherProvider themeMap={themes} defaultTheme={prevTheme ? prevTheme : "light"}>
+    
       <Router>
       <App subgraphUri={subgraphUri}/>
       </Router>
-    </ThemeSwitcherProvider>
+    
   </ApolloProvider>,
-  document.getElementById("root"),
+  document.getElementById('root'),
 );

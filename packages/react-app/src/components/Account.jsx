@@ -80,19 +80,11 @@ export default function Account({
     }
   }
 
-  const display = minimized ? (
-    ""
-  ) : (
-    <span>
-      {address ? <Address address={address} ensProvider={mainnetProvider} blockExplorer={blockExplorer} /> : "Connecting..."}
-      
-      
-    </span>
-  );
+
 
   return (
     <div>
-      {display}
+     
       {modalButtons}
     </div>
   );

@@ -2,17 +2,18 @@ import React, { useCallback, useEffect, useState, useRef} from "react";
 import { BrowserRouter as Router,Switch, Route, useLocation } from "react-router-dom";
 import "antd/dist/antd.css";
 import {  JsonRpcProvider, Web3Provider } from "@ethersproject/providers";
-import "./App.css";
-import "./styles/styles.css";
+import { CSSTransition } from 'react-transition-group';
+import './App.css'
 import { useMediaQuery } from 'react-responsive';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import 'react-dropdown/style.css';
 import useExitPrompt from './hooks/useExitPrompt.js'
-import "./index.css";
+import './index.css';
 import Skills from "./partials/Skills";
 import "aos/dist/aos.css";
-import './assets/main.css';
-import StyledNav from "./components/StyledNav";
+
+
+import { Link } from 'react-router-dom';
 import { useFullScreenHandle } from "react-full-screen";
 import { makeStyles } from '@material-ui/core/styles';
 import GalleryCard from './components/GalleryCard';
@@ -22,7 +23,7 @@ import ReactMediaPlayer from './components/ReactWebMediaPlayer'
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { useUserAddress } from "eth-hooks";
 import { useExchangePrice, useGasPrice, useUserProvider, useContractLoader, useContractReader, useEventListener, useBalance, useExternalContractLoader } from "./hooks";
-import { Account, Faucet, Ramp,  Address, } from "./components";
+import { Account, Faucet, Ramp,  Address } from "./components";
 import { Transactor } from "./helpers";
 import { formatEther, parseEther } from "@ethersproject/units";
 import { utils } from "ethers";
@@ -33,7 +34,9 @@ import assets from './assets.js'
 import tree from './tree.json';
 import Modal from './components/Modal';
 import styled from "styled-components"
-import { FaConnectdevelop } from "react-icons/fa";
+import { FaConnectdevelop, FaGripLines, FaGripLinesVertical } from "react-icons/fa";
+import { FcAbout, FcGallery } from 'react-icons/fc'
+import { GrGallery } from 'react-icons/gr'
 const BOOTSTRAP_FOR_SKILL_ICON = "text-4xl mx-auto inline-block";
 const { BufferList } = require('bl')
 
@@ -101,6 +104,17 @@ const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);
 const blockExplorer = targetNetwork.blockExplorer;
 
 
+const Logo = styled.h1`
+  font-size: 25px;
+  color: white;
+  marginLeft:0;
+  marginTop:0;
+  position:fixed;
+ 
+  justify-content:center;
+  z-index:20;
+  
+`;
 
 const theme = {
   blue: {
@@ -529,32 +543,75 @@ function App(props) {
       <div className="App"  >
         
 
-        <div style={{marginTop:0,height:'5vh', background:'#1c2022',zIndex:20}} ref ={ref}>
+        
 
         
         
        
         
         
-     
-       
+        <div style={{ position: "fixed", textAlign: "right", right: 0, top: '8vh', padding: 5, zIndex:30 }}>
+          <Account
+              address={address}
+              localProvider={localProvider}
+              userProvider={userProvider}
+              mainnetProvider={mainnetProvider}
+              price={price}
+              web3Modal={web3Modal}
+              loadWeb3Modal={loadWeb3Modal}
+              logoutOfWeb3Modal={logoutOfWeb3Modal}
+              blockExplorer={blockExplorer}
+          />
+          {faucetHint}
+        </div>
+        <Logo>100mountains-eth</Logo>
+        <NavBar>
+        
         <BigDesktop>
           
-
-            <StyledNav setRoute={setRoute}/>
+        <NavItem icon1={<FaGripLines />} icon2={<FaGripLinesVertical/>}>
+            <DropdownMenu setRoute={setRoute}
+            >
+              
+            </DropdownMenu>
+          </NavItem>
+         
+          
           
         </BigDesktop>
         <Desktop>
-          <StyledNav setRoute={setRoute}/>
+        
+        <NavItem icon1={<FaGripLines />} icon2={<FaGripLinesVertical/>}>
+            <DropdownMenu setRoute={setRoute}
+            >
+              
+            </DropdownMenu>
+          </NavItem>
+            
         </Desktop>
         <Mobile>
           
-        <StyledNav setRoute={setRoute}/>
+        
+        <NavItem icon1={<FaGripLines />} icon2={<FaGripLinesVertical/>}>
+            <DropdownMenu setRoute={setRoute}
+            >
+              
+            </DropdownMenu>
+          </NavItem>
+            
           
         </Mobile>
         <Tablet>
-        <StyledNav setRoute={setRoute}/>
+        
+        <NavItem icon1={<FaGripLines />} icon2={<FaGripLinesVertical/>}>
+            <DropdownMenu setRoute={setRoute}
+            >
+              
+            </DropdownMenu>
+          </NavItem>
+            
         </Tablet>
+        </NavBar>
         
           <Switch location={background || location}>
             <Route exact path="/">
@@ -681,200 +738,15 @@ function App(props) {
             background && <Route path = "/:cardID" children={<Modal history={"/"} ref = {ref} isMenuOpen= {isMenuOpen} clickedCardActions= {clickedCardActions} forSale ={location.state.forSale}/>}/>)}
             
             
-            {/*
-            <div>
-            
-              {<CustomCardFull clickedCardContent={clickedCardContent} properties={clickedCardProperties} clickedCardActions={clickedCardActions} reactJSMediaPlayer={reactJSMediaPlayer}/>}
-              </div>
-              */}
-              {/*
-              <div class="container-fluid" style={{justifyContent:'center' }}>
-                <div class="row" style={{marginTop:300, display:'flex', justifyContent:'center'}}>
-                    
-                    <StackGrid 
-                                style={{height:'100%',width:450, borderWidth:10, borderColor:'#F5F5F5',justifyContent:'center'}}
-                                columnWidth={440}
-                                gutterWidth={0}
-                                
-                                variant = {'container'}
-                            >
-                        <div>
-
-                        <Card 
-                              style={{height:'100%',width: 420,  borderWidth:0, borderColor:'#F5F5F5', justifyContent:'center'}}
-                              variant = {'contained'}
-                              
-                              title={(
-                                  clickedCardContent
-                              )}
-                          >
-                          
-                                <CardMedia style={{height:'100%',width: 420}}>
-                                  {reactJSMediaPlayer}
-                                </CardMedia>
-                  
-                        </Card>
-                        </div>
-                        <div>
-
-                        <Card                           
-                            style={{width:420, borderWidth:0,marginBlockEnd:20,borderColor:'#F5F5F5'}}
-                            
-                          >                  
-                          <Accordion className="accordion">
-                            <AccordionSummary  expandIcon={<ExpandMore />}>
-                              <ul style={{display:'inline-flex', padding:3}}>
-                                <li style={{justifyContent:'left'}}>
-                                  <h2><FaGripLines /></h2>
-                                  
-                                </li>
-                                <li>   </li>
-                                <li style={{justifyContent:'right'}}>
-                                  
-                                  <h2>   Description</h2>
-                                </li>
-                              </ul>
-                              
-                            </AccordionSummary>
-
-                            <AccordionDetails>
-                              {clickedCardContent}
-                            </AccordionDetails>
-
-                          </Accordion>
-                          <Accordion className="accordion">
-                            <AccordionSummary  expandIcon={<ExpandMore />}>
-                            <ul style={{display:'inline-flex', padding:3}}>
-                                <li style={{justifyContent:'left'}}>
-                                  <h2><FaDiceD6 /></h2>
-                                  
-                                </li>
-                                <li>   </li>
-                                <li style={{justifyContent:'right'}}>
-                                  
-                                  <h2>   Properties</h2>
-                                </li>
-                              </ul>
-                            </AccordionSummary>
-                          <AccordionDetails> 
-                              <div>
-                                <Properties data={clickedCardProperties}/>
-                              </div>
-                            </AccordionDetails>
-                          </Accordion>
-
-                          <Accordion className="accordion">
-                            <AccordionSummary  expandIcon={<ExpandMore />}>
-                              Accordion 3
-                            </AccordionSummary>
-                            <AccordionDetails>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                              sit amet blandit leo lobortis eget.
-                            </AccordionDetails>
-
-                          </Accordion>
-                        </Card>
-                        </div>
-                      
-                    </StackGrid>              
-          
-                      <Card 
-                        
-                        style={{height:'100%',width:1200, borderWidth:10,borderColor:'#F5F5F5'}}
-                        variant = {'contained'}
-                        
-                        actions= {clickedCardActions}
-                        >
-                        <CardContent>
-                          <li style={{alignContent:'left'}}>
-                            <h1>Current Price</h1>
-                            <p>0.5 Eth</p>
-                          </li>
-                        </CardContent>
-                        
-                        
-                      </Card>
-                   
-                  
-                  </div>
-                </div>
-                              */}
-         
+           
            
          
         
           
-        </div>
+        
           
         
-       <Tablet>
-       <div style={{ position: "fixed", textAlign: "right", left: 0, top: 0, padding: 5, zIndex:30 }}>
-          <Account
-              address={address}
-              localProvider={localProvider}
-              userProvider={userProvider}
-              mainnetProvider={mainnetProvider}
-              price={price}
-              web3Modal={web3Modal}
-              loadWeb3Modal={loadWeb3Modal}
-              logoutOfWeb3Modal={logoutOfWeb3Modal}
-              blockExplorer={blockExplorer}
-          />
-          {faucetHint}
-        </div>
-         </Tablet>
-         <Mobile>
-       <div style={{ position: "fixed", textAlign: "right", left: 0, top: 0, padding: 5, zIndex:30 }}>
-          <Account
-              address={address}
-              localProvider={localProvider}
-              userProvider={userProvider}
-              mainnetProvider={mainnetProvider}
-              price={price}
-              web3Modal={web3Modal}
-              loadWeb3Modal={loadWeb3Modal}
-              logoutOfWeb3Modal={logoutOfWeb3Modal}
-              blockExplorer={blockExplorer}
-          />
-          {faucetHint}
-        </div>
-         </Mobile>
-         <Desktop>
-       <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 0, zIndex:30 }}>
-          <Account
-              address={address}
-              localProvider={localProvider}
-              userProvider={userProvider}
-              mainnetProvider={mainnetProvider}
-              price={price}
-              web3Modal={web3Modal}
-              loadWeb3Modal={loadWeb3Modal}
-              logoutOfWeb3Modal={logoutOfWeb3Modal}
-              blockExplorer={blockExplorer}
-          />
-          {faucetHint}
-        </div>
-         </Desktop>
-         <BigDesktop>
-       <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 0, zIndex:30 }}>
-          <Account
-              address={address}
-              localProvider={localProvider}
-              userProvider={userProvider}
-              mainnetProvider={mainnetProvider}
-              price={price}
-              web3Modal={web3Modal}
-              loadWeb3Modal={loadWeb3Modal}
-              logoutOfWeb3Modal={logoutOfWeb3Modal}
-              blockExplorer={blockExplorer}
-          />
-          {faucetHint}
-        </div>
-         </BigDesktop>
-        
-
-       
-        <div style={{ position: "fixed", textAlign: "left", left: 0, bottom: 20, padding: 10 }}>
+            <div style={{ position: "fixed", textAlign: "left", left: 0, bottom: 20, padding: 10 }}>
           <Row align="middle" gutter={[4, 4]}>
             <Col span={8}>
               <Ramp price={price} address={address} networks={NETWORKS}/>
@@ -899,10 +771,96 @@ function App(props) {
         </div>
         
       </div>
+        
+
+       
+       
+        
+    
+  );
+}
+function NavBar(props) {
+  return (
+    <nav className="navbar">
+      <ul className="navbar-nav">{props.children}</ul>
+    </nav>
   );
 }
 
+function NavItem(props) {
+  const [open, setOpen] = useState(false);
 
+  return (
+    <li className="nav-item">
+      <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
+        {open ? props.icon2: props.icon1}
+      </a>
+
+      {open && props.children}
+    </li>
+  );
+}
+
+function DropdownMenu(props) {
+
+  const [activeMenu, setActiveMenu] = useState('main');
+  const [menuHeight, setMenuHeight] = useState(null);
+  const dropdownRef = useRef(null);
+  const [routeChanger,setRouteChanger] = useState();
+
+
+  useEffect(() => {
+    setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
+    setRouteChanger(props.setRoute)
+  }, [])
+
+  function calcHeight(el) {
+    const height = el.offsetHeight;
+    setMenuHeight(height);
+  }
+
+  function DropdownItem(props) {
+    return (
+      <a href="/" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+        <span className="icon-button" >{props.leftIcon}</span>
+        {props.children}
+        <span className="icon-right">{props.rightIcon}</span>
+      </a>
+    );
+  }
+
+  return (
+    <div className="dropdown" style={{ height: menuHeight +30 }} ref={dropdownRef}>
+
+      <CSSTransition
+        in={activeMenu === 'main'}
+        timeout={500}
+        classNames="menu-primary"
+        unmountOnExit
+        onEnter={calcHeight}>
+        <div className="menu">
+        <Link style={{color:'white'}}  onClick={()=> {props.setRoute("/")}} to="/">
+          <DropdownItem leftIcon={<FcGallery/>}>
+              <div style={{color:'white'}}>
+                Gallery
+              </div>
+          </DropdownItem>
+          </Link>
+          <Link style={{color:'white'}}  onClick={()=> {props.setRoute("/yourcollectibles")}} to="/yourcollectibles">
+          <DropdownItem
+          leftIcon={<FcAbout/>}>
+            <div style={{color:'white'}}>
+            About
+            </div>
+          </DropdownItem>
+          </Link>
+        </div>
+      </CSSTransition>
+      
+
+    </div>
+  );
+}
 /*
   Web3 modal helps us "connect" external wallets:
 */
