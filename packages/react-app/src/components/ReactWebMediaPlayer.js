@@ -40,7 +40,8 @@ class ReactMediaPlayer extends Component{
            <Tablet>
             
             <ReactWebMediaPlayer 
-                style={{ justifyContent:'center'}}
+                
+               
                 height={399}
                 width={300}
                 video={this.state.url}

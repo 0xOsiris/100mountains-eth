@@ -10,7 +10,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 // GET LISTED ON OPENSEA: https://testnets.opensea.io/get-listed/step-two
 
 contract YourCollectible is ERC721 {
-
+  
   using Counters for Counters.Counter;
   Counters.Counter private _tokenIds;
 
@@ -45,7 +45,7 @@ contract YourCollectible is ERC721 {
       _setTokenURI(id, tokenURI);
 
       uriToTokenId[uriHash] = id;
-
+     
       return id;
   }
 }

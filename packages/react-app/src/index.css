@@ -1,7 +1,7 @@
 
 body {
   margin: 0;
-  background: #151616;
+  background: #e4e4e4;
   font-family: roboto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -14,11 +14,11 @@ code {
 
 
 :root {
-  --bg:  #242526;
-  --bg-accent: #484a4d;
-  --text-color: #dadce1;
+  --bg:  #1b1b1b;
+  --bg-accent: #ffffff;
+  --text-color: #ffffff;
   --nav-size: 60px;
-  --border: 1px solid #474a4d;
+  --border: 0.25px solid #d8d8d8;
   --border-radius: 8px;
   --speed: 500ms; 
 }
@@ -38,10 +38,13 @@ a {
 
 /* <nav> */
 .navbar {
-  height: var(--nav-size);
+  height: calc(var(--nav-size)*2);
   background-color: var(--bg);
   padding: 0 1rem;
   border-bottom: var(--border);
+  position:fixed;
+  width: 100%;
+  z-index: 25;
 }
 
 /* <ul> */
@@ -54,7 +57,8 @@ a {
 
 /* <li> */
 .nav-item {
-  width: calc(var(--nav-size) * 0.8);
+  width: calc(var(--nav-size)*0.5);
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,27 +66,31 @@ a {
 
 /* Icon Button */
 .icon-button {
-  --button-size: calc(var(--nav-size) * 0.5);
-  width: var(--button-size);
-  height: var(--button-size);
-  background-color: #484a4d;
-  border-radius: 50%;
-  padding: 5px;
-  margin: 2px;
-  display: flex;
-  align-items: center;
+  --button-size: calc(var(--nav-size)*0.5);
+  width: var(--button-size)*2;
+  height: var(--button-size)*2;
+  
+  
   justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+  display: flex;
+  
+
   transition: filter 300ms;
 }
 
 .icon-button:hover {
-  filter: brightness(1.2);
+  filter:brightness(1.2);
+  
+  transform-style: preserve-3d;
+  
 }
 
 .icon-button svg { 
   fill: var(--text-color);
-  width: 20px;
-  height: 20px;
+  width: 3em;
+  height: 3em;
 }
 
 
@@ -90,9 +98,9 @@ a {
 
 .dropdown {
   position: absolute;
-  top: 58px;
-  width: 300px;
-  transform: translateX(-45%);
+  top: 6em;
+  width:50em;
+  transform: translateX(-50%);
   background-color: var(--bg);
   border: var(--border);
   border-radius: var(--border-radius);
@@ -105,6 +113,7 @@ a {
 .menu {
   width: 100%;
   z-index: 25;
+  position:fixed;
 }
 
 .menu-item {
@@ -137,7 +146,7 @@ a {
 
 /* CSSTransition classes  */
 .menu-primary-enter {
-  position: absolute;
+  position: fixed;
   transform: translateX(-110%);
 }
 .menu-primary-enter-active {

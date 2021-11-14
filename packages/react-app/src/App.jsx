@@ -34,7 +34,7 @@ import assets from './assets.js'
 import tree from './tree.json';
 import Modal from './components/Modal';
 import styled from "styled-components"
-import { FaConnectdevelop, FaGripLines, FaGripLinesVertical } from "react-icons/fa";
+import { FaConnectdevelop, FaGlassMartini, FaGlassMartiniAlt, FaGripLines, FaGripLinesVertical } from "react-icons/fa";
 import { FcAbout, FcGallery } from 'react-icons/fc'
 import { GrGallery } from 'react-icons/gr'
 const BOOTSTRAP_FOR_SKILL_ICON = "text-4xl mx-auto inline-block";
@@ -105,15 +105,16 @@ const blockExplorer = targetNetwork.blockExplorer;
 
 
 const Logo = styled.h1`
-  font-size: 25px;
+  font-size: 50px;
   color: white;
-  marginLeft:0;
-  marginTop:0;
-  position:fixed;
- 
-  justify-content:center;
-  z-index:20;
   
+  
+  align-items:center;
+  position:fixed;
+  margin:25px;
+  justify-content:center;
+  z-index:26;
+  display:flex;
 `;
 
 const theme = {
@@ -550,7 +551,7 @@ function App(props) {
        
         
         
-        <div style={{ position: "fixed", textAlign: "right", right: 0, top: '8vh', padding: 5, zIndex:30 }}>
+        <div style={{ position: "fixed", textAlign: "right", right: 0, top: '12vh', padding: 5, zIndex:25 }}>
           <Account
               address={address}
               localProvider={localProvider}
@@ -564,12 +565,13 @@ function App(props) {
           />
           {faucetHint}
         </div>
+        <div style={{width:'100%'}}>
         <Logo>100mountains-eth</Logo>
         <NavBar>
         
         <BigDesktop>
           
-        <NavItem icon1={<FaGripLines />} icon2={<FaGripLinesVertical/>}>
+        <NavItem icon1={<FaGlassMartiniAlt />} icon2={<FaGlassMartini/>}>
             <DropdownMenu setRoute={setRoute}
             >
               
@@ -581,7 +583,7 @@ function App(props) {
         </BigDesktop>
         <Desktop>
         
-        <NavItem icon1={<FaGripLines />} icon2={<FaGripLinesVertical/>}>
+        <NavItem icon1={<FaGlassMartiniAlt />} icon2={<FaGlassMartini/>}>
             <DropdownMenu setRoute={setRoute}
             >
               
@@ -592,7 +594,7 @@ function App(props) {
         <Mobile>
           
         
-        <NavItem icon1={<FaGripLines />} icon2={<FaGripLinesVertical/>}>
+        <NavItem icon1={<FaGlassMartiniAlt/>} icon2={<FaGlassMartini/>}>
             <DropdownMenu setRoute={setRoute}
             >
               
@@ -603,7 +605,7 @@ function App(props) {
         </Mobile>
         <Tablet>
         
-        <NavItem icon1={<FaGripLines />} icon2={<FaGripLinesVertical/>}>
+        <NavItem icon1={<FaGlassMartiniAlt />} icon2={<FaGlassMartini/>}>
             <DropdownMenu setRoute={setRoute}
             >
               
@@ -612,51 +614,51 @@ function App(props) {
             
         </Tablet>
         </NavBar>
-        
+        </div>
           <Switch location={background || location}>
             <Route exact path="/">
            
               <Desktop>
                
-                <div id="outer-container">
+                
                   
-                <div id="page-wrap">
-                <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:'10vh' }}>
+                
+                <div style={{ justifyContent: 'space-around',maxWidth:'100%',  paddingTop:'18vh' }}>
                   <StackGrid
                       columnWidth={'20%'}
                       gutterWidth={0}
                       spacing={1}
-                      variant={'container'}
+                      
                   >
                     {galleryList}
                   </StackGrid>
                 </div>
-                </div>
-                </div>
+               
+             
               </Desktop>
               <BigDesktop>
-              <div id="outer-container">
+             
                   
-                <div id="page-wrap">
-                <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 50, marginTop:'10vh' }}>
+                
+                <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", paddingTop:'18vh' }}>
                   <StackGrid
                       columnWidth={'10%'}
                       gutterWidth={0}
                       spacing={1}
-                      variant={'container'}
+                      
                   >
                     {galleryList}
                   </StackGrid>
                 </div>
-                </div>
-                </div>
+                
+                
               </BigDesktop>
               <Tablet>
               
-              <div id="outer-container">
+             
                   
-                  <div id="page-wrap">
-                  <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 10, marginTop:'10vh'}}>
+                  
+                  <div style={{ justifyContent: 'space-around',maxWidth:'100%', margin: "auto", padding: 10, paddingTop:'18vh'}}>
                       <StackGrid
                           columnWidth={'50%'}
             
@@ -664,14 +666,14 @@ function App(props) {
                         {galleryList}
                       </StackGrid>
                     </div>
-                    </div>
-                    </div>
+                    
+                   
               </Tablet>
               <Mobile>
-              <div id="outer-container">
+              
                   
-              <div id="page-wrap">
-              <div style={{ justifyContent: 'space-around',maxWidth:'80%', margin: "auto", padding:10,marginTop:'10vh'}}>
+             
+              <div style={{ justifyContent: 'space-around',maxWidth:'80%', margin: "auto", padding:10,paddingTop:'18vh'}}>
                   <StackGrid
                       columnWidth={'100%'}
         
@@ -679,8 +681,8 @@ function App(props) {
                     {galleryList}
                   </StackGrid>
                 </div>
-                </div>
-                </div>
+                
+                
               </Mobile>
             </Route>
             
@@ -839,17 +841,17 @@ function DropdownMenu(props) {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-        <Link style={{color:'white'}}  onClick={()=> {props.setRoute("/")}} to="/">
+        <Link style={{color:'black'}}  onClick={()=> {props.setRoute("/")}} to="/">
           <DropdownItem leftIcon={<FcGallery/>}>
-              <div style={{color:'white'}}>
+              <div style={{color:'black'}}>
                 Gallery
               </div>
           </DropdownItem>
           </Link>
-          <Link style={{color:'white'}}  onClick={()=> {props.setRoute("/yourcollectibles")}} to="/yourcollectibles">
+          <Link style={{color:'black'}}  onClick={()=> {props.setRoute("/yourcollectibles")}} to="/yourcollectibles">
           <DropdownItem
           leftIcon={<FcAbout/>}>
-            <div style={{color:'white'}}>
+            <div style={{color:'black'}}>
             About
             </div>
           </DropdownItem>

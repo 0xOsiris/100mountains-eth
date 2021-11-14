@@ -1,0 +1,1714 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "/home/leyton/100mountains-working/100mountains-core",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2021-11-09 18:40:52",
+            "filesum": 265,
+            "codesum": 450832,
+            "commentsum": 1446,
+            "blanksum": 30533,
+            "statistics": {
+                ".md": {
+                    "code": 62,
+                    "comment": 2,
+                    "blank": 17
+                },
+                "": {
+                    "code": 359,
+                    "comment": 5,
+                    "blank": 64
+                },
+                ".js": {
+                    "code": 4640,
+                    "comment": 475,
+                    "blank": 738
+                },
+                ".json": {
+                    "code": 322343,
+                    "comment": 0,
+                    "blank": 167
+                },
+                ".yaml": {
+                    "code": 53,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".sol": {
+                    "code": 84,
+                    "comment": 15,
+                    "blank": 34
+                },
+                ".txt": {
+                    "code": 7,
+                    "comment": 210,
+                    "blank": 29
+                },
+                ".css": {
+                    "code": 74406,
+                    "comment": 250,
+                    "blank": 19289
+                },
+                ".html": {
+                    "code": 25,
+                    "comment": 23,
+                    "blank": 1
+                },
+                ".map": {
+                    "code": 5,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".yml": {
+                    "code": 38,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".sh": {
+                    "code": 58,
+                    "comment": 14,
+                    "blank": 24
+                },
+                ".env": {
+                    "code": 1,
+                    "comment": 1,
+                    "blank": 0
+                },
+                ".args": {
+                    "code": 3,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".address": {
+                    "code": 3,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".jsx": {
+                    "code": 3100,
+                    "comment": 335,
+                    "blank": 552
+                },
+                ".less": {
+                    "code": 28,
+                    "comment": 3,
+                    "blank": 7
+                },
+                ".ts": {
+                    "code": 7073,
+                    "comment": 22,
+                    "blank": 1514
+                },
+                ".lock": {
+                    "code": 19988,
+                    "comment": 47,
+                    "blank": 4199
+                },
+                ".log": {
+                    "code": 18556,
+                    "comment": 44,
+                    "blank": 3898
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": ".fleek.json"
+                },
+                {
+                    "blank": 9,
+                    "code": 32,
+                    "comment": 2,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 6,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": ".yarnclean"
+                },
+                {
+                    "blank": 21,
+                    "code": 206,
+                    "comment": 0,
+                    "filename": "artwork.json"
+                },
+                {
+                    "blank": 3,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "docker/graph-node/bin/create"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "docker/graph-node/bin/debug"
+                },
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "docker/graph-node/bin/deploy"
+                },
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "docker/graph-node/bin/reassign"
+                },
+                {
+                    "blank": 3,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "docker/graph-node/bin/remove"
+                },
+                {
+                    "blank": 4,
+                    "code": 19,
+                    "comment": 3,
+                    "filename": "docker/graph-node/build.sh"
+                },
+                {
+                    "blank": 0,
+                    "code": 53,
+                    "comment": 0,
+                    "filename": "docker/graph-node/cloudbuild.yaml"
+                },
+                {
+                    "blank": 0,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "docker/graph-node/docker-compose.yml"
+                },
+                {
+                    "blank": 11,
+                    "code": 64,
+                    "comment": 1,
+                    "filename": "docker/graph-node/Dockerfile"
+                },
+                {
+                    "blank": 3,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "docker/graph-node/hooks/post_checkout"
+                },
+                {
+                    "blank": 8,
+                    "code": 41,
+                    "comment": 2,
+                    "filename": "docker/graph-node/README.md"
+                },
+                {
+                    "blank": 12,
+                    "code": 23,
+                    "comment": 7,
+                    "filename": "docker/graph-node/setup.sh"
+                },
+                {
+                    "blank": 13,
+                    "code": 92,
+                    "comment": 1,
+                    "filename": "docker/graph-node/start"
+                },
+                {
+                    "blank": 8,
+                    "code": 16,
+                    "comment": 4,
+                    "filename": "docker/graph-node/tag.sh"
+                },
+                {
+                    "blank": 9,
+                    "code": 74,
+                    "comment": 1,
+                    "filename": "docker/graph-node/wait_for"
+                },
+                {
+                    "blank": 3,
+                    "code": 64,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "packages/hardhat/.eslintrc.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/0x8e3c1ac6aba2704754b521d18fdf95aa88bd1cb6.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/0xbeee39740d39ca8a9d16028141dfda610bbae8a2.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/cryptography/MerkleProof.sol/MerkleProof.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/cryptography/MerkleProof.sol/MerkleProof.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/introspection/ERC165.sol/ERC165.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/introspection/ERC165.sol/ERC165.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/introspection/IERC165.sol/IERC165.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/introspection/IERC165.sol/IERC165.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/math/SafeMath.sol/SafeMath.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/math/SafeMath.sol/SafeMath.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/token/ERC20/IERC20.sol/IERC20.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 194,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/token/ERC20/IERC20.sol/IERC20.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/ERC721.sol/ERC721.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 426,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/ERC721.sol/ERC721.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721.sol/IERC721.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 296,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721.sol/IERC721.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721Enumerable.sol/IERC721Enumerable.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 352,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721Enumerable.sol/IERC721Enumerable.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721Metadata.sol/IERC721Metadata.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 341,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721Metadata.sol/IERC721Metadata.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol/IERC721Receiver.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol/IERC721Receiver.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/utils/Address.sol/Address.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/utils/Address.sol/Address.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/utils/Context.sol/Context.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/utils/Context.sol/Context.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/utils/Counters.sol/Counters.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/utils/Counters.sol/Counters.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/utils/EnumerableMap.sol/EnumerableMap.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/utils/EnumerableMap.sol/EnumerableMap.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/utils/EnumerableSet.sol/EnumerableSet.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/utils/EnumerableSet.sol/EnumerableSet.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/utils/Strings.sol/Strings.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/@openzeppelin/contracts/utils/Strings.sol/Strings.json"
+                },
+                {
+                    "blank": 24,
+                    "code": 164119,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/build-info/13a8bdb95e5c4161e6415ad74c7d33d0.json"
+                },
+                {
+                    "blank": 22,
+                    "code": 150096,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/build-info/958323a28cfa4d765424d871e2feae75.json"
+                },
+                {
+                    "blank": 4,
+                    "code": 984,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/build-info/ecfa4287e2a30099312a1d55d8cfdeaf.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/contracts/MerkleTreeContract.sol/MerkleTreeContract.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 114,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/contracts/MerkleTreeContract.sol/MerkleTreeContract.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/contracts/Storage.sol/Storage.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 73,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/contracts/Storage.sol/Storage.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/contracts/YourCollectible.sol/YourCollectible.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 483,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/contracts/YourCollectible.sol/YourCollectible.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/hardhat/console.sol/console.dbg.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/hardhat/console.sol/console.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/MerkleTreeContract.address"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/MerkleTreeContract.args"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/Storage.address"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/Storage.args"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/YourCollectible.address"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/artifacts/YourCollectible.args"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/Address.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/console.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/Context.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/Counters.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/EnumerableMap.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/EnumerableSet.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 44,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/ERC165.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 435,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/ERC721.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/IERC165.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 203,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/IERC20.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 305,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/IERC721.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 361,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/IERC721Enumerable.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 350,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/IERC721Metadata.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 54,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/IERC721Receiver.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/MerkleProof.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 144,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/MerkleTreeContract.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 77,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/Ownable.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/SafeMath.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 82,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/Storage.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/Strings.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 505,
+                    "comment": 0,
+                    "filename": "packages/hardhat/build/YourCollectible.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/cache/solcjs/v0.6.7+commit.b8d736ae.js"
+                },
+                {
+                    "blank": 88,
+                    "code": 647,
+                    "comment": 0,
+                    "filename": "packages/hardhat/cache/solidity-files-cache.json"
+                },
+                {
+                    "blank": 16,
+                    "code": 36,
+                    "comment": 5,
+                    "filename": "packages/hardhat/contracts/MerkleTreeContract.sol"
+                },
+                {
+                    "blank": 6,
+                    "code": 18,
+                    "comment": 1,
+                    "filename": "packages/hardhat/contracts/Storage.sol"
+                },
+                {
+                    "blank": 12,
+                    "code": 30,
+                    "comment": 9,
+                    "filename": "packages/hardhat/contracts/YourCollectible.sol"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/deployments/localhost_5777/MerkleTreeContract.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/deployments/localhost_5777/Storage.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/deployments/localhost_5777/YourCollectible.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/hardhat/example.json"
+                },
+                {
+                    "blank": 57,
+                    "code": 304,
+                    "comment": 34,
+                    "filename": "packages/hardhat/hardhat.config.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/mnemonic.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 47,
+                    "comment": 0,
+                    "filename": "packages/hardhat/package.json"
+                },
+                {
+                    "blank": 3,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "packages/hardhat/README.md"
+                },
+                {
+                    "blank": 47,
+                    "code": 140,
+                    "comment": 66,
+                    "filename": "packages/hardhat/scripts/deploy.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 94,
+                    "comment": 1,
+                    "filename": "packages/hardhat/scripts/publish.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 34,
+                    "comment": 22,
+                    "filename": "packages/hardhat/scripts/upload.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "packages/hardhat/scripts/watch.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "packages/hardhat/test/unitTest.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/hardhat/uploaded.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "packages/hardhat/waffle.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "packages/niftygraph/config/config.json"
+                },
+                {
+                    "blank": 160,
+                    "code": 855,
+                    "comment": 1,
+                    "filename": "packages/niftygraph/generated/Liker/Liker.ts"
+                },
+                {
+                    "blank": 187,
+                    "code": 974,
+                    "comment": 1,
+                    "filename": "packages/niftygraph/generated/NiftyInk/NiftyInk.ts"
+                },
+                {
+                    "blank": 176,
+                    "code": 744,
+                    "comment": 1,
+                    "filename": "packages/niftygraph/generated/NiftyMediator/NiftyMediator.ts"
+                },
+                {
+                    "blank": 296,
+                    "code": 1267,
+                    "comment": 1,
+                    "filename": "packages/niftygraph/generated/NiftyMediator/NiftyToken.ts"
+                },
+                {
+                    "blank": 187,
+                    "code": 974,
+                    "comment": 1,
+                    "filename": "packages/niftygraph/generated/NiftyToken/NiftyInk.ts"
+                },
+                {
+                    "blank": 296,
+                    "code": 1267,
+                    "comment": 1,
+                    "filename": "packages/niftygraph/generated/NiftyToken/NiftyToken.ts"
+                },
+                {
+                    "blank": 163,
+                    "code": 798,
+                    "comment": 1,
+                    "filename": "packages/niftygraph/generated/schema.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 564,
+                    "comment": 0,
+                    "filename": "packages/niftygraph/package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "packages/react-app/.eslintignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "packages/react-app/.eslintrc.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "packages/react-app/.prettierrc"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "packages/react-app/.sample.env"
+                },
+                {
+                    "blank": 1,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "packages/react-app/build/asset-manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/build/dark-theme.css"
+                },
+                {
+                    "filename": "packages/react-app/build/icon.jpeg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/build/index.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/build/light-theme.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "packages/react-app/build/manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "packages/react-app/build/precache-manifest.fa6575c7863ce417a76cb5df64917e03.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 1,
+                    "filename": "packages/react-app/build/robots.txt"
+                },
+                {
+                    "blank": 8,
+                    "code": 14,
+                    "comment": 17,
+                    "filename": "packages/react-app/build/service-worker.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 10,
+                    "filename": "packages/react-app/build/static/css/2.c4e18ec3.chunk.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/build/static/css/2.c4e18ec3.chunk.css.map"
+                },
+                {
+                    "blank": 1,
+                    "code": 2,
+                    "comment": 2,
+                    "filename": "packages/react-app/build/static/css/main.c475d2a1.chunk.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/build/static/css/main.c475d2a1.chunk.css.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "packages/react-app/build/static/js/2.f2ece923.chunk.js"
+                },
+                {
+                    "blank": 29,
+                    "code": 0,
+                    "comment": 208,
+                    "filename": "packages/react-app/build/static/js/2.f2ece923.chunk.js.LICENSE.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/build/static/js/2.f2ece923.chunk.js.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "packages/react-app/build/static/js/main.dc3e956b.chunk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/build/static/js/main.dc3e956b.chunk.js.map"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "packages/react-app/build/static/js/runtime-main.08baa623.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/build/static/js/runtime-main.08baa623.js.map"
+                },
+                {
+                    "filename": "packages/react-app/build/static/media/profile.7c4aed56.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 2,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "packages/react-app/gulpfile.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 143,
+                    "comment": 0,
+                    "filename": "packages/react-app/package.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/public/dark-theme.css"
+                },
+                {
+                    "filename": "packages/react-app/public/icon.jpeg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 24,
+                    "comment": 23,
+                    "filename": "packages/react-app/public/index.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/public/light-theme.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "packages/react-app/public/manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 1,
+                    "filename": "packages/react-app/public/robots.txt"
+                },
+                {
+                    "blank": 7,
+                    "code": 36,
+                    "comment": 2,
+                    "filename": "packages/react-app/scripts/balance-tree.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/react-app/scripts/example.json"
+                },
+                {
+                    "blank": 6,
+                    "code": 12,
+                    "comment": 1,
+                    "filename": "packages/react-app/scripts/generate-merkle-root.ts"
+                },
+                {
+                    "blank": 14,
+                    "code": 70,
+                    "comment": 4,
+                    "filename": "packages/react-app/scripts/ipfs.js"
+                },
+                {
+                    "blank": 28,
+                    "code": 90,
+                    "comment": 5,
+                    "filename": "packages/react-app/scripts/merkle-tree.ts"
+                },
+                {
+                    "blank": 8,
+                    "code": 56,
+                    "comment": 6,
+                    "filename": "packages/react-app/scripts/parse-balance-map.ts"
+                },
+                {
+                    "blank": 8,
+                    "code": 25,
+                    "comment": 7,
+                    "filename": "packages/react-app/scripts/s3.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "packages/react-app/scripts/watch.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 41,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/App.css"
+                },
+                {
+                    "blank": 202,
+                    "code": 677,
+                    "comment": 18,
+                    "filename": "packages/react-app/src/App.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/App.test.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/assets.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 93,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/assets/data.js"
+                },
+                {
+                    "blank": 19231,
+                    "code": 74129,
+                    "comment": 217,
+                    "filename": "packages/react-app/src/assets/main.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/assets/tailwind.css"
+                },
+                {
+                    "blank": 6,
+                    "code": 51,
+                    "comment": 34,
+                    "filename": "packages/react-app/src/components/Account.jsx"
+                },
+                {
+                    "blank": 14,
+                    "code": 58,
+                    "comment": 23,
+                    "filename": "packages/react-app/src/components/Address.jsx"
+                },
+                {
+                    "blank": 9,
+                    "code": 101,
+                    "comment": 28,
+                    "filename": "packages/react-app/src/components/AddressInput.jsx"
+                },
+                {
+                    "blank": 13,
+                    "code": 57,
+                    "comment": 25,
+                    "filename": "packages/react-app/src/components/Balance.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 8,
+                    "comment": 2,
+                    "filename": "packages/react-app/src/components/Blockie.jsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 76,
+                    "comment": 28,
+                    "filename": "packages/react-app/src/components/BytesStringInput.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 47,
+                    "comment": 2,
+                    "filename": "packages/react-app/src/components/Contract/DisplayVariable.jsx"
+                },
+                {
+                    "blank": 19,
+                    "code": 222,
+                    "comment": 7,
+                    "filename": "packages/react-app/src/components/Contract/FunctionForm.jsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 96,
+                    "comment": 2,
+                    "filename": "packages/react-app/src/components/Contract/index.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/components/Contract/utils.js"
+                },
+                {
+                    "blank": 22,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/components/CustomIcon.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 47,
+                    "comment": 34,
+                    "filename": "packages/react-app/src/components/DropdownMenu.jsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 79,
+                    "comment": 25,
+                    "filename": "packages/react-app/src/components/EtherInput.jsx"
+                },
+                {
+                    "blank": 8,
+                    "code": 65,
+                    "comment": 29,
+                    "filename": "packages/react-app/src/components/Faucet.jsx"
+                },
+                {
+                    "blank": 79,
+                    "code": 233,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/components/GalleryCard.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 16,
+                    "comment": 16,
+                    "filename": "packages/react-app/src/components/GasGauge.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 13,
+                    "comment": 1,
+                    "filename": "packages/react-app/src/components/Header.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/components/index.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/components/Menu.styled.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 43,
+                    "comment": 6,
+                    "filename": "packages/react-app/src/components/MobileMenu.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 57,
+                    "comment": 3,
+                    "filename": "packages/react-app/src/components/Modal.js"
+                },
+                {
+                    "blank": 88,
+                    "code": 202,
+                    "comment": 54,
+                    "filename": "packages/react-app/src/components/ModalCard.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 15,
+                    "comment": 2,
+                    "filename": "packages/react-app/src/components/MyProvidor.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/components/NavBar.jsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/components/NavItem.jsx"
+                },
+                {
+                    "blank": 9,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/components/Properties.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 88,
+                    "comment": 2,
+                    "filename": "packages/react-app/src/components/Provider.jsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 116,
+                    "comment": 21,
+                    "filename": "packages/react-app/src/components/Ramp.jsx"
+                },
+                {
+                    "blank": 20,
+                    "code": 83,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/components/ReactWebMediaPlayer.js"
+                },
+                {
+                    "blank": 32,
+                    "code": 145,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/components/ResponsiveGallery.js"
+                },
+                {
+                    "blank": 64,
+                    "code": 443,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/components/Swap.jsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 21,
+                    "comment": 4,
+                    "filename": "packages/react-app/src/components/ThemeSwitch.jsx"
+                },
+                {
+                    "blank": 14,
+                    "code": 103,
+                    "comment": 1,
+                    "filename": "packages/react-app/src/components/Timeline.jsx"
+                },
+                {
+                    "blank": 9,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/components/TokenBalance.jsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/components/VideoPlayer.js"
+                },
+                {
+                    "blank": 22,
+                    "code": 253,
+                    "comment": 28,
+                    "filename": "packages/react-app/src/components/Wallet.jsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "packages/react-app/src/components/ZeroHeightCollapsible.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 90,
+                    "comment": 10,
+                    "filename": "packages/react-app/src/constants.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/contracts/contracts.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 105,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/contracts/MerkleTreeContract.abi.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/contracts/MerkleTreeContract.address.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/contracts/MerkleTreeContract.bytecode.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 64,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/contracts/Storage.abi.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/contracts/Storage.address.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/contracts/Storage.bytecode.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 474,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/contracts/YourCollectible.abi.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/contracts/YourCollectible.address.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/contracts/YourCollectible.bytecode.js"
+                },
+                {
+                    "filename": "packages/react-app/src/ethereumLogo.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/helpers/index.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 70,
+                    "comment": 8,
+                    "filename": "packages/react-app/src/helpers/Transactor.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 15,
+                    "comment": 15,
+                    "filename": "packages/react-app/src/hooks/Balance.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 15,
+                    "comment": 18,
+                    "filename": "packages/react-app/src/hooks/ContractExistsAtAddress.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 46,
+                    "comment": 24,
+                    "filename": "packages/react-app/src/hooks/ContractLoader.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 41,
+                    "comment": 17,
+                    "filename": "packages/react-app/src/hooks/ContractReader.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 31,
+                    "comment": 21,
+                    "filename": "packages/react-app/src/hooks/CustomContractLoader.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/hooks/Debounce.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 23,
+                    "comment": 17,
+                    "filename": "packages/react-app/src/hooks/EventListener.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/hooks/ExchangePrice.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 27,
+                    "comment": 20,
+                    "filename": "packages/react-app/src/hooks/ExternalContractLoader.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/hooks/GasPrice.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/hooks/index.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 23,
+                    "comment": 12,
+                    "filename": "packages/react-app/src/hooks/LocalStorage.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 37,
+                    "comment": 17,
+                    "filename": "packages/react-app/src/hooks/LookupAddress.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/hooks/Nonce.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 5,
+                    "filename": "packages/react-app/src/hooks/Poller.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 12,
+                    "comment": 14,
+                    "filename": "packages/react-app/src/hooks/ResolveName.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 27,
+                    "comment": 14,
+                    "filename": "packages/react-app/src/hooks/TokenList.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 23,
+                    "comment": 1,
+                    "filename": "packages/react-app/src/hooks/useExitPrompt.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 40,
+                    "comment": 19,
+                    "filename": "packages/react-app/src/hooks/UserProvider.js"
+                },
+                {
+                    "filename": "packages/react-app/src/images/profile.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 27,
+                    "code": 140,
+                    "comment": 7,
+                    "filename": "packages/react-app/src/index.css"
+                },
+                {
+                    "blank": 8,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/index.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/partials/About.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 275,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/partials/Card.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/partials/Footer.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/partials/SkillCard.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/partials/Skills.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 1,
+                    "filename": "packages/react-app/src/react-app-env.d.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 4,
+                    "filename": "packages/react-app/src/setupTests.js"
+                },
+                {
+                    "blank": 23,
+                    "code": 207,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/storage/cardData.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 85,
+                    "comment": 14,
+                    "filename": "packages/react-app/src/styles/styles.css"
+                },
+                {
+                    "blank": 4,
+                    "code": 19,
+                    "comment": 1,
+                    "filename": "packages/react-app/src/themes/dark-theme.less"
+                },
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 2,
+                    "filename": "packages/react-app/src/themes/light-theme.less"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/tree.json"
+                },
+                {
+                    "blank": 47,
+                    "code": 154,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/views/AboutPage.jsx"
+                },
+                {
+                    "blank": 12,
+                    "code": 87,
+                    "comment": 3,
+                    "filename": "packages/react-app/src/views/Hints.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "packages/react-app/src/views/index.js"
+                },
+                {
+                    "blank": 23,
+                    "code": 135,
+                    "comment": 2,
+                    "filename": "packages/react-app/src/views/Subgraph.jsx"
+                },
+                {
+                    "blank": 118,
+                    "code": 900,
+                    "comment": 4,
+                    "filename": "packages/react-app/tailwind.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "packages/react-app/tsconfig.json"
+                },
+                {
+                    "blank": 6,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 3,
+                    "code": 16,
+                    "comment": 10,
+                    "filename": "test-environment.config.js"
+                },
+                {
+                    "blank": 3898,
+                    "code": 18556,
+                    "comment": 44,
+                    "filename": "yarn-error.log"
+                },
+                {
+                    "blank": 4199,
+                    "code": 19988,
+                    "comment": 47,
+                    "filename": "yarn.lock"
+                }
+            ]
+        }
+    ]
+}
