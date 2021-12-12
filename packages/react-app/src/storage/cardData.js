@@ -1,86 +1,216 @@
 const cardData={
-    QmWcrybJdUK4v5nhdTAjzYzp1kn8fEij9C4t6hNj5nT4Nx:{
-      name: "Mountain 1",
-      description: "I love da mountains",
-      image:"https://ipfs.io/ipfs/QmP2Gj4EXf8j1JEPyMBGozW122pPnWYusfMoriZDdigzLz?filename=1.png",
-      external_url: "https://ipfs.io/ipfs/QmXL7LKaz6DGk82DvkmCAYJkuNoDwLQUd3BHDwCs5h73Yx?filename=1.MP4",
-      animation_url: "https://ipfs.io/ipfs/QmXL7LKaz6DGk82DvkmCAYJkuNoDwLQUd3BHDwCs5h73Yx?filename=1.MP4",
-      attributes: [
-        {
-          trait_type: "BackgroundColor",
-          value: "green"
-        },
-        {
-          trait_type: "Rarity",
-          value: "dunno yet"
-        }
-        
-      ]
+  QmPM6QBFi6v3r7LTtQZmZ9q8QXJH3GAYuDiESwjSSuyhD4:{
+    name: "Mountain 1",
+    description: "I love da mountains",
+    image:"https://ipfs.io/ipfs/QmaN6WWQ3AFSaYWw48XprtV6XKLsbE97b3sP7XaGbLsVFn?filename=1.jpeg",
+    external_url: "https://ipfs.io/ipfs/QmNnr4g5TH1jzJquqoN1XC93XtZMxvQwUMwZfMqUUp7z89?filename=1.mp4",
+    animation_url: "https://ipfs.io/ipfs/QmNnr4g5TH1jzJquqoN1XC93XtZMxvQwUMwZfMqUUp7z89?filename=1.mp4",
+    attributes: [
+      {
+        trait_type: "BackgroundColor",
+        value: "green"
+      },
+      {
+        trait_type: "Rarity",
+        value: "dunno yet"
+      }
+      
+    ]
     },
   
-    QmYQ6dKfxc7xzci17v6JYCXhWq5tyvVPqSnnxZk2Nfou8j:{
+    QmQR3uDKin8Q5YzcpTaTsrWgrcJTpWDBxTL8KR898zjACP:{
       name: "Mountain 2",
-      description: "I love da mountains",
-      image:"https://ipfs.io/ipfs/QmRM7MiSz5P4cm85Qev3KBCbCJKTi6hbn8N1KKDGeYdCaN?filename=2.png",
-      external_url: "https://ipfs.io/ipfs/QmeVkt8YE32mJgryRmTw2BiwqBe2TB6vifwXqXuhnDQ3aP?filename=2.MP4",
-      animation_url: "https://ipfs.io/ipfs/QmeVkt8YE32mJgryRmTw2BiwqBe2TB6vifwXqXuhnDQ3aP?filename=2.MP4",
-      attributes: [
-        {
-          trait_type: "BackgroundColor",
-          value: "green"
-        },
-        {
-          trait_type: "Rarity",
-          value: "dunno yet"
-        }
-        
-      ]
+    description: "I love da mountains",
+    image:"https://ipfs.io/ipfs/QmX48wRoWFU6BDxWn1977EKmkMqxLzyB3ER4Ys6M62jRgH?filename=2.jpeg",
+    external_url: "https://ipfs.io/ipfs/QmbR3gcwRn1pbQuNUCyYNVnHXMTNbnFAKDRVV6nE2VWA5i?filename=2.mp4",
+    animation_url: "https://ipfs.io/ipfs/QmbR3gcwRn1pbQuNUCyYNVnHXMTNbnFAKDRVV6nE2VWA5i?filename=2.mp4",
+    attributes: [
+      {
+        trait_type: "BackgroundColor",
+        value: "green"
+      },
+      {
+        trait_type: "Rarity",
+        value: "dunno yet"
+      }
+      
+    ]
     },
   
-    QmXnpXqM9h17tRqZZAKsivewKrxAd6gNYW91Wmbs6d69qP:{
+    QmTDKikmetqEaJw3k42wwJoysbpF9hW7kVbYTCpCsYo9Cx:{
       name: "Mountain3",
-      description: "I love da mountains",
-      image:"https://ipfs.io/ipfs/QmeoafeAbEWKQ1DvpLyvMX3tK4Fi1DPLTcAX3rrmzbZjXp?filename=3.png",
-      external_url: "https://ipfs.io/ipfs/QmSxms7bQUh6TKWXouyjsa9LR27R5S7FiF7HE7PDkXNPcm?filename=3.MP4",
-      animation_url: "https://ipfs.io/ipfs/QmSxms7bQUh6TKWXouyjsa9LR27R5S7FiF7HE7PDkXNPcm?filename=3.MP4",
-      attributes: [
-        {
-          trait_type: "BackgroundColor",
-          value: "green"
-        },
-        {
-          trait_type: "Rarity",
-          value: "dunno yet"
-        }
-        
-      ]
+    description: "I love da mountains",
+    image:"https://ipfs.io/ipfs/QmSAXMsAxam677GP5ADwFXsqJ4zL3tKRmg8u86Ah8AHAgH?filename=3.jpeg",
+    external_url: "https://ipfs.io/ipfs/QmRz7S4CZsb4adSoBRRD7o9U2ZmgyU9921s5amseHPPZHY?filename=3.mp4",
+    animation_url: "https://ipfs.io/ipfs/QmRz7S4CZsb4adSoBRRD7o9U2ZmgyU9921s5amseHPPZHY?filename=3.mp4",
+    attributes: [
+      {
+        trait_type: "BackgroundColor",
+        value: "green"
+      },
+      {
+        trait_type: "Rarity",
+        value: "dunno yet"
+      }
+      
+    ]
     },
   
-    QmepPXGt8YvYXqWNU7oKLEsW3hFQHWcNgu6msbvXU6NjN3:{
-      name: "Mountain4",
-      description: "I love da mountains",
-      image:"https://ipfs.io/ipfs/QmYs81atVxA1TDG6pM7G16vS3TmLkXSRKU9i2NP9JJksux?filename=4.png",
-      external_url: "https://ipfs.io/ipfs/QmPjKU5DthV45Com1wtqZ6Qe539568ztg2au2G3K8FDVxV?filename=4.MP4",
-      animation_url: "https://ipfs.io/ipfs/QmPjKU5DthV45Com1wtqZ6Qe539568ztg2au2G3K8FDVxV?filename=4.MP4",
-      attributes: [
-        {
-          trait_type: "BackgroundColor",
-          value: "green"
-        },
-        {
-          trait_type: "Rarity",
-          value: "dunno yet"
-        }
-        
-      ]
+    QmaBw8PzHni6YfAE9G2si1f2MsCVHTRk1hfgR2tGwE21ng:{
+      name: "Mountain 4",
+    description: "I love da mountains",
+    image:"https://ipfs.io/ipfs/QmYK156awjiaqGeQRretrXmzxRQNhPS7kbSux9pKeB1PMC?filename=4.jpeg",
+    external_url: "https://ipfs.io/ipfs/QmPKKgaoHMpqKxK3EKaS8vnv2q5AnfpCJQrdz1RG7N3Zrj?filename=4.mp4",
+    animation_url: "https://ipfs.io/ipfs/QmPKKgaoHMpqKxK3EKaS8vnv2q5AnfpCJQrdz1RG7N3Zrj?filename=4.mp4",
+    attributes: [
+      {
+        trait_type: "BackgroundColor",
+        value: "green"
+      },
+      {
+        trait_type: "Rarity",
+        value: "dunno yet"
+      }
+      
+    ]
     },
   
-    QmSn8vD5qZARUaeF749XHLtUKgjTsEcske5JG6dGr4hvF5:{
+    QmbRnZR87V3AuDJtYdAENXVfXcxtjQ47MqAf7FYcqUntMH:{
+      name: "Mountain 5",
+    description: "I love da mountains",
+    image:"https://ipfs.io/ipfs/Qmd2GU7pJb2DmwbJAqJyhzPUSeP83eETYUSGwM8XSXZRKx?filename=5.jpeg",
+    external_url: "https://ipfs.io/ipfs/QmRex6hUv62szVxH6iQxiAz3oAcewoy5WBe4D8WKVsWHRo?filename=5.mp4",
+    animation_url: "https://ipfs.io/ipfs/QmRex6hUv62szVxH6iQxiAz3oAcewoy5WBe4D8WKVsWHRo?filename=5.mp4",
+    attributes: [
+      {
+        trait_type: "BackgroundColor",
+        value: "green"
+      },
+      {
+        trait_type: "Rarity",
+        value: "dunno yet"
+      }
+      
+    ]
+    },
+  
+    QmZ35EGmELvMqsBvi3i8K6VMpGNAGFMGdrCGaw3J9k8VUX:{
+      name: "Mountain 6",
+    description: "I love da mountains",
+    image:"https://ipfs.io/ipfs/QmSoqWHQzViRLE9RvxjKoZzCNudLPEHiN9tCbXyx2gXGo8?filename=6.jpeg",
+    external_url: "https://ipfs.io/ipfs/QmPhH1JHs4xUbAmsKmqRBNz1RvJuyPf1Khyevdd2127KWe?filename=6.mp4",
+    animation_url: "https://ipfs.io/ipfs/QmPhH1JHs4xUbAmsKmqRBNz1RvJuyPf1Khyevdd2127KWe?filename=6.mp4",
+    attributes: [
+      {
+        trait_type: "BackgroundColor",
+        value: "green"
+      },
+      {
+        trait_type: "Rarity",
+        value: "dunno yet"
+      }
+      
+    ]
+    },
+  
+    QmNa5BcSSWQ6QLWiFrnnuMPaJNNvfYYQk29kSWZY8FNoFF:{
+      name: "Mountain 7",
+    description: "I love da mountains",
+    image:"https://ipfs.io/ipfs/QmULrbWi3MAEDhgjTarhnPySabKd2fGXdRA4cKCjZhSu5D?filename=7.jpeg",
+    external_url: "https://ipfs.io/ipfs/QmTwTXHcNE15fpLrorkn1p75Nogt1no8GYxBZNCs9rxgNW?filename=7.mp4",
+    animation_url: "https://ipfs.io/ipfs/QmTwTXHcNE15fpLrorkn1p75Nogt1no8GYxBZNCs9rxgNW?filename=7.mp4",
+    attributes: [
+      {
+        trait_type: "BackgroundColor",
+        value: "green"
+      },
+      {
+        trait_type: "Rarity",
+        value: "dunno yet"
+      }
+      
+    ]
+    },
+  
+    QmWvEjZbs8KPcCdfpKHhpiZv9bjDQaECX8fSBnRfoX4RfD:{
+      name: "Mountain 8",
+    description: "I love da mountains",
+    image:"https://ipfs.io/ipfs/Qmf4XKpDnm3gPXGWeSbC3YAKpeip4VjmQbP18iEzs52dib?filename=8.jpeg",
+    external_url: "https://ipfs.io/ipfs/QmP2WqpfyTPXPBRgCXHnpuR2gjDKLdP4X8BehTiDdaYVQZ?filename=8.mp4",
+    animation_url: "https://ipfs.io/ipfs/QmP2WqpfyTPXPBRgCXHnpuR2gjDKLdP4X8BehTiDdaYVQZ?filename=8.mp4",
+    attributes: [
+      {
+        trait_type: "BackgroundColor",
+        value: "green"
+      },
+      {
+        trait_type: "Rarity",
+        value: "dunno yet"
+      }
+      
+    ]
+    },
+  
+    QmPzrKZfEcBPRd4XpqyQDXTrmdEJih9S4bXorTBoknrw7p:{
+      name: "Mountain 9",
+    description: "I love da mountains",
+    image:"https://ipfs.io/ipfs/QmUfUSyVbe7Pp38tCEvcJpKFiTWPHJgQYKyY58U1xnFWMV?filename=9.jpeg",
+    external_url: "https://ipfs.io/ipfs/QmNV3u3bZgtVM8VKMBUSrHph5NtQ2NvLmHrjqY4ZQsjwt1?filename=9.mp4",
+    animation_url: "https://ipfs.io/ipfs/QmNV3u3bZgtVM8VKMBUSrHph5NtQ2NvLmHrjqY4ZQsjwt1?filename=9.mp4",
+    attributes: [
+      {
+        trait_type: "BackgroundColor",
+        value: "green"
+      },
+      {
+        trait_type: "Rarity",
+        value: "dunno yet"
+      }
+      
+    ]
+    },
+    QmWTUVFMVag39ESWmTuavWYVSvH6BU3Yjjmsab7jx8eGwF:{
+      name: "Mountain 10",
+    description: "I love da mountains",
+    image:"https://ipfs.io/ipfs/QmWdPCtYEdthVFvDW1DkKyKgjnwvazr6QbdDvBNQW6Cip1?filename=10.jpeg",
+    external_url: "https://ipfs.io/ipfs/QmZnsb4gpLKhuUAF31yovur5vHtfsif37V989SzhcY1CXU?filename=10.mp4",
+    animation_url: "https://ipfs.io/ipfs/QmZnsb4gpLKhuUAF31yovur5vHtfsif37V989SzhcY1CXU?filename=10.mp4",
+    attributes: [
+      {
+        trait_type: "BackgroundColor",
+        value: "green"
+      },
+      {
+        trait_type: "Rarity",
+        value: "dunno yet"
+      }
+      
+    ]
+    },
+    QmUN9fwxb8RSjRm71azkFxQUtsMievCkGyVDGEF54bdPzn:{
+      name: "Mountain 11",
+    description: "I love da mountains",
+    image:"https://ipfs.io/ipfs/QmTx3FRpk7HfMMnd1gcMtRJ3QXx4WCMxB3SmWHHWC8EKYg?filename=11.jpeg",
+    external_url: "https://ipfs.io/ipfs/QmSnbmzsw3xtM5iCHRTHxS9NYc9dd3nVCTrrEBP7PX7EMs?filename=11.mp4",
+    animation_url: "https://ipfs.io/ipfs/QmSnbmzsw3xtM5iCHRTHxS9NYc9dd3nVCTrrEBP7PX7EMs?filename=11.mp4",
+    attributes: [
+      {
+        trait_type: "BackgroundColor",
+        value: "green"
+      },
+      {
+        trait_type: "Rarity",
+        value: "dunno yet"
+      }
+      
+    ]
+    },
+    QmToGiuaurGPUSBUdB2eKKZPcftkGwJoFkVWBdUswqko93:{
       name: "Mountain 12",
       description: "I love da mountains",
-      image:"https://ipfs.io/ipfs/QmeQvg41rJTcNNzo7DNdu73wjPDjAdYov7VoefBaoqP4st?filename=12.png",
-      external_url: "https://ipfs.io/ipfs/QmQcW8jwM9VYkgBTiWjfqhHVMKAFdvzz3uWXtEhiNPq2Kn?filename=12.MP4",
-      animation_url: "https://ipfs.io/ipfs/QmQcW8jwM9VYkgBTiWjfqhHVMKAFdvzz3uWXtEhiNPq2Kn?filename=12.MP4",
+      image:"https://ipfs.io/ipfs/QmRPHwAS1PpeQkbJBqrcxn9TeDUwhoBUQ838gXRsvF5UqH?filename=12.jpeg",
+      external_url: "https://ipfs.io/ipfs/Qmb8io3ASSVb3cMpTm3ycqR2AtP4iKrGEqX3caQj86YtDX?filename=12.mp4",
+      animation_url: "https://ipfs.io/ipfs/Qmb8io3ASSVb3cMpTm3ycqR2AtP4iKrGEqX3caQj86YtDX?filename=12.mp4",
       attributes: [
         {
           trait_type: "BackgroundColor",
@@ -93,13 +223,12 @@ const cardData={
         
       ]
     },
-  
-    QmQbz9BDLxfc4fXfW2LTDyHHbDu6LZF6BMxHZRM7zRqLro:{
-      name: "Mountain 29",
+    Qmb5LzNZyQ35mDAemA49AGk3djJKWjUewCavvryjwHaj5a:{
+      name: "Mountain 13",
       description: "I love da mountains",
-      image:"https://ipfs.io/ipfs/QmRCexyvECoayp32piJuUsjedMNSu9mp7LY1UA5zMwL4vs?filename=29.png",
-      external_url: "https://ipfs.io/ipfs/QmY93zzUrznB7Q9GR2taDh6b152DSQ59qR3EmCRvXDUBvE?filename=29.MP4",
-      animation_url: "https://ipfs.io/ipfs/QmY93zzUrznB7Q9GR2taDh6b152DSQ59qR3EmCRvXDUBvE?filename=29.MP4",
+      image:"https://ipfs.io/ipfs/QmaF6RiBtpxfw44WeNPgWsRAvx5W3w4nKusn2FkuprPD3F?filename=13.jpeg",
+      external_url: "https://ipfs.io/ipfs/QmQ8sZbDaSSz9CFRMPELGLeFt91sUNKYmGc7DetdPU6Mma?filename=13.mp4",
+      animation_url: "https://ipfs.io/ipfs/QmQ8sZbDaSSz9CFRMPELGLeFt91sUNKYmGc7DetdPU6Mma?filename=13.mp4",
       attributes: [
         {
           trait_type: "BackgroundColor",
@@ -112,13 +241,12 @@ const cardData={
         
       ]
     },
-  
-    QmNernwY9v4xxN31y9DpHETBofeodcNef49Nh5i3LJbhMM:{
-      name: "Mountain 33",
+    QmdgqnNt44dj7Ap5keCgX355iKJq1WpKFKNHgaHYKH11KF:{
+      name: "Mountain 14",
       description: "I love da mountains",
-      image:"https://ipfs.io/ipfs/QmdRLm5H5EvH6pszFdebJfv3Po16Zkm5MBJhnDXxK2t4FS?filename=33.png",
-      external_url: "https://ipfs.io/ipfs/QmW48DgFhorQh69tAWoQ6Q8UYQNDHdYeS2H7a66iux4yDk?filename=33.MP4",
-      animation_url: "https://ipfs.io/ipfs/QmW48DgFhorQh69tAWoQ6Q8UYQNDHdYeS2H7a66iux4yDk?filename=33.MP4",
+      image:"https://ipfs.io/ipfs/QmPLDDcK7zoADd4uHuaXH4TeaVmi15STDmgjwM6ufaNEMo?filename=14.jpeg",
+      external_url: "https://ipfs.io/ipfs/QmWmVuq8TVi45j8voiC2hgngkkMaKNNchhN7N2Rqhz7jKk?filename=14.mp4",
+      animation_url: "https://ipfs.io/ipfs/QmWmVuq8TVi45j8voiC2hgngkkMaKNNchhN7N2Rqhz7jKk?filename=14.mp4",
       attributes: [
         {
           trait_type: "BackgroundColor",
@@ -131,13 +259,12 @@ const cardData={
         
       ]
     },
-  
-    QmVDTnkD3C5E7MYHCnSKwgYxK2fu15nEwy6L6gZ8EEiP3C:{
-      name: "Mountain 38",
+    QmYoDmJRhmW99k9grJj3ZdaqUpQumxajc7pHYiMte14Mxy:{
+      name: "Mountain 15",
       description: "I love da mountains",
-      image:"https://ipfs.io/ipfs/QmWANQyaoMaVACCat4Zhs1HnCv3R8ZCrNugZZALuLKWjdq?filename=38.png",
-      external_url: "https://ipfs.io/ipfs/QmerTqvtVrEBuTonrpDLLm5ZfLMpUYNEvo18TwSbNh42s9?filename=38.MP4",
-      animation_url: "https://ipfs.io/ipfs/QmerTqvtVrEBuTonrpDLLm5ZfLMpUYNEvo18TwSbNh42s9?filename=38.MP4",
+      image:"https://ipfs.io/ipfs/QmP6wFy2fqyUE2fTa4z4kydDDbw75SkwA5T93rcK1WnJ7s?filename=15.jpeg",
+      external_url: "https://ipfs.io/ipfs/QmaYLybzWEUUyJQieb8FYeNJPceHYEjqbGfkaBtd9peJpy?filename=15.mp4",
+      animation_url: "https://ipfs.io/ipfs/QmaYLybzWEUUyJQieb8FYeNJPceHYEjqbGfkaBtd9peJpy?filename=15.mp4",
       attributes: [
         {
           trait_type: "BackgroundColor",
@@ -150,13 +277,12 @@ const cardData={
         
       ]
     },
-  
-    QmVj9YFQrww73JnAH6erKue77MU2VG8DEsSRPkq9HUSfQ3:{
-      name: "Mountain 41",
+    QmVVLrEJnYMJkF6BkieQV2uN5No6nSKrRv91zELzM5YRGa:{
+      name: "Mountain 16",
       description: "I love da mountains",
-      image:"https://ipfs.io/ipfs/QmdqyLYzxZYLNxFw1qq72BWue24BzLCBfXidqfQN3fyBrn?filename=41.png",
-      external_url: "https://ipfs.io/ipfs/QmbX4c2t7xhv3D98vXkYCAkCxGpZy3rkiBXpVUWDVtNFmz?filename=41.MP4",
-      animation_url: "https://ipfs.io/ipfs/QmbX4c2t7xhv3D98vXkYCAkCxGpZy3rkiBXpVUWDVtNFmz?filename=41.MP4",
+      image:"https://ipfs.io/ipfs/QmaQbPWhJ9q4jNbNPEV3swGvyhZqBqGNSesbuwPvZv7m4w?filename=16.jpeg",
+      external_url: "https://ipfs.io/ipfs/Qmb5e8BdHHczMepjPAMpHH8mANHkVE21sdtPkhUiBndiGi?filename=16.mp4",
+      animation_url: "https://ipfs.io/ipfs/Qmb5e8BdHHczMepjPAMpHH8mANHkVE21sdtPkhUiBndiGi?filename=16.mp4",
       attributes: [
         {
           trait_type: "BackgroundColor",
@@ -169,12 +295,12 @@ const cardData={
         
       ]
     },
-    QmcrqfWFzvuajc5akyc8hD8Nco1TdShCJnQhdARVQnGDSv:{
-      name: "Mountain 44",
+    QmRGbGstuBzG7WfoMSX3wkkqmE3N1ZJQxU99kUtpFwkRuc:{
+      name: "Mountain 17",
       description: "I love da mountains",
-      image:"https://ipfs.io/ipfs/QmUiE8mEdKQEkvonpvVTpwtRCxt334vmf8y9JGjBbUE1HL?filename=44.png",
-      external_url: "https://ipfs.io/ipfs/QmaVEK4K46MVuS67QDFimne8FfTDoYYyaSVDW4HJv5ViLa?filename=44.MP4",
-      animation_url: "https://ipfs.io/ipfs/QmaVEK4K46MVuS67QDFimne8FfTDoYYyaSVDW4HJv5ViLa?filename=44.MP4",
+      image:"https://ipfs.io/ipfs/QmYm29E1DRJxJrzdYyT3M6ZUz4a94tCPJjpj2bagUe5aDd?filename=17.jpeg",
+      external_url: "https://ipfs.io/ipfs/QmZA7DScfu8Xe4vp48oyMc8SLKp8bWhBHEbEdAVLJuSpMT?filename=17.mp4",
+      animation_url: "https://ipfs.io/ipfs/QmZA7DScfu8Xe4vp48oyMc8SLKp8bWhBHEbEdAVLJuSpMT?filename=17.mp4",
       attributes: [
         {
           trait_type: "BackgroundColor",
@@ -187,12 +313,12 @@ const cardData={
         
       ]
     },
-    QmaQsaXkYeM3q4Xmcimg2jmnZs1mnQqDjfXa9YFBL8nwcA:{
-      name: "Mountain 60",
+    QmZkn9G4trdJCgWnpmV2KZ14kkuikVQ47NyHYzyECeJDVH:{
+      name: "Mountain 18",
       description: "I love da mountains",
-      image:"https://ipfs.io/ipfs/QmYc1b3NhqAdjZq3hBwqqc83BvzzvrCdixQNAvBntPGc4a?filename=60.png",
-      external_url: "https://ipfs.io/ipfs/QmeniKXPJvFrjGELTCLX4LBqKFJXqvrNSgJox5RdiM6JoH?filename=60.MP4",
-      animation_url: "https://ipfs.io/ipfs/QmeniKXPJvFrjGELTCLX4LBqKFJXqvrNSgJox5RdiM6JoH?filename=60.MP4",
+      image:"https://ipfs.io/ipfs/QmVfXFi2Ve6HfFyvSwYtsQQeLbjt5R7z5BgCpFvmDoQfPT?filename=18.jpeg",
+      external_url: "https://ipfs.io/ipfs/QmWfa1LDohbatHRyhxS6CkWUyXp8LKRsVVTboQUNgWXzGQ?filename=18.mp4",
+      animation_url: "https://ipfs.io/ipfs/QmaYLybzWEUUyJQieb8FYeNJPceHYEjqbGfkaBtd9peJpy?filename=15.mp4",
       attributes: [
         {
           trait_type: "BackgroundColor",
@@ -205,12 +331,48 @@ const cardData={
         
       ]
     },
-    QmPD3BHKMfkiEG4i51okQvzrr1HzJDu3qdD3my6Ypa2UYo:{
-      name: "Mountain 83",
+    QmectXvngP4K4UzUasNJZ5WerWxKVoh35mpdFcefY1YgJj:{
+      name: "Mountain 19",
       description: "I love da mountains",
-      image:"https://ipfs.io/ipfs/QmRRU1tew6ckXpqTA9989UPjjDou3UqyRPkMueQbcreNVr?filename=83.png",
-      external_url: "https://ipfs.io/ipfs/QmRvkQEXjuXiFxX4JaVARmf6tbA5cwjr4kHF3pDq1Fw17A?filename=83.MP4",
-      animation_url: "https://ipfs.io/ipfs/QmRvkQEXjuXiFxX4JaVARmf6tbA5cwjr4kHF3pDq1Fw17A?filename=83.MP4",
+      image:"https://ipfs.io/ipfs/QmZXttbj2DX2giUxGHNwmR4uBU3VtKSXBjpPj9gsZgf7J3?filename=19.jpeg",
+      external_url: "https://ipfs.io/ipfs/QmW1meofEZSGyFF9vwVpPbDcqfTXfs6mhVGVvtocrabCRE?filename=19.mp4",
+      animation_url: "https://ipfs.io/ipfs/QmW1meofEZSGyFF9vwVpPbDcqfTXfs6mhVGVvtocrabCRE?filename=19.mp4",
+      attributes: [
+        {
+          trait_type: "BackgroundColor",
+          value: "green"
+        },
+        {
+          trait_type: "Rarity",
+          value: "dunno yet"
+        }
+        
+      ]
+    },
+    QmbdWQbsvZKhHNqa5L5XBUqFg2WxNXeY5gcJDFoTCBBM2P:{
+      name: "Mountain 20",
+    description: "I love da mountains",
+    image:"https://ipfs.io/ipfs/QmSiwsNCtqy2EVwf1k4HP7iAtppaJVo3iLcyWoVwWpHxsC?filename=20.jpeg",
+    external_url: "https://ipfs.io/ipfs/QmeNHazDF8UxvaLmQRWGfaFE1qg6nHvJWGMV8gckTXjEAo?filename=20.mp4",
+    animation_url: "https://ipfs.io/ipfs/QmeNHazDF8UxvaLmQRWGfaFE1qg6nHvJWGMV8gckTXjEAo?filename=20.mp4",
+    attributes: [
+      {
+        trait_type: "BackgroundColor",
+        value: "green"
+      },
+      {
+        trait_type: "Rarity",
+        value: "dunno yet"
+      }
+      
+    ]
+    },
+    QmXV77NZL1nUa3KokBiReq3okGcr6vrbYfkXqZ2Ss2k8tN:{
+      name: "Mountain 21",
+      description: "I love da mountains",
+      image:"https://ipfs.io/ipfs/QmbaLCJnCMoAQ7mmNEyd6fo3xgMZGDbBWmAMW6t5spdTN4?filename=21.jpeg",
+      external_url: "https://ipfs.io/ipfs/QmTfEJawjEVSkt8RskGMEcoeqkmLAWLtcTWZGYgfBCNMCJ?filename=21.mp4",
+      animation_url: "https://ipfs.io/ipfs/QmTfEJawjEVSkt8RskGMEcoeqkmLAWLtcTWZGYgfBCNMCJ?filename=21.mp4",
       attributes: [
         {
           trait_type: "BackgroundColor",
@@ -223,6 +385,7 @@ const cardData={
         
       ]
     }
+    
   
 }
 

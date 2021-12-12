@@ -843,7 +843,7 @@ function DropdownMenu(props) {
         <div className="menu">
         <Link style={{color:'black'}}  onClick={()=> {props.setRoute("/")}} to="/">
           <DropdownItem leftIcon={<FcGallery/>}>
-              <div style={{color:'black'}}>
+              <div style={{color:'white'}}>
                 Gallery
               </div>
           </DropdownItem>
@@ -851,7 +851,7 @@ function DropdownMenu(props) {
           <Link style={{color:'black'}}  onClick={()=> {props.setRoute("/yourcollectibles")}} to="/yourcollectibles">
           <DropdownItem
           leftIcon={<FcAbout/>}>
-            <div style={{color:'black'}}>
+            <div style={{color:'white'}}>
             About
             </div>
           </DropdownItem>
