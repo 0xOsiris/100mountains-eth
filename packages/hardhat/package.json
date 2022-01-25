@@ -30,7 +30,7 @@
   },
   "scripts": {
     "chain": "hardhat node",
-    "fork": "hardhat node --fork https://mainnet.infura.io/v3/b1c5d0a3ccf7437398af735c1377eac1",
+    "fork": "hardhat node --fork https://mainnet.infura.io/v3/***",
     "test": "export NODE_ENV=test && mocha",
     "build": "waffle",
     "compile": "hardhat compile",

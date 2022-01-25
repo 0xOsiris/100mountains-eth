@@ -52,7 +52,7 @@ module.exports = {
       */
     },
     rinkeby: {
-      url: "https://rinkeby.infura.io/v3/b1c5d0a3ccf7437398af735c1377eac1", //<---- YOUR INFURA ID! (or it won't work)
+      url: "https://rinkeby.infura.io/v3/***", //<---- YOUR INFURA ID! (or it won't work)
       
       accounts: {
         mnemonic: mnemonic(),
@@ -123,7 +123,7 @@ module.exports = {
   etherscan: {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/
-    apiKey: "99ZZ3J9MHU72QD9WMJN9IP9HQD2RR7MBVW"
+    apiKey: ""
   }
 };
 
