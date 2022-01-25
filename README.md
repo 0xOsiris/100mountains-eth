@@ -1,4 +1,4 @@
-#This repository was built on top of scaffold-eth, and provides a boilerplate react UI for a production NFT storefront on the ethereum blockchain
+# This repository was built on top of scaffold-eth, and provides a boilerplate react UI for a production NFT storefront on the ethereum blockchain
 #Auther: Leyton Taylor
 
 
